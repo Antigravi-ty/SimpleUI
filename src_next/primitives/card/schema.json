@@ -1,0 +1,15 @@
+{
+  "$schema": "block-schema",
+  "id": "primitive-card",
+  "name": "card",
+  "prefix": "ui-card",
+  "category": "primitive",
+  "status": "stable",
+  "description": "Interactive surface card with tokenized padding, subtle border, and elevation hover states.",
+  "tokens": {
+    "radius": "var(--ui-radius-md)",
+    "surface": "var(--ui-bg-surface)",
+    "border": "1px solid var(--ui-border-subtle)",
+    "padding": "var(--ui-space-4)"
+  }
+}

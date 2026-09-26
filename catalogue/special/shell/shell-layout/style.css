@@ -1,0 +1,314 @@
+/* Special Catalogue Shell Layout */
+.sp-cata-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--ui-bg-page);
+  color: var(--ui-text-main);
+  font-family: var(--ui-font-family-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+}
+
+/* Header: Canonical 56px - Sticky to page top */
+.sp-cata-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
+  min-height: 56px;
+  max-height: 56px;
+  padding: 0 var(--ui-space-6);
+  background-color: var(--ui-bg-surface);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  box-shadow: var(--ui-shadow-sm);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.sp-cata-header__brand {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.sp-cata-header__logo-group {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sp-cata-header__title {
+  font-size: var(--ui-font-lg);
+  font-weight: var(--ui-weight-bold);
+  letter-spacing: -0.025em;
+  color: var(--ui-text-main);
+}
+
+.sp-cata-header__theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  margin-left: var(--ui-space-1);
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--ui-border-subtle);
+  background-color: var(--ui-bg-surface);
+  color: var(--ui-text-muted);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sp-cata-header__theme-toggle:hover {
+  background-color: var(--ui-color-neutral-100);
+  color: var(--ui-text-main);
+  border-color: var(--ui-border-strong);
+}
+
+.sp-cata-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+}
+
+.sp-cata-header__safe-area-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.sp-cata-header__safe-area-btn.is-active {
+  background-color: var(--ui-color-success-subtle);
+  color: var(--ui-color-success);
+  border-color: var(--ui-color-success);
+}
+
+.sp-cata-header__scale-box {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.sp-cata-header__scale-label {
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+  font-weight: var(--ui-weight-medium);
+  white-space: nowrap;
+}
+
+.sp-cata-header__scale-slider {
+  width: 120px;
+  max-width: 120px;
+}
+
+.sp-cata-header__scale-slider .ui-slider__value {
+  min-width: 38px;
+  font-size: var(--ui-font-xs);
+}
+
+/* Nav Dropdown: Strict Apple HIG Right Aligned */
+.sp-cata-nav-dropdown {
+  position: relative;
+}
+
+.sp-cata-nav-dropdown .ui-dropdown__menu {
+  position: absolute;
+  top: calc(100% + var(--ui-space-1));
+  left: auto !important;
+  right: 0 !important;
+  min-width: 210px;
+  z-index: 1001;
+}
+
+/* Body */
+.sp-cata-body {
+  display: flex;
+  flex: 1;
+}
+
+/* Sidebar: Canonical 240px - Sticky to page height */
+.sp-cata-sidebar {
+  width: 240px;
+  min-width: 240px;
+  max-width: 240px;
+  flex-shrink: 0;
+  position: sticky;
+  top: calc(56px + var(--ui-safe-top, 0px));
+  height: calc(100vh - 56px - var(--ui-safe-top, 0px) - var(--ui-safe-bottom, 0px));
+  overflow-y: auto;
+  padding: var(--ui-space-4);
+  background-color: var(--ui-bg-surface);
+  border-right: 1px solid var(--ui-border-subtle);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.sp-cata-sidebar__content {
+  flex: 1;
+}
+
+.sp-cata-sidebar__heading {
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ui-text-muted);
+  margin-bottom: var(--ui-space-2);
+}
+
+.sp-cata-sidebar__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+  margin-bottom: var(--ui-space-3);
+}
+
+.sp-cata-sidebar__section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  font-weight: var(--ui-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: var(--ui-space-1) var(--ui-space-3);
+  margin: 0 0 var(--ui-space-1) 0;
+  user-select: none;
+}
+
+.sp-cata-sidebar__section-title--draft {
+  color: var(--ui-color-danger);
+}
+
+.sp-cata-sidebar__section-title--core {
+  color: var(--ui-color-primary);
+}
+
+.sp-cata-sidebar__section-title--special {
+  color: var(--ui-color-purple);
+}
+
+.sp-cata-sidebar__badge--draft {
+  background-color: var(--ui-color-danger-subtle);
+  color: var(--ui-color-danger);
+  font-size: 0.62rem;
+  padding: 1px 6px;
+  border-radius: var(--ui-radius-full);
+}
+
+.sp-cata-sidebar__badge--core {
+  background-color: var(--ui-color-primary-subtle);
+  color: var(--ui-color-primary);
+  font-size: 0.62rem;
+  padding: 1px 6px;
+  border-radius: var(--ui-radius-full);
+}
+
+.sp-cata-sidebar__badge--special {
+  background-color: var(--ui-color-purple-subtle);
+  color: var(--ui-color-purple);
+  font-size: 0.62rem;
+  padding: 1px 6px;
+  border-radius: var(--ui-radius-full);
+}
+
+.sp-cata-sidebar__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ui-space-2) var(--ui-space-3);
+  border-radius: var(--ui-radius-md);
+  color: var(--ui-text-main);
+  text-decoration: none;
+  font-size: var(--ui-font-sm);
+  font-weight: var(--ui-weight-medium);
+  transition: background-color 0.15s ease;
+}
+
+.sp-cata-sidebar__link:hover {
+  background-color: var(--ui-color-neutral-100);
+}
+
+.sp-cata-sidebar__link--active {
+  background-color: var(--ui-color-neutral-100);
+  font-weight: var(--ui-weight-semibold);
+}
+
+.sp-cata-sidebar__link--none {
+  color: var(--ui-text-muted);
+  font-size: var(--ui-font-xs);
+  padding: var(--ui-space-1) var(--ui-space-3);
+  font-style: italic;
+  cursor: default;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.6;
+  display: block;
+}
+
+.sp-cata-sidebar__footer {
+  margin-top: auto;
+  padding-top: var(--ui-space-4);
+  padding-bottom: var(--ui-space-1);
+  border-top: 1px solid var(--ui-border-subtle);
+}
+
+.sp-cata-sidebar__more-demos-link {
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease;
+  display: inline-block;
+}
+
+.sp-cata-sidebar__more-demos-link:hover {
+  color: var(--ui-text-main);
+}
+
+/* Content Area */
+.sp-cata-content {
+  flex: 1;
+  padding: var(--ui-space-6);
+  max-width: 1400px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* ----------------------------------------------------
+   Nested Shell Layout inside Frame Stage Well
+   Acts as an embedded viewport flush to borders (直角边框)
+---------------------------------------------------- */
+.sp-cata-frame__well .sp-cata-shell {
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.sp-cata-frame__well .sp-cata-header {
+  z-index: 1;
+  position: relative;
+  top: auto;
+  border-radius: 0;
+}
+
+.sp-cata-frame__well .sp-cata-sidebar {
+  position: relative;
+  top: auto;
+  height: 100%;
+  border-radius: 0;
+}
+
+.sp-cata-frame__well .sp-cata-nav-dropdown .ui-dropdown__menu {
+  z-index: 10;
+}

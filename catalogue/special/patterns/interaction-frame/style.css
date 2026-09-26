@@ -1,0 +1,56 @@
+/* Interaction Catalogue Staging Frame (.draft-sp-cata-interaction-frame) */
+.draft-sp-cata-interaction-frame,
+.sp-cata-interaction-frame {
+  margin-bottom: var(--ui-space-6);
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+  z-index: 1;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.draft-sp-cata-interaction-frame.is-active-focused {
+  border-color: var(--ui-color-primary);
+  box-shadow: 0 0 0 2px var(--ui-color-primary-subtle);
+}
+
+.draft-sp-cata-interaction-frame__controls {
+  margin-top: var(--ui-space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  flex-wrap: wrap;
+}
+
+/* Right Status Indicator Column */
+.draft-sp-cata-interaction-frame__header-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: min-content;
+  white-space: nowrap;
+}
+
+.draft-sp-cata-interaction-frame__status-badge {
+  font-size: 0.68rem;
+  letter-spacing: 0.02em;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.draft-sp-cata-interaction-frame .draft-ui-three-stage__content {
+  position: relative;
+  z-index: 5;
+}
+
+/* Active dropdown elevation and overflow escape */
+.draft-sp-cata-interaction-frame:has(.ui-dropdown--open),
+.draft-sp-cata-interaction-frame:focus-within {
+  z-index: 20;
+}
+
+.draft-sp-cata-interaction-frame:has(.ui-dropdown--open) .draft-ui-three-stage,
+.draft-sp-cata-interaction-frame:has(.ui-dropdown--open) .draft-ui-three-stage__content {
+  overflow: visible !important;
+}

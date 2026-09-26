@@ -1,0 +1,9 @@
+.ui-badge--sm {
+  font-size: var(--ui-badge-font-sm);
+  padding: var(--ui-badge-padding-y-sm) var(--ui-badge-padding-x-sm);
+}
+
+.ui-badge--md {
+  font-size: var(--ui-font-xs);
+  padding: var(--ui-badge-padding-y-md) var(--ui-badge-padding-x-md);
+}

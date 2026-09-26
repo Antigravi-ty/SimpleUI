@@ -1,0 +1,38 @@
+/* Special Page Layout */
+.sp-cata-special-intro {
+  margin-bottom: var(--ui-space-8);
+}
+.sp-cata-special-intro h2 {
+  font-size: var(--ui-font-xl);
+  font-weight: var(--ui-weight-bold);
+  margin: 0 0 var(--ui-space-2) 0;
+  color: var(--ui-text-main);
+}
+.sp-cata-special-intro p {
+  font-size: var(--ui-font-sm);
+  color: var(--ui-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Animations Timeline bar */
+.sp-cata-anim-timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ui-space-3);
+  width: 100%;
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+}
+.sp-cata-anim-step {
+  padding: 4px 8px;
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-sm);
+  color: var(--ui-text-main);
+  font-weight: var(--ui-weight-medium);
+}
+.sp-cata-anim-arrow {
+  color: var(--ui-color-neutral-400);
+}

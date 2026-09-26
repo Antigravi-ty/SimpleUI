@@ -1,0 +1,59 @@
+{
+  "$schema": "page-composition",
+  "id": "menu-root-container",
+  "title": "Preferences Root (Level 1)",
+  "className": "ui-drilldown menu-card",
+  "children": [
+    {
+      "type": "container",
+      "id": "menu-view-root",
+      "className": "ui-drilldown__view",
+      "children": [
+        {
+          "type": "row",
+          "className": "ui-stack--row ui-stack--between menu-nav-bar",
+          "children": [
+            { "text": "System Settings (Level 1)", "tag": "strong" },
+            { "block": "badge", "modifier": "neutral", "size": "sm", "text": "v2.0" }
+          ]
+        },
+        { "type": "box", "className": "ui-divider" },
+        {
+          "type": "row",
+          "className": "ui-stack--row ui-stack--between ui-menu__item",
+          "action": "menu.to_network",
+          "children": [
+            { "text": "Network & Internet", "tag": "span" },
+            {
+              "type": "row",
+              "className": "ui-stack--row",
+              "children": [
+                { "block": "badge", "modifier": "primary", "size": "sm", "text": "Connected" },
+                { "text": "›", "className": "ui-menu__arrow" }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "row",
+          "className": "ui-stack--row ui-stack--between ui-menu__item",
+          "label": "Display & Brightness",
+          "children": [
+            { "block": "slider", "size": "sm", "props": { "value": 85 } }
+          ]
+        },
+        {
+          "type": "row",
+          "className": "ui-stack--row ui-stack--between ui-menu__item",
+          "label": "Do Not Disturb",
+          "children": [
+            { "block": "toggler", "size": "sm", "modifier": "checked", "checked": true }
+          ]
+        }
+      ]
+    },
+    {
+      "$ref": "menu/menu_network"
+    }
+  ]
+}

@@ -1,0 +1,263 @@
+{
+  "$schema": "agent-manifest",
+  "version": "2.3.0",
+  "routing": {
+    "tokens": {
+      "colors": "src/schemas/tokens/colors.json",
+      "components": "src/schemas/tokens/components.json",
+      "spacing": "src/schemas/tokens/spacing.json",
+      "typography": "src/schemas/tokens/typography.json",
+      "radius": "src/schemas/tokens/radius.json",
+      "elevation": "src/schemas/tokens/elevation.json",
+      "motion": "src/schemas/tokens/motion.json"
+    },
+    "layout": {
+      "primitives": "src/styles/layout.css",
+      "motion": "src/styles/motion.css",
+      "viewport": "src/styles/viewport.css"
+    },
+    "core": {
+      "engine": "src/core/engine.js",
+      "composer": "src/core/page-composer.js",
+      "morph": "src/core/morph-transition.js",
+      "store": "src/core/store.js",
+      "viewport": "src/core/viewport-engine.js"
+    },
+    "navigation": {
+      "actions": "src/schemas/navigation/actions.json",
+      "index": "src/navigation/index.js",
+      "router": "src/navigation/router.js"
+    },
+    "pages": {
+      "floating_window": "src/schemas/pages/floating_window.json",
+      "menu_root": "src/schemas/pages/menu/menu_root.json",
+      "menu_network": "src/schemas/pages/menu/menu_network.json",
+      "menu_wifi": "src/schemas/pages/menu/menu_wifi.json",
+      "menu_wifi_advanced": "src/schemas/pages/menu/menu_wifi_advanced.json",
+      "live_preview": "src/schemas/pages/live_preview.json",
+      "structural_patterns": "src/schemas/pages/structural_patterns.json",
+      "showcase_shell": "src/schemas/pages/showcase_shell.json"
+    },
+    "blocks": {
+      "button": {
+        "entry": "src/blocks/button/index.js",
+        "schema": "src/blocks/button/schema.json",
+        "base": "src/blocks/button/styles/base.css",
+        "sizes": "src/blocks/button/styles/sizes.css",
+        "variants": "src/blocks/button/styles/variants.css",
+        "elements": {
+          "icon-only": "src/blocks/button/styles/elements/icon-only.css"
+        }
+      },
+      "badge": {
+        "entry": "src/blocks/badge/index.js",
+        "schema": "src/blocks/badge/schema.json",
+        "base": "src/blocks/badge/styles/base.css",
+        "sizes": "src/blocks/badge/styles/sizes.css",
+        "variants": "src/blocks/badge/styles/variants.css",
+        "elements": {
+          "dot": "src/blocks/badge/styles/elements/dot.css",
+          "pill": "src/blocks/badge/styles/elements/pill.css"
+        }
+      },
+      "slider": {
+        "entry": "src/blocks/slider/index.js",
+        "schema": "src/blocks/slider/schema.json",
+        "base": "src/blocks/slider/styles/base.css",
+        "sizes": "src/blocks/slider/styles/sizes.css",
+        "variants": "src/blocks/slider/styles/variants.css",
+        "elements": {
+          "num-input": "src/blocks/slider/styles/elements/num-input.css",
+          "thumb": "src/blocks/slider/styles/elements/thumb.css",
+          "track": "src/blocks/slider/styles/elements/track.css"
+        }
+      },
+      "stepper": {
+        "entry": "src/blocks/stepper/index.js",
+        "schema": "src/blocks/stepper/schema.json",
+        "base": "src/blocks/stepper/styles/base.css",
+        "sizes": "src/blocks/stepper/styles/sizes.css",
+        "variants": "src/blocks/stepper/styles/variants.css",
+        "elements": {
+          "btn": "src/blocks/stepper/styles/elements/btn.css",
+          "input": "src/blocks/stepper/styles/elements/input.css",
+          "val": "src/blocks/stepper/styles/elements/val.css"
+        }
+      },
+      "toggler": {
+        "entry": "src/blocks/toggler/index.js",
+        "schema": "src/blocks/toggler/schema.json",
+        "base": "src/blocks/toggler/styles/base.css",
+        "sizes": "src/blocks/toggler/styles/sizes.css",
+        "variants": "src/blocks/toggler/styles/variants.css",
+        "elements": {
+          "thumb": "src/blocks/toggler/styles/elements/thumb.css"
+        }
+      },
+      "progressbar": {
+        "entry": "src/blocks/progressbar/index.js",
+        "schema": "src/blocks/progressbar/schema.json",
+        "base": "src/blocks/progressbar/styles/base.css",
+        "sizes": "src/blocks/progressbar/styles/sizes.css",
+        "variants": "src/blocks/progressbar/styles/variants.css",
+        "elements": {
+          "fill": "src/blocks/progressbar/styles/elements/fill.css",
+          "indeterminate": "src/blocks/progressbar/styles/elements/indeterminate.css",
+          "info": "src/blocks/progressbar/styles/elements/info.css",
+          "track": "src/blocks/progressbar/styles/elements/track.css"
+        }
+      },
+      "checkbox": {
+        "entry": "src/blocks/checkbox/index.js",
+        "schema": "src/blocks/checkbox/schema.json",
+        "base": "src/blocks/checkbox/styles/base.css",
+        "sizes": "src/blocks/checkbox/styles/sizes.css",
+        "variants": "src/blocks/checkbox/styles/variants.css",
+        "elements": {
+          "box": "src/blocks/checkbox/styles/elements/box.css",
+          "standalone": "src/blocks/checkbox/styles/elements/standalone.css"
+        }
+      },
+      "selective-card": {
+        "entry": "src/blocks/selective-card/index.js",
+        "schema": "src/blocks/selective-card/schema.json",
+        "base": "src/blocks/selective-card/styles/base.css",
+        "sizes": "src/blocks/selective-card/styles/sizes.css",
+        "variants": "src/blocks/selective-card/styles/variants.css",
+        "elements": {
+          "checkmark": "src/blocks/selective-card/styles/elements/checkmark.css",
+          "indicator": "src/blocks/selective-card/styles/elements/indicator.css",
+          "group": "src/blocks/selective-card/styles/group.css"
+        }
+      },
+      "segmented-control": {
+        "entry": "src/blocks/segmented-control/index.js",
+        "schema": "src/blocks/segmented-control/schema.json",
+        "base": "src/blocks/segmented-control/styles/base.css",
+        "sizes": "src/blocks/segmented-control/styles/sizes.css",
+        "variants": "src/blocks/segmented-control/styles/variants.css",
+        "elements": {
+          "icon": "src/blocks/segmented-control/styles/elements/icon.css",
+          "item": "src/blocks/segmented-control/styles/elements/item.css"
+        }
+      },
+      "tabs": {
+        "entry": "src/blocks/tabs/index.js",
+        "schema": "src/blocks/tabs/schema.json",
+        "base": "src/blocks/tabs/styles/base.css",
+        "sizes": "src/blocks/tabs/styles/sizes.css",
+        "variants": "src/blocks/tabs/styles/variants.css",
+        "elements": {
+          "icon-only": "src/blocks/tabs/styles/elements/icon-only.css",
+          "icon": "src/blocks/tabs/styles/elements/icon.css",
+          "item": "src/blocks/tabs/styles/elements/item.css",
+          "label": "src/blocks/tabs/styles/elements/label.css"
+        }
+      },
+      "dropdown": {
+        "entry": "src/blocks/dropdown/index.js",
+        "schema": "src/blocks/dropdown/schema.json",
+        "base": "src/blocks/dropdown/styles/base.css",
+        "sizes": "src/blocks/dropdown/styles/sizes.css",
+        "variants": "src/blocks/dropdown/styles/variants.css",
+        "elements": {
+          "arrow": "src/blocks/dropdown/styles/elements/arrow.css",
+          "badge": "src/blocks/dropdown/styles/elements/badge.css",
+          "divider": "src/blocks/dropdown/styles/elements/divider.css",
+          "item": "src/blocks/dropdown/styles/elements/item.css",
+          "menu": "src/blocks/dropdown/styles/elements/menu.css",
+          "search": "src/blocks/dropdown/styles/elements/search.css",
+          "trigger": "src/blocks/dropdown/styles/elements/trigger.css"
+        }
+      },
+      "panel": {
+        "entry": "src/blocks/panel/index.js",
+        "schema": "src/blocks/panel/schema.json",
+        "base": "src/blocks/panel/styles/base.css",
+        "sizes": "src/blocks/panel/styles/sizes.css",
+        "variants": "src/blocks/panel/styles/variants.css",
+        "elements": {
+          "content": "src/blocks/panel/styles/elements/content.css",
+          "footer": "src/blocks/panel/styles/elements/footer.css",
+          "header": "src/blocks/panel/styles/elements/header.css"
+        }
+      }
+    },
+    "scripts": {
+      "verify": "scripts/verify.js",
+      "route": "scripts/route.js",
+      "create_block": "scripts/create_block.js",
+      "build_tokens": "scripts/build_tokens.js",
+      "push_verified": "scripts/push_verified.py"
+    },
+    "documentation": {
+      "apple_guidelines": "APPLE_DESIGN_GUIDELINES.md",
+      "agent_guide": "AGENT_GUIDE.md",
+      "readme": "README.md",
+      "expectations": "EXPECTATIONS.md",
+      "design_intent": "DESIGN_INTENT.md"
+    },
+    "showcase": {
+      "main_js": "showcase/main.js",
+      "main_css": "showcase/main.css",
+      "layout_css": "showcase/layout.css",
+      "matrix_css": "showcase/matrix.css",
+      "matrix_filter": "showcase/matrix-filter.js",
+      "header_nav": "showcase/header-nav.js",
+      "animations_js": "showcase/animations.js",
+      "animations_css": "showcase/animations.css",
+      "developer_js": "showcase/developer.js",
+      "paradigms_css": "showcase/paradigms.css",
+      "patterns_css": "showcase/patterns.css",
+      "primitives_js": "showcase/primitives.js",
+      "structural_patterns_js": "showcase/structural_patterns.js",
+      "viewport_paradigms_js": "showcase/viewport_paradigms.js",
+      "showcase_special_js": "showcase/showcase_special.js",
+      "filter_css": "showcase/filter.css"
+    },
+    "design_system": {
+      "index": "design_system/index.js",
+      "readme": "design_system/README.md"
+    },
+    "showcase_pages": {
+      "components": "showcase/components.html",
+      "primitives": "showcase/primitives.html",
+      "structural_patterns": "showcase/structural_patterns.html",
+      "animations": "showcase/animations.html",
+      "viewport_paradigms": "showcase/viewport_paradigms.html",
+      "developer": "showcase/developer.html",
+      "showcase_special": "showcase/showcase_special.html"
+    },
+    "examples": {
+      "index_html": "examples/index.html",
+      "examples_js": "examples/examples.js"
+    },
+    "catalogue": {
+      "index_html": "catalogue/index.html",
+      "main_js": "catalogue/main.js",
+      "main_css": "catalogue/styles/main.css",
+      "shell_layout": "catalogue/special/shell/shell-layout/index.js",
+      "shell_json": "catalogue/special/shell/shell-layout/schema.json",
+      "shell_css": "catalogue/special/shell/shell-layout/style.css",
+      "matrix_card": "catalogue/special/components/matrix-card/index.js",
+      "matrix_css": "catalogue/special/components/matrix-card/style.css",
+      "preview_card": "catalogue/special/primitives/preview-card/index.js",
+      "special_page": "catalogue/special/pages/special-page/index.js"
+    },
+    "blocks_index": "src/blocks/index.js",
+    "behaviors": {
+      "checkbox": "src/blocks/checkbox/behavior.js",
+      "dropdown": "src/blocks/dropdown/behavior.js",
+      "panel": "src/blocks/panel/behavior.js",
+      "progressbar": "src/blocks/progressbar/behavior.js",
+      "segmented-control": "src/blocks/segmented-control/behavior.js",
+      "selective-card": "src/blocks/selective-card/behavior.js",
+      "selective-group": "src/blocks/selective-card/behavior-group.js",
+      "slider": "src/blocks/slider/behavior.js",
+      "stepper": "src/blocks/stepper/behavior.js",
+      "tabs": "src/blocks/tabs/behavior.js",
+      "toggler": "src/blocks/toggler/behavior.js",
+      "live_preview": "src/core/live-preview.js"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.ui-tabs {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-tabs-gap);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  user-select: none;
+  font-family: inherit;
+}

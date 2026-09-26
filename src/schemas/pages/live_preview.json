@@ -1,0 +1,175 @@
+{
+  "$schema": "page-composition",
+  "id": "live-preview-paradigm",
+  "title": "Live Preview Paradigm",
+  "className": "ui-live-preview-window",
+  "children": [
+    {
+      "type": "container",
+      "className": "ui-morph-content ui-live-preview__morph-content",
+      "children": [
+        {
+          "type": "box",
+          "id": "live-preview-expanded-view",
+          "className": "ui-morph-view ui-live-preview-window__expanded",
+          "children": [
+            {
+              "type": "row",
+              "className": "ui-live-preview-window__header",
+              "children": [
+                {
+                  "type": "box",
+                  "className": "ui-live-preview-window__header-left",
+                  "children": [
+                    {
+                      "type": "box",
+                      "tag": "button",
+                      "className": "ui-panel__back-btn ui-live-preview__back-btn",
+                      "attributes": {
+                        "type": "button",
+                        "aria-label": "Go Back",
+                        "title": "Back (ESC)",
+                        "data-action": "live_preview.back"
+                      },
+                      "text": "←"
+                    },
+                    {
+                      "type": "box",
+                      "tag": "h3",
+                      "className": "ui-live-preview-window__title",
+                      "text": "Title"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "className": "ui-live-preview-window__header-right",
+                  "children": [
+                    {
+                      "block": "button",
+                      "modifier": "neutral",
+                      "size": "sm",
+                      "text": "Live Preview",
+                      "action": "live_preview.toggle"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "box",
+              "className": "ui-live-preview-window__body",
+              "children": [
+                {
+                  "type": "box",
+                  "className": "ui-live-preview-window__placeholder",
+                  "children": [
+                    {
+                      "type": "box",
+                      "tag": "h4",
+                      "className": "ui-live-preview-window__content-title",
+                      "text": "Content"
+                    },
+                    {
+                      "type": "box",
+                      "tag": "p",
+                      "className": "ui-live-preview-window__content-text",
+                      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+                    },
+                    {
+                      "type": "box",
+                      "tag": "p",
+                      "className": "ui-live-preview-window__content-hint",
+                      "text": "Customizable content slot. Real-time parameter changes affect background canvas elements. Press Tab to collapse into Live Preview."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "row",
+              "className": "ui-live-preview-window__footer",
+              "children": [
+                {
+                  "type": "box",
+                  "className": "ui-live-preview-window__footer-left",
+                  "children": [
+                    {
+                      "type": "box",
+                      "tag": "span",
+                      "className": "ui-live-preview-window__footer-label",
+                      "text": "Live Preview"
+                    },
+                    {
+                      "block": "badge",
+                      "modifier": "neutral",
+                      "size": "sm",
+                      "element": "pill",
+                      "text": "Tab"
+                    }
+                  ]
+                },
+                {
+                  "type": "box",
+                  "className": "ui-live-preview-window__footer-right",
+                  "children": [
+                    {
+                      "type": "box",
+                      "tag": "span",
+                      "className": "ui-live-preview-window__footer-label",
+                      "text": "Back"
+                    },
+                    {
+                      "block": "badge",
+                      "modifier": "neutral",
+                      "size": "sm",
+                      "element": "pill",
+                      "text": "ESC"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "id": "live-preview-collapsed-view",
+          "className": "ui-morph-view ui-live-preview-dock is-hidden",
+          "attributes": {
+            "role": "button",
+            "tabindex": "0",
+            "aria-label": "Expand Live Preview",
+            "data-action": "live_preview.toggle"
+          },
+          "children": [
+            {
+              "type": "box",
+              "tag": "span",
+              "className": "ui-live-preview-dock__arrow",
+              "text": "←"
+            },
+            {
+              "type": "box",
+              "tag": "span",
+              "className": "ui-live-preview-dock__divider"
+            },
+            {
+              "type": "box",
+              "tag": "span",
+              "className": "ui-live-preview-dock__label",
+              "text": "Live Preview"
+            },
+            {
+              "block": "badge",
+              "modifier": "neutral",
+              "size": "sm",
+              "element": "pill",
+              "text": "Tab"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

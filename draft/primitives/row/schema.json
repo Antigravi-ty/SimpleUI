@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-primitive-row",
+  "name": "row",
+  "prefix": "draft-ui-row",
+  "category": "primitive",
+  "status": "draft",
+  "description": "Auto-layout flex container distributing child elements along a horizontal row with tokenized gap spacing.",
+  "tokens": {
+    "gap": "var(--ui-space-3)"
+  }
+}

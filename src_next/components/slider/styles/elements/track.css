@@ -1,0 +1,13 @@
+.ui-slider__input::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--ui-slider-track-height-md);
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-color-neutral-200);
+}
+
+.ui-slider__input::-moz-range-track {
+  width: 100%;
+  height: var(--ui-slider-track-height-md);
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-color-neutral-200);
+}

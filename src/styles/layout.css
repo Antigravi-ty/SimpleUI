@@ -1,0 +1,89 @@
+/* Standardized Layout Primitives for Menus and Compositions */
+.ui-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+}
+.ui-stack--row {
+  flex-direction: row;
+  align-items: center;
+}
+.ui-stack--between {
+  justify-content: space-between;
+}
+.ui-divider {
+  height: 1px;
+  background-color: var(--ui-border-subtle);
+  margin: var(--ui-space-2) 0;
+  border: none;
+}
+.ui-menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.ui-menu__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ui-space-2) var(--ui-space-3);
+  border-radius: var(--ui-radius-md);
+  color: var(--ui-text-main);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  user-select: none;
+}
+.ui-menu__item:hover {
+  background-color: var(--ui-color-neutral-100);
+}
+.ui-menu__arrow {
+  color: var(--ui-text-muted);
+  font-size: 0.75rem;
+}
+.ui-drilldown {
+  position: relative;
+  width: 100%;
+}
+.ui-drilldown__view {
+  width: 100%;
+}
+.is-hidden {
+  display: none !important;
+}
+
+/* Universal Container & Surface Primitives */
+.ui-container {
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-lg);
+  padding: var(--ui-space-6);
+  box-shadow: var(--ui-shadow-sm);
+  box-sizing: border-box;
+}
+
+.ui-card {
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-md);
+  padding: var(--ui-space-4);
+  box-shadow: var(--ui-shadow-sm);
+  box-sizing: border-box;
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.ui-card:hover {
+  border-color: var(--ui-border-strong);
+  box-shadow: var(--ui-shadow-md);
+}
+
+.ui-well {
+  background-color: var(--ui-color-neutral-100);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-md);
+  padding: var(--ui-space-6);
+  box-sizing: border-box;
+}

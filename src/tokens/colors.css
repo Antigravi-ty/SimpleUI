@@ -1,0 +1,77 @@
+/* Generated from src/schemas/tokens/colors.json - DO NOT EDIT MANUALLY */
+:root {
+  --ui-color-primary: #0071e3;
+  --ui-color-primary-hover: #0077ed;
+  --ui-color-primary-subtle: #f0f6ff;
+  --ui-color-primary-contrast: #ffffff;
+  --ui-color-neutral-0: #ffffff;
+  --ui-color-neutral-50: #f9f9fb;
+  --ui-color-neutral-100: #f2f2f7;
+  --ui-color-neutral-200: #e5e5ea;
+  --ui-color-neutral-300: #d1d1d6;
+  --ui-color-neutral-400: #aeaeb2;
+  --ui-color-neutral-500: #8e8e93;
+  --ui-color-neutral-700: #3a3a3c;
+  --ui-color-neutral-900: #1c1c1e;
+  --ui-color-success: #34c759;
+  --ui-color-success-hover: #2db84d;
+  --ui-color-success-subtle: #f0fdf4;
+  --ui-color-success-contrast: #ffffff;
+  --ui-color-warning: #ff9500;
+  --ui-color-warning-hover: #f08c00;
+  --ui-color-warning-subtle: #fff8eb;
+  --ui-color-warning-contrast: #ffffff;
+  --ui-color-danger: #ff3b30;
+  --ui-color-danger-hover: #e0342a;
+  --ui-color-danger-subtle: #fff1f0;
+  --ui-color-danger-contrast: #ffffff;
+  --ui-bg-page: #f2f2f7;
+  --ui-bg-surface: #ffffff;
+  --ui-bg-elevated: #ffffff;
+  --ui-border-subtle: #e5e5ea;
+  --ui-border-strong: #d1d1d6;
+  --ui-text-main: #1c1c1e;
+  --ui-text-muted: #8e8e93;
+  --ui-color-white: #ffffff;
+  --ui-color-purple: #af52de;
+  --ui-color-purple-hover: #9b41c7;
+  --ui-color-purple-subtle: #fbf5ff;
+  --ui-color-purple-contrast: #ffffff;
+}
+
+[data-theme="dark"] {
+  --ui-color-primary: #0a84ff;
+  --ui-color-primary-hover: #409cff;
+  --ui-color-primary-subtle: #15253e;
+  --ui-color-primary-contrast: #ffffff;
+  --ui-color-neutral-0: #000000;
+  --ui-color-neutral-50: #161618;
+  --ui-color-neutral-100: #242426;
+  --ui-color-neutral-200: #323236;
+  --ui-color-neutral-300: #48484a;
+  --ui-color-neutral-400: #636366;
+  --ui-color-neutral-500: #8e8e93;
+  --ui-color-neutral-700: #aeaeb2;
+  --ui-color-neutral-900: #f2f2f7;
+  --ui-color-success: #30d158;
+  --ui-color-success-hover: #34e062;
+  --ui-color-success-subtle: #142819;
+  --ui-color-warning: #ff9f0a;
+  --ui-color-warning-hover: #ffb340;
+  --ui-color-warning-subtle: #2d1f0e;
+  --ui-color-danger: #ff453a;
+  --ui-color-danger-hover: #ff6961;
+  --ui-color-danger-subtle: #2d1414;
+  --ui-bg-page: #000000;
+  --ui-bg-surface: #1c1c1e;
+  --ui-bg-elevated: #2c2c2e;
+  --ui-border-subtle: #38383a;
+  --ui-border-strong: #48484a;
+  --ui-text-main: #f2f2f7;
+  --ui-text-muted: #8e8e93;
+  --ui-color-white: #ffffff;
+  --ui-color-purple: #bf5af2;
+  --ui-color-purple-hover: #d07bf7;
+  --ui-color-purple-subtle: #2a1738;
+  --ui-color-purple-contrast: #ffffff;
+}

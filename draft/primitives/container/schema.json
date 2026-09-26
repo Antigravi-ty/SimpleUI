@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-primitive-container",
+  "name": "container",
+  "prefix": "draft-ui-container",
+  "category": "primitive",
+  "status": "draft",
+  "description": "Continuous squircle boundary with neutral surface, tokenized radius, and subtle border.",
+  "tokens": {
+    "radius": "var(--ui-radius-lg)",
+    "surface": "var(--ui-bg-surface)",
+    "border": "1px solid var(--ui-border-subtle)",
+    "padding": "var(--ui-space-6)"
+  }
+}

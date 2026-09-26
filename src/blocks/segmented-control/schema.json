@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "segmented-control",
+  "prefix": "ui-segmented-control",
+  "description": "Apple HIG segmented control for switching views or modes",
+  "sizes": ["sm", "md", "lg"],
+  "defaultSize": "md",
+  "props": {
+    "disabled": { "type": "boolean", "default": false }
+  },
+  "events": ["change"],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": { "attributes": "disabled", "aria-disabled": "true" }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Text Labels",
+      "selector": "",
+      "template": "<div class=\"{classes}\" role=\"tablist\"><button type=\"button\" role=\"tab\" class=\"ui-segmented-control__item ui-segmented-control__item--active\" aria-selected=\"true\" data-value=\"day\" {attributes}>Day</button><button type=\"button\" role=\"tab\" class=\"ui-segmented-control__item\" aria-selected=\"false\" data-value=\"week\" {attributes}>Week</button><button type=\"button\" role=\"tab\" class=\"ui-segmented-control__item\" aria-selected=\"false\" data-value=\"month\" {attributes}>Month</button></div>"
+    },
+    {
+      "name": "icons",
+      "label": "Icon Segments",
+      "selector": "--icons",
+      "template": "<div class=\"{classes}\" role=\"tablist\"><button type=\"button\" role=\"tab\" class=\"ui-segmented-control__item ui-segmented-control__item--active\" aria-selected=\"true\" data-value=\"grid\" aria-label=\"Grid\" {attributes}><svg class=\"ui-segmented-control__icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\"/><rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\"/></svg></button><button type=\"button\" role=\"tab\" class=\"ui-segmented-control__item\" aria-selected=\"false\" data-value=\"list\" aria-label=\"List\" {attributes}><svg class=\"ui-segmented-control__icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"8\" x2=\"21\" y1=\"6\" y2=\"6\"/><line x1=\"8\" x2=\"21\" y1=\"12\" y2=\"12\"/><line x1=\"8\" x2=\"21\" y1=\"18\" y2=\"18\"/><line x1=\"3\" x2=\"3.01\" y1=\"6\" y2=\"6\"/><line x1=\"3\" x2=\"3.01\" y1=\"12\" y2=\"12\"/><line x1=\"3\" x2=\"3.01\" y1=\"18\" y2=\"18\"/></svg></button></div>"
+    }
+  ]
+}

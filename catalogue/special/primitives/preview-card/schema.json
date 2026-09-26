@@ -1,0 +1,16 @@
+{
+  "$schema": "block-schema",
+  "id": "special-catalogue-preview-card",
+  "name": "preview-card",
+  "prefix": "sp-cata-card",
+  "category": "special",
+  "status": "special",
+  "description": "Standard catalogue staging card for previewing structural primitives, patterns, and animations.",
+  "slots": {
+    "title": { "type": "string", "default": "Title" },
+    "badge": { "type": "string", "default": "Special" },
+    "description": { "type": "string", "default": "Relative description" },
+    "stageWell": { "type": "node", "description": "Interactive or static content staged inside .sp-cata-stage-well" },
+    "footer": { "type": "string", "default": "Relative description" }
+  }
+}

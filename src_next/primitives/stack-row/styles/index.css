@@ -1,0 +1,11 @@
+.ui-layout-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--ui-space-3);
+}
+.ui-layout-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+}

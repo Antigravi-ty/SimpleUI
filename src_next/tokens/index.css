@@ -1,0 +1,9 @@
+/* SimpleUI Design Tokens Aggregator */
+@import './reset.css';
+@import './colors.css';
+@import './components.css';
+@import './elevation.css';
+@import './motion.css';
+@import './radius.css';
+@import './spacing.css';
+@import './typography.css';

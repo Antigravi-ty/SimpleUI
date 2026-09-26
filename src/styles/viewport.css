@@ -1,0 +1,193 @@
+/* SimpleUI Virtual Canvas & Safe Area Scaling Engine Styles */
+
+/* 1. Safe Area Boundary & Telemetry HUD Overlay */
+.ui-safe-area-hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  display: none;
+}
+
+.ui-safe-area-hud__box {
+  position: absolute;
+  border: 2px dashed var(--ui-color-success);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  transition: all 0.2s cubic-bezier(0.2, 0.8, 0.25, 1);
+  pointer-events: none;
+}
+
+.ui-safe-area-hud__render-zone {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border-left: 2px solid var(--ui-color-primary);
+  border-right: 2px solid var(--ui-color-primary);
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+/* 2-Row Rounded Rectangle Indicator & Controls Panel */
+.ui-safe-area-hud__panel {
+  position: fixed;
+  bottom: calc(10% + 24px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+  padding: var(--ui-space-3) var(--ui-space-4);
+  background-color: var(--ui-bg-elevated);
+  border: 1px solid var(--ui-border-strong);
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--ui-shadow-lg);
+  color: var(--ui-text-main);
+  font-size: var(--ui-font-xs);
+  pointer-events: auto;
+  user-select: none;
+  z-index: 10000;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+}
+
+.ui-safe-area-hud__row {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ui-safe-area-hud__row--telemetry {
+  gap: var(--ui-space-2);
+  font-family: monospace, sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.ui-safe-area-hud__row--telemetry strong {
+  color: var(--ui-color-primary);
+}
+
+.ui-safe-area-hud__divider {
+  color: var(--ui-border-strong);
+  margin: 0 var(--ui-space-1);
+}
+
+.ui-safe-area-hud__row--controls {
+  justify-content: space-between;
+  gap: var(--ui-space-6);
+  padding-top: var(--ui-space-2);
+  border-top: 1px solid var(--ui-border-subtle);
+}
+
+.ui-safe-area-hud__slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+}
+
+.ui-safe-area-hud__label {
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-medium);
+  color: var(--ui-text-muted);
+}
+
+.ui-safe-area-hud__slider {
+  width: 140px;
+}
+
+.ui-safe-area-hud__reset-btn {
+  font-size: var(--ui-font-xs);
+  padding: 0 var(--ui-space-3);
+  height: 28px;
+}
+
+/* 2. Portrait Orientation Gate Modal */
+.ui-portrait-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ui-space-6);
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.ui-portrait-gate__card {
+  max-width: 460px;
+  width: 100%;
+  padding: var(--ui-space-6);
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--ui-shadow-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ui-space-3);
+}
+
+.ui-portrait-gate__title {
+  font-size: var(--ui-font-xl);
+  font-weight: var(--ui-weight-bold);
+  color: var(--ui-text-main);
+  margin: 0;
+}
+
+.ui-portrait-gate__desc {
+  font-size: var(--ui-font-sm);
+  color: var(--ui-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ui-portrait-gate__actions {
+  margin-top: var(--ui-space-3);
+  display: flex;
+  justify-content: center;
+}
+
+/* 3. Header Action Controls */
+.app-header__scale-control {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.app-header__scale-label {
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-medium);
+  color: var(--ui-text-muted);
+  white-space: nowrap;
+}
+
+.app-header__scale-slider {
+  width: 120px;
+  max-width: 120px;
+}
+
+.app-header__scale-slider .ui-slider__value {
+  min-width: 38px;
+  font-size: var(--ui-font-xs);
+}
+
+.app-header__safe-area-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.app-header__safe-area-btn.is-active {
+  background-color: var(--ui-color-success-subtle);
+  color: var(--ui-color-success);
+  border-color: var(--ui-color-success);
+}

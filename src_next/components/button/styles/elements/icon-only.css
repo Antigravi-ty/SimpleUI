@@ -1,0 +1,14 @@
+.ui-btn--icon-only.ui-btn--sm {
+  width: var(--ui-btn-height-sm);
+  padding: 0;
+}
+
+.ui-btn--icon-only.ui-btn--md {
+  width: var(--ui-btn-height-md);
+  padding: 0;
+}
+
+.ui-btn--icon-only.ui-btn--lg {
+  width: var(--ui-btn-height-lg);
+  padding: 0;
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "token",
+  "category": "radius",
+  "tokens": {
+    "none": { "variable": "--ui-radius-none", "value": "0px" },
+    "sm": { "variable": "--ui-radius-sm", "value": "6px" },
+    "md": { "variable": "--ui-radius-md", "value": "8px" },
+    "lg": { "variable": "--ui-radius-lg", "value": "12px" },
+    "full": { "variable": "--ui-radius-full", "value": "9999px" }
+  }
+}

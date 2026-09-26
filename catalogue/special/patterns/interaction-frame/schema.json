@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-sp-cata-interaction-frame",
+  "name": "interaction-frame",
+  "prefix": "draft-sp-cata-interaction-frame",
+  "category": "pattern",
+  "status": "draft",
+  "description": "Interactive catalogue staging frame placing controls directly beneath the description slot.",
+  "slots": {
+    "title": { "type": "string", "default": "Title" },
+    "badge": { "type": "string", "default": ".draft-sp-cata-interaction-frame" },
+    "description": { "type": "string", "description": "Mandatory description" },
+    "hasRedirectReference": { "type": "boolean", "default": false },
+    "redirectLink": {
+      "type": "object",
+      "properties": {
+        "toSee": { "type": "string" },
+        "checkText": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "controls": { "type": "node", "description": "Controls rendered beneath description" },
+    "stageContent": { "type": "node", "description": "Preview element rendered inside staging well" },
+    "footerText": { "type": "string", "description": "Optional footer description" }
+  }
+}

@@ -1,0 +1,14 @@
+.ui-panel--neutral {
+  border: 1px solid var(--ui-border-subtle);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.ui-panel--bordered {
+  border: 1px solid var(--ui-border-strong);
+  box-shadow: none;
+}
+
+.ui-panel--elevated {
+  border: 1px solid var(--ui-border-subtle);
+  box-shadow: var(--ui-shadow-md);
+}

@@ -1,0 +1,24 @@
+.ui-tabs__item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  background: transparent;
+  color: var(--ui-text-muted);
+  font-family: inherit;
+  font-weight: var(--ui-weight-medium);
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  white-space: nowrap;
+  border-bottom: var(--ui-tabs-border-width) solid transparent;
+  margin-bottom: -1px;
+}
+
+.ui-tabs__item:hover:not(:disabled) {
+  color: var(--ui-text-main);
+}
+
+.ui-tabs__item:focus-visible {
+  outline: 2px solid var(--ui-color-primary);
+  outline-offset: 2px;
+}

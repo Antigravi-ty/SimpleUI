@@ -1,0 +1,29 @@
+.ui-tabs--sm .ui-tabs__item {
+  padding: var(--ui-space-1) var(--ui-space-2);
+  font-size: var(--ui-font-xs);
+  gap: var(--ui-space-1);
+}
+.ui-tabs--sm .ui-tabs__icon {
+  width: 14px;
+  height: 14px;
+}
+
+.ui-tabs--md .ui-tabs__item {
+  padding: var(--ui-space-2) var(--ui-space-3);
+  font-size: var(--ui-font-sm);
+  gap: var(--ui-space-2);
+}
+.ui-tabs--md .ui-tabs__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.ui-tabs--lg .ui-tabs__item {
+  padding: var(--ui-space-3) var(--ui-space-4);
+  font-size: var(--ui-font-base);
+  gap: var(--ui-space-2);
+}
+.ui-tabs--lg .ui-tabs__icon {
+  width: 18px;
+  height: 18px;
+}

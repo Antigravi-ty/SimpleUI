@@ -1,0 +1,20 @@
+.draft-ui-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--ui-space-3);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.draft-ui-row--gap-xs { gap: var(--ui-space-1); }
+.draft-ui-row--gap-sm { gap: var(--ui-space-2); }
+.draft-ui-row--gap-md { gap: var(--ui-space-3); }
+.draft-ui-row--gap-lg { gap: var(--ui-space-4); }
+.draft-ui-row--gap-xl { gap: var(--ui-space-6); }
+
+.draft-ui-row--between { justify-content: space-between; }
+.draft-ui-row--center { justify-content: center; }
+.draft-ui-row--end { justify-content: flex-end; }
+.draft-ui-row--align-start { align-items: flex-start; }
+.draft-ui-row--align-center { align-items: center; }

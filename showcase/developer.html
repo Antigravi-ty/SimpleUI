@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('simpleui-theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleUI - Developer Reference</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./patterns.css">
+</head>
+<body>
+  <div class="app-shell">
+        <header class="app-header">
+      <div class="app-header__brand">
+        <a href="/" class="app-header__title">SimpleUI</a>
+        <span class="ui-badge ui-badge--neutral ui-badge--sm ui-badge--pill">v2.1.0</span>
+        <button id="theme-toggle" class="app-header__theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+      <div class="app-header__actions">
+        <button type="button" id="safe-area-toggle" class="ui-btn ui-btn--sm ui-btn--neutral app-header__safe-area-btn" aria-label="Toggle Safe Area Overlay" title="Toggle Safe Area Overlay">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+          <span>Safe Area</span>
+        </button>
+        <div class="app-header__scale-control" title="UI Scale (25% - 200%)">
+          <span class="app-header__scale-label">Scale</span>
+          <div class="ui-slider ui-slider--sm ui-slider--neutral app-header__scale-slider" data-unit="%">
+            <input type="range" min="25" max="200" step="1" value="100" class="ui-slider__input" aria-label="UI Scale" data-unit="%">
+            <span class="ui-slider__value">100%</span>
+          </div>
+        </div>
+        <div class="ui-dropdown ui-dropdown--md ui-dropdown--neutral app-nav-dropdown">
+          <button type="button" class="ui-dropdown__trigger" aria-haspopup="true" aria-expanded="false">
+            <span class="ui-dropdown__trigger-text">Developer Reference</span>
+            <svg class="ui-dropdown__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="ui-dropdown__menu" role="menu"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="app-sidebar">
+        <div class="app-sidebar__content">
+          <h4 class="app-sidebar__heading">Developer Reference</h4>
+          <nav class="app-sidebar__nav">
+            <!-- 1. Draft Section (Top, Red) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--draft">
+                <span>Draft</span>
+                <span class="app-sidebar__badge--draft">In Design</span>
+              </div>
+              <span class="app-sidebar__link app-sidebar__link--none">None</span>
+            </div>
+
+            <!-- 2. Core Section (Middle, Blue) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--core">
+                <span>Core</span>
+                <span class="app-sidebar__badge--core">Stable</span>
+              </div>
+              <a href="#dev-virtual-canvas" class="app-sidebar__link"><span>Virtual Canvas &amp; Scaling</span></a>
+              <a href="#dev-state-bus" class="app-sidebar__link"><span>State Bus &amp; Delegation</span></a>
+              <a href="#dev-action-router" class="app-sidebar__link"><span>Declarative Action Router</span></a>
+            </div>
+
+            <!-- 3. Showcase Section (Bottom, Purple) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--special">
+                <span>Showcase</span>
+                <span class="app-sidebar__badge--special">Special</span>
+              </div>
+              <span class="app-sidebar__link app-sidebar__link--none">None</span>
+            </div>
+          </nav>
+        </div>
+        <div class="app-sidebar__footer">
+          <a href="/examples/index.html" class="app-sidebar__more-demos-link">want to view more demos? ↗</a>
+        </div>
+      </aside>
+
+      <main class="app-content">
+        <div class="patterns-intro">
+          <h2>Runtime Engine &amp; Architecture Standards</h2>
+          <p>Foundational canvas contracts, state bus synchronization, and declarative component paradigms.</p>
+        </div>
+
+        <!-- Section 1: Virtual Canvas & Safe Area Standard -->
+        <section class="pattern-card" id="dev-virtual-canvas">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Core Standard: Virtual Canvas, Safe Area &amp; UI Scaling</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm">Foundation Contract</span>
+            </div>
+            <p class="pattern-card__desc">
+              SimpleUI requires applications to establish a standardized root container (e.g. <code>.app-shell</code>) bound to our virtual canvas coordinates.
+            </p>
+          </div>
+          <div class="pattern-stage-well" style="flex-direction: column; align-items: stretch; gap: var(--ui-space-5);">
+            <!-- Live Canvas Telemetry Tiles -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: var(--ui-space-3);">
+              <div style="background: var(--ui-bg-surface); padding: var(--ui-space-3); border-radius: var(--ui-radius-md); border: 1px solid var(--ui-border-subtle);">
+                <small style="color: var(--ui-text-muted); font-size: var(--ui-font-xs);">Window Size</small>
+                <div id="telem-canvas" style="font-size: var(--ui-font-sm); font-weight: var(--ui-weight-bold); margin-top: 2px;">-</div>
+              </div>
+              <div style="background: var(--ui-bg-surface); padding: var(--ui-space-3); border-radius: var(--ui-radius-md); border: 1px solid var(--ui-border-subtle);">
+                <small style="color: var(--ui-text-muted); font-size: var(--ui-font-xs);">Safe Area Inset</small>
+                <div id="telem-safe" style="font-size: var(--ui-font-sm); font-weight: var(--ui-weight-bold); margin-top: 2px;">-</div>
+              </div>
+              <div style="background: var(--ui-bg-surface); padding: var(--ui-space-3); border-radius: var(--ui-radius-md); border: 1px solid var(--ui-border-subtle);">
+                <small style="color: var(--ui-text-muted); font-size: var(--ui-font-xs);">Render Canvas (18:9)</small>
+                <div id="telem-render" style="font-size: var(--ui-font-sm); font-weight: var(--ui-weight-bold); margin-top: 2px;">-</div>
+              </div>
+              <div style="background: var(--ui-bg-surface); padding: var(--ui-space-3); border-radius: var(--ui-radius-md); border: 1px solid var(--ui-border-subtle);">
+                <small style="color: var(--ui-text-muted); font-size: var(--ui-font-xs);">Current Scale</small>
+                <div id="telem-scale" style="font-size: var(--ui-font-sm); font-weight: var(--ui-weight-bold); margin-top: 2px;">100%</div>
+              </div>
+              <div style="background: var(--ui-bg-surface); padding: var(--ui-space-3); border-radius: var(--ui-radius-md); border: 1px solid var(--ui-border-subtle);">
+                <small style="color: var(--ui-text-muted); font-size: var(--ui-font-xs);">Safe Area Margin</small>
+                <div id="telem-margin" style="font-size: var(--ui-font-sm); font-weight: var(--ui-weight-bold); margin-top: 2px;">0%</div>
+              </div>
+            </div>
+
+            <!-- Architectural Principles -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--ui-space-4);">
+              <div style="background: var(--ui-bg-surface); padding: var(--ui-space-4); border-radius: var(--ui-radius-md); border: 1px solid var(--ui-border-subtle); font-size: var(--ui-font-xs); line-height: 1.6;">
+                <strong style="display: block; margin-bottom: 6px; font-size: var(--ui-font-sm); color: var(--ui-text-main);">1. Container &amp; Scale Policy</strong>
+                <p style="margin: 0 0 8px 0; color: var(--ui-text-muted);">
+                  Developers must establish a root container bound to <code>--ui-scale</code> and <code>--ui-safe-*</code>. You may lock scale at 100%, listen to device pixel ratio, or let users adjust it via <code>viewportEngine.setUserScale(number)</code>. SimpleUI provides standard APIs without enforcing policy.
+                </p>
+                <p style="margin: 0; color: var(--ui-text-muted);">
+                  Safe Area Margin is optional (defaults to 0%), but strongly recommended (<strong>strongly recommend</strong>) to guarantee zero clipping on notched and bordered displays.
+                </p>
+              </div>
+
+              <div style="background: var(--ui-bg-surface); padding: var(--ui-space-4); border-radius: var(--ui-radius-md); border: 1px solid var(--ui-border-subtle); font-size: var(--ui-font-xs); line-height: 1.6;">
+                <strong style="display: block; margin-bottom: 6px; font-size: var(--ui-font-sm); color: var(--ui-text-main);">2. Width Anchoring &amp; 9-Point Grid</strong>
+                <p style="margin: 0 0 8px 0; color: var(--ui-text-muted);">
+                  All dimensions and symmetric corner paddings scale strictly according to virtual canvas width (<code>Wrender / 1280px</code>), decoupled from height.
+                </p>
+                <p style="margin: 0; color: var(--ui-text-muted);">
+                  Macro compound containers anchor to the 3×3 9-point grid (e.g. 3-stage container at center). Contextual sub-components (such as <code>.ui-dropdown__menu</code>) anchor directly to their trigger button via CSS <code>position: absolute; top: calc(100% + var(--ui-space-1))</code>.
+                </p>
+              </div>
+            </div>
+
+            <!-- Content-driven Container Capabilities Pattern -->
+            <div style="background: var(--ui-bg-surface); padding: var(--ui-space-4); border-radius: var(--ui-radius-md); border: 1px solid var(--ui-border-subtle); font-size: var(--ui-font-xs); line-height: 1.6;">
+              <strong style="display: block; margin-bottom: 6px; font-size: var(--ui-font-sm); color: var(--ui-text-main);">3. Content-Driven Container Capabilities (Layout Infection Pattern)</strong>
+              <p style="margin: 0 0 8px 0; color: var(--ui-text-muted);">
+                In hierarchical workflows (like <code>Basic Transition</code> or drilldowns), the outer host Container DOM node remains stable. Special paradigms (such as <strong>Live Preview</strong> or <strong>Floating Window</strong>) are declared by the active <em>Content</em> view and propagate upward to infect the Container with stateful layout attributes. When navigating away to standard views, the container cleanly reverts.
+              </p>
+              <pre style="margin: 0; padding: var(--ui-space-3); background: var(--ui-color-neutral-100); border-radius: var(--ui-radius-sm); font-size: 11px; overflow-x: auto;"><code>import { viewportEngine } from 'simple-ui/core';
+
+// Subscribe to virtual canvas metrics
+viewportEngine.subscribe(({ scaleFactor, Wrender, Hrender, insets }) => {
+  document.documentElement.style.setProperty('--ui-scale', scaleFactor);
+});</code></pre>
+            </div>
+          </div>
+          <div class="pattern-card__footer">
+            <span>Mandatory canvas contract • Width-anchored scaling • Content-driven container capabilities.</span>
+          </div>
+        </section>
+
+        <!-- Section 2: State Bus & Commit Binding -->
+        <section class="pattern-card" id="dev-state-bus">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">State Bus: Commit vs Live Binding</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm">SimpleUIStore</span>
+            </div>
+            <p class="pattern-card__desc">
+              Demonstrates the difference between high-frequency <code>input</code> events (live scrubbing) and released <code>change</code> events (commit on mouseup).
+            </p>
+          </div>
+          <div class="pattern-stage-well">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--ui-space-6); width: 100%; max-width: 680px;">
+              <div style="display: flex; flex-direction: column; gap: var(--ui-space-4);">
+                <div>
+                  <label style="font-size: var(--ui-font-xs); font-weight: var(--ui-weight-semibold); display: block; margin-bottom: 4px;">
+                    1. Live Scrubber (updates store on every tick):
+                  </label>
+                  <div class="ui-slider ui-slider--sm ui-slider--neutral">
+                    <input type="range" id="slider-live" min="0" max="100" value="80" class="ui-slider__input">
+                  </div>
+                </div>
+
+                <div>
+                  <label style="font-size: var(--ui-font-xs); font-weight: var(--ui-weight-semibold); display: block; margin-bottom: 4px;">
+                    2. Commit Scrubber (updates store only when released):
+                  </label>
+                  <div class="ui-slider ui-slider--sm ui-slider--neutral">
+                    <input type="range" id="slider-commit" min="0" max="100" value="50" class="ui-slider__input">
+                  </div>
+                </div>
+              </div>
+
+              <div style="background: var(--ui-bg-surface); border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-md); padding: var(--ui-space-4);">
+                <small style="color: var(--ui-text-muted); font-size: var(--ui-font-xs); font-weight: var(--ui-weight-bold); text-transform: uppercase;">Live Store Snapshot (JSON):</small>
+                <pre id="demo-store-state" style="font-size: 11px; margin: var(--ui-space-2) 0 0 0; color: var(--ui-text-main); font-family: monospace;"></pre>
+              </div>
+            </div>
+          </div>
+          <div class="pattern-card__footer">
+            <span>Controls bound with <code>data-bind="&lt;key&gt;"</code> automatically delegate bubbling events to the root.</span>
+          </div>
+        </section>
+
+        <!-- Section 3: Action Router Specification -->
+        <section class="pattern-card" id="dev-action-router">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Declarative Action Router Primitives</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm">UIRouter</span>
+            </div>
+            <p class="pattern-card__desc">
+              All interactions map to declarative action primitives in <code>actions.json</code> without per-element event listener bloat.
+            </p>
+          </div>
+          <div class="pattern-stage-well">
+            <pre style="background: var(--ui-bg-surface); border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-md); padding: var(--ui-space-4); font-size: 12px; max-width: 600px; width: 100%; overflow-x: auto;"><code>{
+  "actions": {
+    "menu.to_network": {
+      "type": "drilldown_push",
+      "hideSelector": "#menu-view-root",
+      "showSelector": "#menu-view-network"
+    },
+    "window.toggle_minimize": {
+      "type": "class_toggle",
+      "targetSelector": "#floating-window",
+      "className": "floating-window--minimized"
+    }
+  }
+}</code></pre>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="./developer.js"></script>
+</body>
+</html>

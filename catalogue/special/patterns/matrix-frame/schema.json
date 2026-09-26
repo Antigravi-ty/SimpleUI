@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-sp-cata-matrix-frame",
+  "name": "matrix-frame",
+  "prefix": "draft-sp-cata-matrix-frame",
+  "category": "pattern",
+  "status": "draft",
+  "description": "Matrix catalogue staging frame rendering interactive modifier filter bar and 2D matrix table without footer.",
+  "slots": {
+    "title": { "type": "string", "default": "Title" },
+    "badge": { "type": "string", "default": ".draft-sp-cata-matrix-frame" },
+    "description": { "type": "string", "description": "Mandatory description" },
+    "hasRedirectReference": { "type": "boolean", "default": false },
+    "redirectLink": {
+      "type": "object",
+      "properties": {
+        "toSee": { "type": "string" },
+        "checkText": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "columns": { "type": "array", "description": "Column definitions (Style Modifiers)" },
+    "rows": { "type": "array", "description": "Row definitions (Type Modifiers)" },
+    "stageContent": { "type": "node", "description": "Custom content or override matrix table" }
+  }
+}

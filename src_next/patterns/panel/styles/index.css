@@ -1,0 +1,6 @@
+@import './base.css';
+@import './sizes.css';
+@import './variants.css';
+@import './elements/header.css';
+@import './elements/content.css';
+@import './elements/footer.css';

@@ -1,0 +1,39 @@
+.ui-slider--editable,
+.ui-slider--unbounded {
+  display: inline-flex;
+}
+
+.ui-slider__num-input {
+  width: 54px;
+  height: 24px;
+  padding: 0 var(--ui-space-1);
+  font-family: inherit;
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-medium);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  border-radius: var(--ui-radius-sm);
+  border: 1px solid var(--ui-border-subtle);
+  background-color: var(--ui-bg-surface);
+  color: var(--ui-text-main);
+  outline: none;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ui-slider__num-input::-webkit-outer-spin-button,
+.ui-slider__num-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ui-slider__num-input:focus {
+  border-color: var(--ui-color-primary);
+}
+
+.ui-slider__num-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

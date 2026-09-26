@@ -1,0 +1,7 @@
+.ui-progressbar__track {
+  width: 100%;
+  background-color: var(--ui-color-neutral-200);
+  border-radius: var(--ui-radius-full);
+  overflow: hidden;
+  position: relative;
+}

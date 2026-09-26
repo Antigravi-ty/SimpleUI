@@ -1,0 +1,149 @@
+/* Special Catalogue Matrix Card */
+.sp-cata-matrix-card {
+  margin-bottom: var(--ui-space-8);
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--ui-shadow-sm);
+  overflow: visible;
+  transition: border-color 0.15s ease;
+}
+
+.sp-cata-matrix-card:hover {
+  border-color: var(--ui-border-strong);
+}
+
+.sp-cata-matrix-card__header {
+  padding: var(--ui-space-4) var(--ui-space-6);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  background-color: var(--ui-bg-surface);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--ui-space-3);
+}
+
+.sp-cata-matrix-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sp-cata-matrix-card__title-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ui-space-3);
+}
+
+.sp-cata-matrix-card__title {
+  margin: 0;
+  font-size: var(--ui-font-lg);
+  font-weight: var(--ui-weight-bold);
+  text-transform: capitalize;
+  color: var(--ui-text-main);
+}
+
+.sp-cata-matrix-card__prefix code {
+  font-size: var(--ui-font-xs);
+  padding: 2px 6px;
+  background: var(--ui-color-neutral-100);
+  border-radius: var(--ui-radius-sm);
+  color: var(--ui-color-neutral-700);
+}
+
+.sp-cata-matrix-card__desc {
+  margin: 4px 0 0 0;
+  font-size: var(--ui-font-sm);
+  color: var(--ui-text-muted);
+}
+
+.sp-cata-matrix-card__redirect {
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+  margin-top: 4px;
+}
+
+.sp-cata-matrix-card__redirect-link {
+  color: var(--ui-color-neutral-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: var(--ui-weight-medium);
+}
+.sp-cata-matrix-card__redirect-link:hover {
+  color: var(--ui-text-main);
+}
+
+/* Appearance Filter Bar */
+.sp-cata-matrix-card__filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-4);
+  background-color: var(--ui-color-neutral-50);
+  padding: var(--ui-space-2) var(--ui-space-3);
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--ui-border-subtle);
+}
+
+.sp-cata-matrix-card__filter-label {
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* 2D Matrix Table */
+.sp-cata-matrix-card__table-wrapper {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+
+.sp-cata-matrix-card__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.sp-cata-matrix-card__table th,
+.sp-cata-matrix-card__table td {
+  padding: var(--ui-space-4) var(--ui-space-6);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  border-right: 1px solid var(--ui-border-subtle);
+  vertical-align: middle;
+}
+
+.sp-cata-matrix-card__table th:last-child,
+.sp-cata-matrix-card__table td:last-child {
+  border-right: none;
+}
+
+.sp-cata-matrix-card__table tr:last-child td {
+  border-bottom: none;
+}
+
+.sp-cata-matrix-card__table th {
+  background-color: var(--ui-color-neutral-50);
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.sp-cata-matrix-card__row-header {
+  background-color: var(--ui-color-neutral-50);
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-muted);
+  width: 120px;
+  white-space: nowrap;
+}
+
+.sp-cata-matrix-card__cell {
+  background-color: var(--ui-bg-surface);
+  min-width: 160px;
+}

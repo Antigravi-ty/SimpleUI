@@ -1,0 +1,19 @@
+.ui-dropdown__item-badge {
+  margin-left: auto;
+  font-size: var(--ui-font-xs);
+  font-variant-numeric: tabular-nums;
+  padding: 1px 5px;
+  border-radius: var(--ui-radius-sm);
+  line-height: 1.2;
+}
+
+.ui-dropdown__item-badge--plain {
+  color: var(--ui-text-muted);
+  background: transparent;
+}
+
+.ui-dropdown__item-badge--tinted {
+  color: var(--ui-text-muted);
+  background-color: var(--ui-color-neutral-100);
+  border: 1px solid var(--ui-border-subtle);
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "toggler",
+  "prefix": "ui-toggler",
+  "description": "Binary switch control for immediate state toggling defaulting to Apple HIG green",
+  "sizes": [
+    "sm",
+    "md"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "default": true
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "events": [
+    "change"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "success",
+    "disabled"
+  ],
+  "stateMappings": {
+    "checked": {
+      "aria-checked": "true"
+    },
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Toggle Switch",
+      "selector": "",
+      "template": "<button type=\"button\" role=\"switch\" class=\"{classes}\" {attributes} aria-checked=\"{ariaChecked}\"><span class=\"ui-toggler__thumb\"></span></button>"
+    }
+  ]
+}

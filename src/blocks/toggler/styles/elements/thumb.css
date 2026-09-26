@@ -1,0 +1,17 @@
+.ui-toggler__thumb {
+  display: block;
+  border-radius: var(--ui-radius-full);
+  background-color: var(--ui-color-neutral-0);
+  box-shadow: var(--ui-shadow-sm);
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ui-toggler--sm .ui-toggler__thumb {
+  width: var(--ui-toggler-thumb-size-sm);
+  height: var(--ui-toggler-thumb-size-sm);
+}
+
+.ui-toggler--md .ui-toggler__thumb {
+  width: var(--ui-toggler-thumb-size-md);
+  height: var(--ui-toggler-thumb-size-md);
+}

@@ -1,0 +1,23 @@
+.ui-checkbox--sm .ui-checkbox__box {
+  width: var(--ui-checkbox-size-sm);
+  height: var(--ui-checkbox-size-sm);
+}
+.ui-checkbox--sm .ui-checkbox__label {
+  font-size: var(--ui-font-xs);
+}
+
+.ui-checkbox--md .ui-checkbox__box {
+  width: var(--ui-checkbox-size-md);
+  height: var(--ui-checkbox-size-md);
+}
+.ui-checkbox--md .ui-checkbox__label {
+  font-size: var(--ui-font-sm);
+}
+
+.ui-checkbox--lg .ui-checkbox__box {
+  width: var(--ui-checkbox-size-lg);
+  height: var(--ui-checkbox-size-lg);
+}
+.ui-checkbox--lg .ui-checkbox__label {
+  font-size: var(--ui-font-base);
+}

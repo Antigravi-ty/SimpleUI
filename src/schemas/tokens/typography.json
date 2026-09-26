@@ -1,0 +1,15 @@
+{
+  "$schema": "token",
+  "category": "typography",
+  "tokens": {
+    "font-xs": { "variable": "--ui-font-xs", "value": "0.75rem" },
+    "font-sm": { "variable": "--ui-font-sm", "value": "0.8125rem" },
+    "font-base": { "variable": "--ui-font-base", "value": "0.875rem" },
+    "font-lg": { "variable": "--ui-font-lg", "value": "1rem" },
+    "font-xl": { "variable": "--ui-font-xl", "value": "1.25rem" },
+    "weight-normal": { "variable": "--ui-weight-normal", "value": "400" },
+    "weight-medium": { "variable": "--ui-weight-medium", "value": "500" },
+    "weight-semibold": { "variable": "--ui-weight-semibold", "value": "600" },
+    "weight-bold": { "variable": "--ui-weight-bold", "value": "700" }
+  }
+}

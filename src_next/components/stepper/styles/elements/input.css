@@ -1,0 +1,30 @@
+.ui-stepper__input {
+  text-align: center;
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--ui-border-strong);
+  background-color: var(--ui-bg-surface);
+  font-family: inherit;
+  font-weight: var(--ui-weight-bold);
+  font-variant-numeric: tabular-nums;
+  color: var(--ui-text-main);
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  -moz-appearance: textfield;
+}
+
+.ui-stepper__input::-webkit-outer-spin-button,
+.ui-stepper__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ui-stepper__input:focus {
+  border-color: var(--ui-color-primary);
+  box-shadow: 0 0 0 2px var(--ui-color-primary-subtle);
+}
+
+.ui-stepper__input--editable,
+.ui-stepper--editable .ui-stepper__input {
+  cursor: text;
+}

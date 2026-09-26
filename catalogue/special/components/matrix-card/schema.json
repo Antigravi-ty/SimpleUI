@@ -1,0 +1,9 @@
+{
+  "$schema": "block-schema",
+  "id": "special-catalogue-matrix-card",
+  "name": "matrix-card",
+  "prefix": "sp-cata-matrix-card",
+  "category": "special",
+  "status": "special",
+  "description": "Standard multi-variant 2D matrix card for rendering atomic components with dynamic modifier filters."
+}

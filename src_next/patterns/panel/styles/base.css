@@ -1,0 +1,27 @@
+.ui-panel {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ui-bg-surface);
+  border-radius: var(--ui-radius-lg);
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: box-shadow var(--ui-motion-fade-duration) var(--ui-motion-ease-apple);
+  width: 100%;
+}
+
+.ui-panel__header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.ui-panel__title {
+  margin: 0;
+  font-size: var(--ui-font-base);
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-main);
+}
+
+.ui-panel__content-slot {
+  width: 100%;
+}

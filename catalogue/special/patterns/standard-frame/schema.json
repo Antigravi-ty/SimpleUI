@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-sp-cata-standard-frame",
+  "name": "standard-frame",
+  "prefix": "draft-sp-cata-standard-frame",
+  "category": "pattern",
+  "status": "draft",
+  "description": "Standard catalogue staging frame isolating Title, Badge, Description, and Staging Well without top-right controls.",
+  "slots": {
+    "title": { "type": "string", "default": "Title" },
+    "badge": { "type": "string", "default": ".draft-sp-cata-standard-frame" },
+    "description": { "type": "string", "description": "Mandatory description" },
+    "hasRedirectReference": { "type": "boolean", "default": false, "description": "Explicit permission flag required to render redirectLink" },
+    "redirectLink": {
+      "type": "object",
+      "properties": {
+        "toSee": { "type": "string" },
+        "checkText": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "stageContent": { "type": "node", "description": "Preview element rendered inside staging well" },
+    "footerText": { "type": "string", "description": "Optional footer description" }
+  }
+}

@@ -1,0 +1,28 @@
+.ui-slider {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  width: 100%;
+  max-width: var(--ui-slider-max-width);
+}
+
+.ui-slider__value {
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-muted);
+  min-width: var(--ui-slider-value-min-width);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.ui-slider__input {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.ui-slider__input:focus-visible {
+  outline: none;
+}

@@ -1,0 +1,66 @@
+/* Category Filter Checkboxes (Aligned to Right) */
+.matrix-filter {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ui-space-3);
+  margin-left: auto;
+}
+
+.matrix-filter__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-medium);
+  color: var(--ui-text-main);
+  cursor: pointer;
+  user-select: none;
+}
+
+.matrix-filter__checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--ui-border-strong);
+  border-radius: var(--ui-radius-sm);
+  background-color: var(--ui-bg-surface);
+  display: inline-grid;
+  place-content: center;
+  cursor: pointer;
+  margin: 0;
+  transition: all 0.15s ease;
+}
+
+.matrix-filter__checkbox::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: var(--ui-color-white);
+  clip-path: polygon(14% 44%, 0 60%, 38% 100%, 100% 16%, 80% 0%, 38% 70%);
+  transform: scale(0);
+  transition: transform 0.1s ease;
+}
+
+.matrix-filter__checkbox:checked {
+  background-color: var(--ui-color-primary);
+  border-color: var(--ui-color-primary);
+}
+
+.matrix-filter__checkbox:checked::before {
+  transform: scale(1);
+}
+
+.matrix-filter__badge {
+  font-size: 0.65rem;
+  padding: 1px 5px;
+  border-radius: var(--ui-radius-full);
+  background-color: var(--ui-color-neutral-100);
+  color: var(--ui-text-muted);
+}
+
+.matrix-table__col--hidden,
+.matrix-table__cell--hidden {
+  display: none !important;
+}

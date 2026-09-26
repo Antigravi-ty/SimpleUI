@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "stepper",
+  "prefix": "ui-stepper",
+  "description": "Incremental quantity selector with segmented capsule and independent input schemes",
+  "sizes": [
+    "sm",
+    "md"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "min": {
+      "type": "number",
+      "default": 0
+    },
+    "max": {
+      "type": "number",
+      "default": 99
+    },
+    "value": {
+      "type": "number",
+      "default": 1
+    },
+    "step": {
+      "type": "number",
+      "default": 1
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "events": [
+    "change",
+    "step"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "primary-subtle",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Click Only (Capsule)",
+      "selector": "",
+      "template": "<div class=\"{classes}\"><button type=\"button\" class=\"ui-stepper__btn ui-stepper__btn--dec\" aria-label=\"Decrement\" {attributes}>-</button><span class=\"ui-stepper__val\">{value}</span><button type=\"button\" class=\"ui-stepper__btn ui-stepper__btn--inc\" aria-label=\"Increment\" {attributes}>+</button></div>"
+    },
+    {
+      "name": "editable",
+      "label": "Editable Input (Scheme Bravo)",
+      "selector": "--editable",
+      "template": "<div class=\"{classes}\"><button type=\"button\" class=\"ui-stepper__btn ui-stepper__btn--dec\" aria-label=\"Decrement\" {attributes}>-</button><input type=\"number\" class=\"ui-stepper__input ui-stepper__input--editable\" value=\"{value}\" min=\"{min}\" max=\"{max}\" step=\"{step}\" {attributes}><button type=\"button\" class=\"ui-stepper__btn ui-stepper__btn--inc\" aria-label=\"Increment\" {attributes}>+</button></div>"
+    }
+  ]
+}

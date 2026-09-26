@@ -1,0 +1,41 @@
+/* Neutral */
+.ui-badge--neutral {
+  background-color: var(--ui-color-neutral-100);
+  color: var(--ui-text-muted);
+}
+
+/* Filled Chromatic Styles */
+.ui-badge--primary {
+  background-color: var(--ui-color-primary);
+  color: var(--ui-color-primary-contrast);
+}
+.ui-badge--success {
+  background-color: var(--ui-color-success);
+  color: var(--ui-color-success-contrast);
+}
+.ui-badge--warning {
+  background-color: var(--ui-color-warning);
+  color: var(--ui-color-warning-contrast);
+}
+.ui-badge--danger {
+  background-color: var(--ui-color-danger);
+  color: var(--ui-color-danger-contrast);
+}
+
+/* Subtle (Tinted) Styles */
+.ui-badge--primary-subtle {
+  background-color: var(--ui-color-primary-subtle);
+  color: var(--ui-color-primary);
+}
+.ui-badge--success-subtle {
+  background-color: var(--ui-color-success-subtle);
+  color: var(--ui-color-success);
+}
+.ui-badge--warning-subtle {
+  background-color: var(--ui-color-warning-subtle);
+  color: var(--ui-color-warning);
+}
+.ui-badge--danger-subtle {
+  background-color: var(--ui-color-danger-subtle);
+  color: var(--ui-color-danger);
+}

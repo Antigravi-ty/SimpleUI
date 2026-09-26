@@ -1,0 +1,15 @@
+{
+  "$schema": "block-schema",
+  "id": "primitive-well",
+  "name": "well",
+  "prefix": "ui-well",
+  "category": "primitive",
+  "status": "stable",
+  "description": "Inset staging surface well using secondary grouped neutral backgrounds.",
+  "tokens": {
+    "radius": "var(--ui-radius-md)",
+    "surface": "var(--ui-color-neutral-100)",
+    "border": "1px solid var(--ui-border-subtle)",
+    "padding": "var(--ui-space-6)"
+  }
+}

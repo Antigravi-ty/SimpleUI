@@ -1,0 +1,15 @@
+.ui-segmented-control--neutral .ui-segmented-control__item--active {
+  background-color: var(--ui-bg-surface);
+  color: var(--ui-text-main);
+}
+
+.ui-segmented-control--primary .ui-segmented-control__item--active {
+  background-color: var(--ui-color-primary);
+  color: var(--ui-color-primary-contrast);
+}
+
+.ui-segmented-control--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

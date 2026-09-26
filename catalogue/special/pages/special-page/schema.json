@@ -1,0 +1,12 @@
+{
+  "$schema": "page-composition",
+  "id": "special-catalogue-page",
+  "title": "Catalogue Special Specifications",
+  "description": "Staging patterns and decoupled structural layouts.",
+  "cards": [
+    "special-standard-frame",
+    "special-matrix-frame",
+    "special-interaction-frame",
+    "special-shell-layout"
+  ]
+}

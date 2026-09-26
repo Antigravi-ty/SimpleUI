@@ -1,0 +1,66 @@
+/* Neutral (Grayscale Soft Palette) */
+.ui-stepper:not(.ui-stepper--editable).ui-stepper--neutral {
+  background-color: var(--ui-color-neutral-100);
+  border-color: var(--ui-border-subtle);
+}
+.ui-stepper--neutral .ui-stepper__val {
+  color: var(--ui-text-main);
+  border-color: var(--ui-border-subtle);
+}
+.ui-stepper--neutral .ui-stepper__btn {
+  color: var(--ui-text-main);
+}
+
+/* Primary (Filled Capsule) */
+.ui-stepper:not(.ui-stepper--editable).ui-stepper--primary {
+  background-color: var(--ui-color-primary);
+  border-color: var(--ui-color-primary);
+}
+.ui-stepper:not(.ui-stepper--editable).ui-stepper--primary .ui-stepper__val {
+  color: var(--ui-color-primary-contrast);
+  border-color: var(--ui-border-subtle);
+}
+.ui-stepper:not(.ui-stepper--editable).ui-stepper--primary .ui-stepper__btn {
+  color: var(--ui-color-primary-contrast);
+}
+
+/* Primary Subtle (Tinted Capsule) */
+.ui-stepper:not(.ui-stepper--editable).ui-stepper--primary-subtle {
+  background-color: var(--ui-color-primary-subtle);
+  border-color: var(--ui-border-subtle);
+}
+.ui-stepper:not(.ui-stepper--editable).ui-stepper--primary-subtle .ui-stepper__val {
+  color: var(--ui-color-primary);
+  border-color: var(--ui-border-subtle);
+}
+.ui-stepper:not(.ui-stepper--editable).ui-stepper--primary-subtle .ui-stepper__btn {
+  color: var(--ui-color-primary);
+}
+
+/* Editable Input Mode (Transparent Container Scheme) */
+.ui-stepper--editable {
+  background-color: transparent !important;
+  border: none !important;
+}
+.ui-stepper--editable .ui-stepper__btn {
+  background-color: var(--ui-color-neutral-100);
+  color: var(--ui-text-main);
+}
+.ui-stepper--editable .ui-stepper__btn:hover:not(:disabled) {
+  background-color: var(--ui-color-neutral-200);
+}
+.ui-stepper--editable .ui-stepper__input {
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-strong);
+  color: var(--ui-text-main);
+}
+.ui-stepper--editable.ui-stepper--primary .ui-stepper__input:focus {
+  border-color: var(--ui-color-primary);
+}
+
+/* Disabled State */
+.ui-stepper--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

@@ -1,0 +1,14 @@
+.ui-panel--sm {
+  border-radius: var(--ui-radius-md);
+  font-size: var(--ui-font-sm);
+}
+
+.ui-panel--md {
+  border-radius: var(--ui-radius-lg);
+  font-size: var(--ui-font-base);
+}
+
+.ui-panel--lg {
+  border-radius: var(--ui-radius-lg);
+  font-size: var(--ui-font-lg);
+}

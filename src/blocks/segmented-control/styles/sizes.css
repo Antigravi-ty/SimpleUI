@@ -1,0 +1,23 @@
+.ui-segmented-control--sm {
+  height: var(--ui-segmented-height-sm);
+}
+.ui-segmented-control--sm .ui-segmented-control__item {
+  padding: 0 var(--ui-space-2);
+  font-size: var(--ui-font-xs);
+}
+
+.ui-segmented-control--md {
+  height: var(--ui-segmented-height-md);
+}
+.ui-segmented-control--md .ui-segmented-control__item {
+  padding: 0 var(--ui-space-3);
+  font-size: var(--ui-font-sm);
+}
+
+.ui-segmented-control--lg {
+  height: var(--ui-segmented-height-lg);
+}
+.ui-segmented-control--lg .ui-segmented-control__item {
+  padding: 0 var(--ui-space-4);
+  font-size: var(--ui-font-base);
+}

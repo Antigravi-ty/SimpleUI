@@ -1,0 +1,13 @@
+{
+  "$schema": "animation-preset",
+  "id": "anim-basic-transition",
+  "name": "basic-transition",
+  "category": "animation",
+  "status": "stable",
+  "description": "Standard Apple 3-Stage morph animation: Stage 1 (100ms fade out) → Stage 2 (150ms geometry switch) → Stage 3 (100ms fade in).",
+  "timings": {
+    "fadeDuration": 100,
+    "resizeDuration": 150,
+    "easing": "cubic-bezier(0.2, 0.8, 0.25, 1)"
+  }
+}

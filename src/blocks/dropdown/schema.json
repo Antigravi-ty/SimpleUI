@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "dropdown",
+  "prefix": "ui-dropdown",
+  "description": "Apple HIG action dropdown popover trigger supporting left, center, and right alignments.",
+  "redirectLink": {
+    "prefixText": "To see dropdown menu, check ",
+    "linkText": "structural patterns \u2197",
+    "url": "/showcase/structural_patterns.html#pattern-dropdown-menu"
+  },
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "events": [
+    "select",
+    "toggle"
+  ],
+  "modifiers": [
+    "neutral",
+    "outline",
+    "primary",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    },
+    "open": {
+      "aria-expanded": "true"
+    },
+    "dropup": {
+      "attributes": "data-placement=\"top\""
+    }
+  },
+  "elements": [
+    {
+      "name": "align-left",
+      "label": "Standard (Left Aligned)",
+      "selector": "--align-left",
+      "defaultText": "Action",
+      "template": "<div class=\"{classes}\"><button type=\"button\" class=\"ui-dropdown__trigger\" aria-haspopup=\"true\" aria-expanded=\"{ariaExpanded}\" {attributes}><span class=\"ui-dropdown__trigger-text\">{slot:default}</span><svg class=\"ui-dropdown__arrow\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"6 9 12 15 18 9\"/></svg></button><div class=\"ui-dropdown__menu ui-dropdown__container\" role=\"region\"><span class=\"ui-dropdown__placeholder\">Left Aligned Container</span></div></div>"
+    },
+    {
+      "name": "align-center",
+      "label": "Center Aligned",
+      "selector": "--align-center",
+      "defaultText": "Action",
+      "template": "<div class=\"{classes}\"><button type=\"button\" class=\"ui-dropdown__trigger\" aria-haspopup=\"true\" aria-expanded=\"{ariaExpanded}\" {attributes}><span class=\"ui-dropdown__trigger-text\">{slot:default}</span><svg class=\"ui-dropdown__arrow\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"6 9 12 15 18 9\"/></svg></button><div class=\"ui-dropdown__menu ui-dropdown__container\" role=\"region\"><span class=\"ui-dropdown__placeholder\">Center Aligned Container</span></div></div>"
+    },
+    {
+      "name": "align-right",
+      "label": "Right Aligned",
+      "selector": "--align-right",
+      "defaultText": "Action",
+      "template": "<div class=\"{classes}\"><button type=\"button\" class=\"ui-dropdown__trigger\" aria-haspopup=\"true\" aria-expanded=\"{ariaExpanded}\" {attributes}><span class=\"ui-dropdown__trigger-text\">{slot:default}</span><svg class=\"ui-dropdown__arrow\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"6 9 12 15 18 9\"/></svg></button><div class=\"ui-dropdown__menu ui-dropdown__container\" role=\"region\"><span class=\"ui-dropdown__placeholder\">Right Aligned Container</span></div></div>"
+    }
+  ]
+}

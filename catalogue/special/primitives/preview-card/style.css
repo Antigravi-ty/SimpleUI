@@ -1,0 +1,63 @@
+/* Standard Catalogue Preview Card */
+.sp-cata-card {
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--ui-shadow-sm);
+  margin-bottom: var(--ui-space-6);
+  overflow: visible;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sp-cata-card:hover {
+  border-color: var(--ui-border-strong);
+}
+
+.sp-cata-card__header {
+  padding: var(--ui-space-4) var(--ui-space-6);
+  border-bottom: 1px solid var(--ui-border-subtle);
+}
+
+.sp-cata-card__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--ui-space-1);
+}
+
+.sp-cata-card__title {
+  margin: 0;
+  font-size: var(--ui-font-base);
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-main);
+}
+
+.sp-cata-card__desc {
+  margin: 0;
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+  line-height: 1.5;
+}
+
+/* Staging Stage Well */
+.sp-cata-stage-well {
+  padding: var(--ui-space-6);
+  background-color: var(--ui-color-neutral-100);
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: visible;
+}
+
+.sp-cata-card__footer {
+  padding: var(--ui-space-3) var(--ui-space-6);
+  border-top: 1px solid var(--ui-border-subtle);
+  background-color: var(--ui-color-neutral-50);
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

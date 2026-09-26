@@ -1,0 +1,17 @@
+.ui-toggler--sm {
+  width: var(--ui-toggler-width-sm);
+  height: var(--ui-toggler-height-sm);
+}
+
+.ui-toggler--md {
+  width: var(--ui-toggler-width-md);
+  height: var(--ui-toggler-height-md);
+}
+
+.ui-toggler--checked.ui-toggler--sm .ui-toggler__thumb {
+  transform: translateX(var(--ui-toggler-thumb-offset-sm));
+}
+
+.ui-toggler--checked.ui-toggler--md .ui-toggler__thumb {
+  transform: translateX(var(--ui-toggler-thumb-offset-md));
+}

@@ -1,0 +1,11 @@
+.ui-progressbar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-1);
+  width: 100%;
+  min-width: 140px;
+}
+
+.ui-progressbar--labeled {
+  gap: var(--ui-space-1);
+}

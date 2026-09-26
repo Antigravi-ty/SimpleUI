@@ -1,0 +1,15 @@
+.ui-stepper__val {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-main);
+  user-select: none;
+  cursor: default;
+  box-sizing: border-box;
+  border-left: 1px solid var(--ui-border-subtle);
+  border-right: 1px solid var(--ui-border-subtle);
+  transition: all 0.15s ease;
+}

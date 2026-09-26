@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('simpleui-theme');
+        if (saved === 'dark') {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleUI - Structural Patterns</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./patterns.css">
+  <link rel="stylesheet" href="./matrix.css">
+</head>
+<body>
+  <div class="app-shell">
+        <header class="app-header">
+      <div class="app-header__brand">
+        <a href="/" class="app-header__title">SimpleUI</a>
+        <span class="ui-badge ui-badge--neutral ui-badge--sm ui-badge--pill">v2.1.0</span>
+        <button id="theme-toggle" class="app-header__theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+      <div class="app-header__actions">
+        <button type="button" id="safe-area-toggle" class="ui-btn ui-btn--sm ui-btn--neutral app-header__safe-area-btn" aria-label="Toggle Safe Area Overlay" title="Toggle Safe Area Overlay">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>
+          <span>Safe Area</span>
+        </button>
+        <div class="app-header__scale-control" title="UI Scale (25% - 200%)">
+          <span class="app-header__scale-label">Scale</span>
+          <div class="ui-slider ui-slider--sm ui-slider--neutral app-header__scale-slider" data-unit="%">
+            <input type="range" min="25" max="200" step="1" value="100" class="ui-slider__input" aria-label="UI Scale" data-unit="%">
+            <span class="ui-slider__value">100%</span>
+          </div>
+        </div>
+        <div class="ui-dropdown ui-dropdown--md ui-dropdown--neutral app-nav-dropdown">
+          <button type="button" class="ui-dropdown__trigger" aria-haspopup="true" aria-expanded="false">
+            <span class="ui-dropdown__trigger-text">Structural Patterns</span>
+            <svg class="ui-dropdown__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="ui-dropdown__menu" role="menu"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-body">
+      <aside class="app-sidebar">
+        <div class="app-sidebar__content">
+          <h4 class="app-sidebar__heading">Structural Patterns</h4>
+          <nav class="app-sidebar__nav">
+            <!-- 1. Draft Section (Top, Red) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--draft">
+                <span>Draft</span>
+                <span class="app-sidebar__badge--draft">In Design</span>
+              </div>
+              <a href="#pattern-standard-panel" class="app-sidebar__link"><span>Standard 3-Stage Panel</span></a>
+              <a href="#pattern-footer-panel" class="app-sidebar__link"><span>Panel with Bottom Action</span></a>
+              <a href="#pattern-dropdown-menu" class="app-sidebar__link"><span>Dropdown Menu</span></a>
+              <a href="#pattern-balanced" class="app-sidebar__link"><span>Balanced Card Group</span></a>
+            </div>
+
+            <!-- 2. Core Section (Middle, Blue) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--core">
+                <span>Core</span>
+                <span class="app-sidebar__badge--core">Stable</span>
+              </div>
+              <span class="app-sidebar__link app-sidebar__link--none">None</span>
+            </div>
+
+            <!-- 3. Showcase Section (Bottom, Purple) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--special">
+                <span>Showcase</span>
+                <span class="app-sidebar__badge--special">Special</span>
+              </div>
+              <span class="app-sidebar__link app-sidebar__link--none">None</span>
+            </div>
+          </nav>
+        </div>
+        <div class="app-sidebar__footer">
+          <a href="/examples/index.html" class="app-sidebar__more-demos-link">want to view more demos? ↗</a>
+        </div>
+      </aside>
+
+      <main class="app-content">
+        <div class="patterns-intro">
+          <h2>Compound Layout Templates</h2>
+          <p>Higher-order composites combining atomic primitives into verified Apple HIG application workflows.</p>
+        </div>
+
+        <!-- Pattern 1: Standard 3-Stage Panel -->
+        <section class="pattern-card" id="pattern-standard-panel">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Standard 3-Stage Panel</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm"><code>.ui-panel</code></span>
+            </div>
+            <p class="pattern-card__desc">
+              Three-stage compound container (Header, Scrollable Content Slot, Footer) with contextual keyboard hints and auto-wiring.
+            </p>
+          </div>
+          <div class="pattern-stage-well" id="mount-panel-standard"></div>
+          <div class="pattern-card__footer">
+            <span>Hover or focus controls inside to see live accessible description updates in the footer.</span>
+            <span>Keyboard: ESC triggers back</span>
+          </div>
+        </section>
+
+        <!-- Pattern 2: Panel with Bottom Action -->
+        <section class="pattern-card" id="pattern-footer-panel">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Panel with Bottom Action Button</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm"><code>.ui-panel--with-footer-back</code></span>
+            </div>
+            <p class="pattern-card__desc">
+              Alternative layout placing primary or secondary actions directly within the footer region.
+            </p>
+          </div>
+          <div class="pattern-stage-well" id="mount-panel-footer-back"></div>
+        </section>
+
+        <!-- Pattern 3: Standalone Dropdown Menu (Multi-Variant Matrix Card) -->
+        <section class="matrix-card" id="pattern-dropdown-menu">
+          <a id="dropdown-menu"></a>
+          <div class="matrix-card__header">
+            <div class="matrix-card__info">
+              <div class="matrix-card__title-row">
+                <h3 class="matrix-card__title">Dropdown Menu</h3>
+                <span class="matrix-card__prefix"><code>.ui-dropdown__menu</code></span>
+                <span class="ui-badge ui-badge--neutral ui-badge--sm">3 Variants</span>
+              </div>
+              <p class="matrix-card__desc">
+                Standalone menu variants providing keyboard shortcuts, leading iconography, and real-time query filtering.
+              </p>
+            </div>
+          </div>
+          <div class="matrix-table-wrapper">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th class="matrix-table__corner">Variant \ Specification</th>
+                  <th class="matrix-table__col-header"><span>Interactive Static Menu</span><small>.ui-dropdown__menu--static</small></th>
+                  <th class="matrix-table__col-header"><span>Feature Details</span><small>Sub-elements &amp; Behaviors</small></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="matrix-table__row-header">
+                    <strong>With Badges</strong>
+                    <small>.ui-dropdown__item-badge</small>
+                  </th>
+                  <td class="matrix-table__cell">
+                    <div class="ui-dropdown__menu ui-dropdown__menu--static" role="menu" style="min-width: 190px;">
+                      <button type="button" role="menuitem" class="ui-dropdown__item" data-action="edit">
+                        <span class="ui-dropdown__item-text">Edit Details</span>
+                        <span class="ui-dropdown__item-badge ui-dropdown__item-badge--plain">⌘E</span>
+                      </button>
+                      <button type="button" role="menuitem" class="ui-dropdown__item" data-action="duplicate">
+                        <span class="ui-dropdown__item-text">Duplicate</span>
+                        <span class="ui-dropdown__item-badge ui-dropdown__item-badge--tinted">New</span>
+                      </button>
+                      <div class="ui-dropdown__divider"></div>
+                      <button type="button" role="menuitem" class="ui-dropdown__item ui-dropdown__item--danger" data-action="delete">
+                        <span class="ui-dropdown__item-text">Delete</span>
+                        <span class="ui-dropdown__item-badge ui-dropdown__item-badge--plain">⌫</span>
+                      </button>
+                    </div>
+                  </td>
+                  <td class="matrix-table__cell" style="color: var(--ui-text-muted); font-size: var(--ui-font-xs); line-height: 1.6;">
+                    Shortcuts and metadata indicators via <code>.ui-dropdown__item-badge--plain</code> and tinted status chips.
+                  </td>
+                </tr>
+                <tr>
+                  <th class="matrix-table__row-header">
+                    <strong>With Icons</strong>
+                    <small>Leading SVG Icons</small>
+                  </th>
+                  <td class="matrix-table__cell">
+                    <div class="ui-dropdown__menu ui-dropdown__menu--static" role="menu" style="min-width: 190px;">
+                      <button type="button" role="menuitem" class="ui-dropdown__item" data-action="share">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: var(--ui-space-2);"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                        <span class="ui-dropdown__item-text">Share Link</span>
+                      </button>
+                      <button type="button" role="menuitem" class="ui-dropdown__item" data-action="download">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: var(--ui-space-2);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span class="ui-dropdown__item-text">Download</span>
+                      </button>
+                      <div class="ui-dropdown__divider"></div>
+                      <button type="button" role="menuitem" class="ui-dropdown__item ui-dropdown__item--danger" data-action="delete">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: var(--ui-space-2);"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+                        <span class="ui-dropdown__item-text">Delete</span>
+                      </button>
+                    </div>
+                  </td>
+                  <td class="matrix-table__cell" style="color: var(--ui-text-muted); font-size: var(--ui-font-xs); line-height: 1.6;">
+                    Optical icon alignment with action items and danger modifier styling.
+                  </td>
+                </tr>
+                <tr>
+                  <th class="matrix-table__row-header">
+                    <strong>Searchable Menu</strong>
+                    <small>.ui-dropdown__search-input</small>
+                  </th>
+                  <td class="matrix-table__cell">
+                    <div class="ui-dropdown__menu ui-dropdown__menu--static" role="menu" style="min-width: 190px;">
+                      <div class="ui-dropdown__search" style="padding: var(--ui-space-1);">
+                        <input type="text" class="ui-dropdown__search-input" placeholder="Search..." aria-label="Filter items" style="width: 100%; padding: 4px 8px; font-size: var(--ui-font-xs); border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-sm); background: var(--ui-bg-surface); color: var(--ui-text-main);">
+                      </div>
+                      <div class="ui-dropdown__divider"></div>
+                      <button type="button" role="menuitem" class="ui-dropdown__item" data-action="edit">
+                        <span class="ui-dropdown__item-text">Edit Details</span>
+                      </button>
+                      <button type="button" role="menuitem" class="ui-dropdown__item" data-action="duplicate">
+                        <span class="ui-dropdown__item-text">Duplicate</span>
+                      </button>
+                      <button type="button" role="menuitem" class="ui-dropdown__item" data-action="share">
+                        <span class="ui-dropdown__item-text">Share Link</span>
+                      </button>
+                    </div>
+                  </td>
+                  <td class="matrix-table__cell" style="color: var(--ui-text-muted); font-size: var(--ui-font-xs); line-height: 1.6;">
+                    Real-time query filtering within menu container via keyboard or text input.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Pattern 4: Balanced Grid Group -->
+        <section class="pattern-card" id="pattern-balanced">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Balanced Selective Card Grid</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm"><code>.ui-selective-group--balanced</code></span>
+            </div>
+            <p class="pattern-card__desc">
+              Grid layout that automatically balances cards into symmetrical rows (e.g. 2×2, 2×3), preventing single orphaned items.
+            </p>
+          </div>
+          <div class="pattern-stage-well" id="mount-balanced-group"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="./structural_patterns.js"></script>
+</body>
+</html>

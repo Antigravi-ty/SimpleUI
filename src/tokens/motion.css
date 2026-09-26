@@ -1,0 +1,8 @@
+/* Generated from src/schemas/tokens/motion.json - DO NOT EDIT MANUALLY */
+:root {
+  --ui-motion-fade-duration: 100ms;
+  --ui-motion-resize-duration: 150ms;
+  --ui-motion-ease-apple: cubic-bezier(0.2, 0.8, 0.25, 1);
+  --ui-motion-fade-easing: ease-in-out;
+  --ui-motion-indeterminate-duration: 1.6s;
+}

@@ -1,0 +1,37 @@
+@import '../../src_next/tokens/index.css';
+@import '../../src_next/styles/index.css';
+@import '../../draft/primitives/container/styles/index.css';
+@import '../../draft/primitives/stack/styles/index.css';
+@import '../../draft/primitives/row/styles/index.css';
+@import '../../draft/patterns/three-stage/styles/index.css';
+@import '../special/shell/shell-layout/style.css';
+@import '../special/primitives/preview-card/style.css';
+@import '../special/patterns/standard-frame/style.css';
+@import '../special/patterns/matrix-frame/style.css';
+@import '../special/patterns/interaction-frame/style.css';
+@import '../special/components/matrix-card/style.css';
+@import '../special/pages/special-page/style.css';
+
+/* Catalogue Stage Layout */
+.sp-cata-banner {
+  margin-bottom: var(--ui-space-6);
+}
+.sp-cata-banner__badge-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  margin-bottom: var(--ui-space-2);
+}
+.sp-cata-banner__title {
+  margin: 0 0 var(--ui-space-2) 0;
+  font-size: var(--ui-font-xl);
+  font-weight: var(--ui-weight-bold);
+  letter-spacing: -0.02em;
+  color: var(--ui-text-main);
+}
+.sp-cata-banner__desc {
+  margin: 0;
+  font-size: var(--ui-font-sm);
+  color: var(--ui-text-muted);
+  line-height: 1.6;
+}

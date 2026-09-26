@@ -1,0 +1,16 @@
+.ui-toggler {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--ui-radius-full);
+  background-color: var(--ui-color-neutral-300);
+  padding: var(--ui-toggler-padding);
+  cursor: pointer;
+  transition: background-color 0.2s ease, box-shadow 0.15s ease;
+  user-select: none;
+}
+
+.ui-toggler:focus-visible {
+  outline: 2px solid var(--ui-color-primary);
+  outline-offset: 2px;
+}

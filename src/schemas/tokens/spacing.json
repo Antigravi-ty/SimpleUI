@@ -1,0 +1,14 @@
+{
+  "$schema": "token",
+  "category": "spacing",
+  "tokens": {
+    "0": { "variable": "--ui-space-0", "value": "0px" },
+    "1": { "variable": "--ui-space-1", "value": "0.25rem" },
+    "2": { "variable": "--ui-space-2", "value": "0.5rem" },
+    "3": { "variable": "--ui-space-3", "value": "0.75rem" },
+    "4": { "variable": "--ui-space-4", "value": "1rem" },
+    "5": { "variable": "--ui-space-5", "value": "1.25rem" },
+    "6": { "variable": "--ui-space-6", "value": "1.5rem" },
+    "8": { "variable": "--ui-space-8", "value": "2rem" }
+  }
+}

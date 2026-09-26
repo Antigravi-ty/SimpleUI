@@ -1,0 +1,11 @@
+.ui-selective-card--sm {
+  padding: var(--ui-card-padding-sm);
+}
+
+.ui-selective-card--md {
+  padding: var(--ui-card-padding-md);
+}
+
+.ui-selective-card--lg {
+  padding: var(--ui-card-padding-lg);
+}

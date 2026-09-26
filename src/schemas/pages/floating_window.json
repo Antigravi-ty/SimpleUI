@@ -1,0 +1,107 @@
+{
+  "$schema": "page-composition",
+  "id": "floating-window",
+  "title": "Draggable Floating Window Demo",
+  "className": "floating-window",
+  "children": [
+    {
+      "type": "row",
+      "id": "floating-window-header",
+      "className": "floating-window__header",
+      "children": [
+        {
+          "type": "box",
+          "className": "floating-window__title",
+          "children": [
+            { "text": "Control Panel", "tag": "span" },
+            {
+              "block": "badge",
+              "modifier": "success",
+              "size": "sm",
+              "element": "dot",
+              "text": "Active"
+            }
+          ]
+        },
+        {
+          "type": "box",
+          "className": "floating-window__controls",
+          "children": [
+            {
+              "block": "button",
+              "id": "minimize-btn",
+              "modifier": "ghost",
+              "size": "sm",
+              "element": "icon-only",
+              "text": "－",
+              "ariaLabel": "Minimize",
+              "action": "window.toggle_minimize"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "box",
+      "className": "floating-window__body",
+      "children": [
+        {
+          "type": "row",
+          "className": "floating-window__row",
+          "label": "Notifications",
+          "labelClass": "floating-window__label",
+          "children": [
+            {
+              "block": "toggler",
+              "modifier": "checked",
+              "size": "md",
+              "checked": true
+            }
+          ]
+        },
+        {
+          "type": "row",
+          "className": "floating-window__row",
+          "label": "Volume",
+          "labelClass": "floating-window__label",
+          "children": [
+            {
+              "block": "slider",
+              "modifier": "primary",
+              "size": "sm",
+              "props": { "value": 70 }
+            }
+          ]
+        },
+        {
+          "type": "row",
+          "className": "floating-window__row",
+          "label": "Concurrency",
+          "labelClass": "floating-window__label",
+          "children": [
+            {
+              "block": "stepper",
+              "modifier": "primary",
+              "size": "sm",
+              "props": { "value": 4 }
+            }
+          ]
+        },
+        {
+          "type": "row",
+          "className": "floating-window__row",
+          "children": [
+            {
+              "block": "button",
+              "modifier": "primary",
+              "size": "sm",
+              "text": "Save Settings",
+              "className": "floating-window__btn-full",
+              "action": "settings.save"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

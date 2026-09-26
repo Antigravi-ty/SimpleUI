@@ -1,0 +1,20 @@
+.ui-dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.ui-dropdown--open {
+  z-index: 100;
+}
+
+.ui-dropdown--dropup .ui-dropdown__menu {
+  top: auto;
+  bottom: calc(100% + var(--ui-space-1));
+}
+
+.ui-dropdown--align-left,
+.ui-dropdown--align-center,
+.ui-dropdown--align-right {
+  display: inline-block;
+}

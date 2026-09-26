@@ -1,0 +1,45 @@
+/* Selective Card Group & Layout Primitives */
+.ui-selective-group {
+  display: flex;
+  gap: var(--ui-space-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ui-selective-group--single {
+  /* Marker for single selection */
+}
+
+.ui-selective-group--auto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ui-space-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ui-selective-group--auto .ui-selective-card {
+  flex: 1 1 200px;
+  min-width: 170px;
+  max-width: 100%;
+}
+
+.ui-selective-group--balanced {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--ui-space-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .ui-selective-group--balanced {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  .ui-selective-group--balanced {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "$schema": "page-composition",
+  "id": "menu-view-network",
+  "title": "Network & Internet (Level 2)",
+  "className": "ui-drilldown__view is-hidden",
+  "children": [
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between menu-nav-bar",
+      "children": [
+        {
+          "block": "button",
+          "modifier": "ghost",
+          "size": "sm",
+          "text": "← All Settings",
+          "action": "menu.back_to_root"
+        },
+        { "text": "Network & Internet (L2)", "tag": "strong" }
+      ]
+    },
+    { "type": "box", "className": "ui-divider" },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between ui-menu__item",
+      "action": "menu.to_wifi",
+      "children": [
+        { "text": "Wi-Fi & Wireless", "tag": "span" },
+        {
+          "type": "row",
+          "className": "ui-stack--row",
+          "children": [
+            { "block": "badge", "modifier": "primary", "size": "sm", "text": "Office-5G" },
+            { "text": "›", "className": "ui-menu__arrow" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between ui-menu__item",
+      "label": "Hardware Ethernet",
+      "children": [
+        { "block": "badge", "modifier": "neutral", "size": "sm", "text": "Unplugged" }
+      ]
+    },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between ui-menu__item",
+      "label": "Global VPN Proxy",
+      "children": [
+        { "block": "toggler", "size": "sm", "modifier": "neutral" }
+      ]
+    },
+    {
+      "$ref": "menu/menu_wifi"
+    }
+  ]
+}

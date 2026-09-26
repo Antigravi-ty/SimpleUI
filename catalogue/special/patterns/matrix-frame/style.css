@@ -1,0 +1,145 @@
+/* Matrix Catalogue Staging Frame (.draft-sp-cata-matrix-frame) */
+.draft-sp-cata-matrix-frame,
+.sp-cata-matrix-frame {
+  margin-bottom: var(--ui-space-6);
+  width: 100%;
+  position: relative;
+  isolation: isolate;
+  z-index: 1;
+}
+
+.draft-sp-cata-matrix-frame .draft-ui-three-stage__content {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+}
+
+/* Header Categorical Filter Bar */
+.draft-sp-cata-matrix-frame__filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  padding: var(--ui-space-2) var(--ui-space-6);
+  background-color: var(--ui-color-neutral-50);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  font-size: var(--ui-font-xs);
+  flex-wrap: wrap;
+}
+
+.draft-sp-cata-matrix-frame__filter-label {
+  font-weight: var(--ui-weight-medium);
+  color: var(--ui-text-muted);
+}
+
+.draft-sp-cata-matrix-frame__filter-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+  flex-wrap: wrap;
+}
+
+.draft-sp-cata-matrix-frame__filter-item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-1);
+}
+
+.draft-sp-cata-matrix-frame__filter-count {
+  font-size: 10px;
+  font-weight: var(--ui-weight-semibold);
+  padding: 0 5px;
+  border-radius: var(--ui-radius-full);
+  background-color: var(--ui-color-neutral-200);
+  color: var(--ui-text-muted);
+  line-height: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 2D Matrix Table with Sticky Row Header Column */
+.draft-sp-cata-matrix-frame__table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.draft-sp-cata-matrix-frame__table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  font-size: var(--ui-font-xs);
+}
+
+.draft-sp-cata-matrix-frame__table th,
+.draft-sp-cata-matrix-frame__table td {
+  padding: var(--ui-space-3) var(--ui-space-4);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  border-right: 1px solid var(--ui-border-subtle);
+  vertical-align: middle;
+}
+
+.draft-sp-cata-matrix-frame__table th:last-child,
+.draft-sp-cata-matrix-frame__table td:last-child {
+  border-right: none;
+}
+
+.draft-sp-cata-matrix-frame__table tr:last-child td {
+  border-bottom: none;
+}
+
+.draft-sp-cata-matrix-frame__col-header {
+  background-color: var(--ui-color-neutral-50);
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-main);
+  text-align: center;
+  min-width: 120px;
+}
+
+/* Fixed left column: pinned at left: 0 so modifiers scroll underneath */
+.draft-sp-cata-matrix-frame__row-header {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  background-color: var(--ui-color-neutral-50);
+  font-weight: var(--ui-weight-semibold);
+  color: var(--ui-text-main);
+  white-space: nowrap;
+  width: 140px;
+  min-width: 140px;
+  box-shadow: 1px 0 0 var(--ui-border-subtle);
+}
+
+.draft-sp-cata-matrix-frame__cell {
+  text-align: center;
+  background-color: var(--ui-bg-surface);
+  min-width: 110px;
+}
+
+.draft-sp-cata-matrix-frame__slot-placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ui-space-2) var(--ui-space-3);
+  background-color: var(--ui-color-neutral-100);
+  border: 1px dashed var(--ui-border-subtle);
+  border-radius: var(--ui-radius-sm);
+  color: var(--ui-text-muted);
+  font-size: 11px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.draft-sp-cata-matrix-frame__col--hidden,
+.draft-sp-cata-matrix-frame__cell--hidden {
+  display: none !important;
+}
+
+.draft-sp-cata-matrix-frame:has(.ui-dropdown--open),
+.draft-sp-cata-matrix-frame:focus-within {
+  z-index: 20;
+}

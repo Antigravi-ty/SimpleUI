@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('simpleui-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleUI - Application Directory</title>
+  <link rel="stylesheet" href="/src/styles/index.css">
+  <style>
+    body {
+      background-color: var(--ui-bg-page);
+      color: var(--ui-text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      font-family: var(--ui-font-family-sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+      -webkit-font-smoothing: antialiased;
+    }
+    .portal-shell {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: var(--ui-space-12) var(--ui-space-6);
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .portal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--ui-space-8);
+      padding-bottom: var(--ui-space-4);
+      border-bottom: 1px solid var(--ui-border-subtle);
+    }
+    .portal-brand {
+      display: flex;
+      align-items: center;
+      gap: var(--ui-space-3);
+    }
+    .portal-brand__title {
+      font-size: var(--ui-font-2xl);
+      font-weight: var(--ui-weight-bold);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .portal-lead {
+      margin-bottom: var(--ui-space-8);
+    }
+    .portal-lead__title {
+      font-size: var(--ui-font-xl);
+      font-weight: var(--ui-weight-semibold);
+      margin: 0 0 var(--ui-space-2) 0;
+    }
+    .portal-lead__desc {
+      color: var(--ui-text-muted);
+      font-size: var(--ui-font-sm);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: var(--ui-space-5);
+    }
+    .portal-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--ui-bg-surface);
+      border: 1px solid var(--ui-border-subtle);
+      border-radius: var(--ui-radius-lg);
+      padding: var(--ui-space-6);
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--ui-shadow-sm);
+      transition: border-color var(--ui-motion-duration-fast, 150ms) ease,
+                  transform var(--ui-motion-duration-fast, 150ms) ease,
+                  box-shadow var(--ui-motion-duration-fast, 150ms) ease;
+    }
+    .portal-card:hover {
+      border-color: var(--ui-border-strong);
+      transform: translateY(-2px);
+      box-shadow: var(--ui-shadow-md);
+    }
+    .portal-card--primary {
+      border-left: 4px solid var(--ui-color-primary);
+    }
+    .portal-card--deprecated {
+      border-left: 4px solid var(--ui-color-danger);
+      opacity: 0.88;
+    }
+    .portal-card--deprecated:hover {
+      opacity: 1;
+    }
+    .portal-card__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--ui-space-3);
+    }
+    .portal-card__title {
+      font-size: var(--ui-font-lg);
+      font-weight: var(--ui-weight-semibold);
+      margin: 0;
+      color: var(--ui-text-main);
+    }
+    .portal-card__desc {
+      font-size: var(--ui-font-sm);
+      color: var(--ui-text-muted);
+      line-height: 1.55;
+      margin: 0 0 var(--ui-space-6) 0;
+      flex-grow: 1;
+    }
+    .portal-card__action {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--ui-space-1);
+      font-size: var(--ui-font-sm);
+      font-weight: var(--ui-weight-medium);
+      color: var(--ui-text-main);
+    }
+    .portal-theme-btn {
+      background: transparent;
+      border: 1px solid var(--ui-border-subtle);
+      border-radius: var(--ui-radius-md);
+      padding: var(--ui-space-2);
+      cursor: pointer;
+      color: var(--ui-text-main);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--ui-motion-duration-fast, 150ms) ease;
+    }
+    .portal-theme-btn:hover {
+      background: var(--ui-bg-subtle);
+    }
+  </style>
+</head>
+<body>
+  <div class="portal-shell">
+    <header class="portal-header">
+      <div class="portal-brand">
+        <h1 class="portal-brand__title">SimpleUI</h1>
+        <span class="ui-badge ui-badge--neutral ui-badge--sm ui-badge--pill">v2.1.0</span>
+      </div>
+      <button id="theme-toggle" class="portal-theme-btn" aria-label="Toggle Theme" title="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+    </header>
+
+    <div class="portal-lead">
+      <h2 class="portal-lead__title">Workspace Directory</h2>
+      <p class="portal-lead__desc">
+        Select an application workspace below. Showcase represents the legacy static implementation, while Catalogue is the brand-new, 100% schema-driven showcase SPA.
+      </p>
+    </div>
+
+    <div class="portal-grid">
+      <!-- Card 1: Showcase (Deprecated) -->
+      <a href="/showcase/components.html" class="portal-card portal-card--deprecated">
+        <div>
+          <div class="portal-card__top">
+            <h3 class="portal-card__title">Showcase</h3>
+            <span class="ui-badge ui-badge--danger-subtle ui-badge--sm">Deprecated</span>
+          </div>
+          <p class="portal-card__desc">
+            Legacy prototype wrongly implemented via static multi-page HTML and hardcoded DOM trees. Retained temporarily for backward reference and regression inspection.
+          </p>
+        </div>
+        <div class="portal-card__action">
+          <span>Launch Legacy Showcase</span>
+          <span>↗</span>
+        </div>
+      </a>
+
+      <!-- Card 2: Catalogue (Under Construction) -->
+      <a href="/catalogue/index.html" class="portal-card portal-card--primary">
+        <div>
+          <div class="portal-card__top">
+            <h3 class="portal-card__title">Catalogue</h3>
+            <span class="ui-badge ui-badge--primary-subtle ui-badge--sm">Under Construction</span>
+          </div>
+          <p class="portal-card__desc">
+            Brand-new, 100% declarative Schema-driven SPA powered by PageComposer, reactive Store, and dynamic JSON composition. Built from the ground up to validate the architecture.
+          </p>
+        </div>
+        <div class="portal-card__action">
+          <span>Launch Schema Catalogue</span>
+          <span>→</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const themeBtn = document.getElementById('theme-toggle');
+    themeBtn?.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('simpleui-theme', next);
+    });
+  </script>
+</body>
+</html>

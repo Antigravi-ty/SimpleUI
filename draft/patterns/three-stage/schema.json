@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-pattern-three-stage",
+  "name": "three-stage-container",
+  "prefix": "draft-ui-three-stage",
+  "category": "pattern",
+  "status": "draft",
+  "description": "Apple HIG 3-stage structural pattern isolating Header, Content, and optional Footer into decoupled slots.",
+  "slots": {
+    "header": {
+      "type": "node",
+      "description": "Header slot"
+    },
+    "content": {
+      "type": "node",
+      "description": "Content / body slot"
+    },
+    "footer": {
+      "type": "node",
+      "description": "Optional footer slot"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.ui-dropdown__arrow {
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.ui-dropdown--open .ui-dropdown__arrow {
+  transform: rotate(180deg);
+}

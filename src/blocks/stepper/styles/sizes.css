@@ -1,0 +1,47 @@
+.ui-stepper--sm {
+  height: var(--ui-stepper-height-sm);
+}
+.ui-stepper--sm .ui-stepper__btn {
+  width: var(--ui-stepper-btn-width-sm);
+  height: var(--ui-stepper-height-sm);
+  font-size: var(--ui-font-xs);
+}
+.ui-stepper--sm .ui-stepper__val {
+  min-width: var(--ui-stepper-input-width-sm);
+  height: var(--ui-stepper-height-sm);
+  font-size: var(--ui-font-xs);
+  padding: 0 var(--ui-space-1);
+}
+.ui-stepper--editable.ui-stepper--sm .ui-stepper__btn {
+  width: var(--ui-stepper-height-sm);
+  height: var(--ui-stepper-height-sm);
+}
+.ui-stepper--editable.ui-stepper--sm .ui-stepper__input {
+  width: 44px;
+  height: var(--ui-stepper-height-sm);
+  font-size: var(--ui-font-xs);
+}
+
+.ui-stepper--md {
+  height: var(--ui-stepper-height-md);
+}
+.ui-stepper--md .ui-stepper__btn {
+  width: var(--ui-stepper-btn-width-md);
+  height: var(--ui-stepper-height-md);
+  font-size: var(--ui-font-sm);
+}
+.ui-stepper--md .ui-stepper__val {
+  min-width: var(--ui-stepper-input-width-md);
+  height: var(--ui-stepper-height-md);
+  font-size: var(--ui-font-xs);
+  padding: 0 var(--ui-space-2);
+}
+.ui-stepper--editable.ui-stepper--md .ui-stepper__btn {
+  width: var(--ui-stepper-height-md);
+  height: var(--ui-stepper-height-md);
+}
+.ui-stepper--editable.ui-stepper--md .ui-stepper__input {
+  width: 52px;
+  height: var(--ui-stepper-height-md);
+  font-size: var(--ui-font-sm);
+}

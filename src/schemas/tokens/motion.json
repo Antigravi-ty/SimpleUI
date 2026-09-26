@@ -1,0 +1,11 @@
+{
+  "$schema": "token",
+  "category": "motion",
+  "tokens": {
+    "motion-fade-duration": { "variable": "--ui-motion-fade-duration", "value": "100ms" },
+    "motion-resize-duration": { "variable": "--ui-motion-resize-duration", "value": "150ms" },
+    "motion-ease-apple": { "variable": "--ui-motion-ease-apple", "value": "cubic-bezier(0.2, 0.8, 0.25, 1)" },
+    "motion-fade-easing": { "variable": "--ui-motion-fade-easing", "value": "ease-in-out" },
+    "motion-indeterminate-duration": { "variable": "--ui-motion-indeterminate-duration", "value": "1.6s" }
+  }
+}

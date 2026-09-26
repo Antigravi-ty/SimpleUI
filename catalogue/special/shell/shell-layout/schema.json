@@ -1,0 +1,117 @@
+{
+  "$schema": "page-composition",
+  "id": "special-catalogue-shell-layout",
+  "title": "Catalogue Shell Layout",
+  "className": "sp-cata-shell app-shell",
+  "children": [
+    {
+      "type": "container",
+      "id": "sp-cata-header",
+      "className": "sp-cata-header app-header",
+      "children": [
+        {
+          "type": "row",
+          "className": "sp-cata-header__brand app-header__brand",
+          "children": [
+            {
+              "type": "box",
+              "id": "sp-cata-brand-link",
+              "tag": "a",
+              "className": "sp-cata-header__logo-group",
+              "action": "nav.to_root",
+              "attributes": {
+                "href": "/"
+              },
+              "children": [
+                { "text": "SimpleUI", "tag": "span", "className": "sp-cata-header__title app-header__title" },
+                { "block": "badge", "modifier": "neutral", "size": "sm", "className": "ui-badge--pill", "text": "v2.1.0" }
+              ]
+            },
+            {
+              "block": "button",
+              "id": "sp-cata-theme-toggle",
+              "modifier": "ghost",
+              "size": "sm",
+              "element": "icon-only",
+              "className": "sp-cata-header__theme-toggle app-header__theme-toggle",
+              "text": "◐",
+              "ariaLabel": "Toggle Theme",
+              "attributes": {
+                "title": "Toggle Theme"
+              }
+            }
+          ]
+        },
+        {
+          "type": "row",
+          "className": "sp-cata-header__actions app-header__actions",
+          "children": [
+            {
+              "block": "button",
+              "id": "sp-cata-safe-area-toggle",
+              "size": "sm",
+              "modifier": "neutral",
+              "className": "sp-cata-header__safe-area-btn app-header__safe-area-btn",
+              "text": "Safe Area",
+              "ariaLabel": "Toggle Safe Area Overlay",
+              "attributes": {
+                "title": "Toggle Safe Area Overlay"
+              }
+            },
+            {
+              "type": "box",
+              "className": "sp-cata-header__scale-box app-header__scale-control",
+              "attributes": {
+                "title": "UI Scale (25% - 200%)"
+              },
+              "children": [
+                { "text": "Scale", "tag": "span", "className": "sp-cata-header__scale-label app-header__scale-label" },
+                {
+                  "block": "slider",
+                  "id": "sp-cata-scale-slider",
+                  "size": "sm",
+                  "modifier": "neutral",
+                  "className": "sp-cata-header__scale-slider app-header__scale-slider",
+                  "ariaLabel": "UI Scale",
+                  "attributes": {
+                    "data-unit": "%"
+                  },
+                  "props": {
+                    "min": 25,
+                    "max": 200,
+                    "step": 1,
+                    "value": 100
+                  }
+                }
+              ]
+            },
+            {
+              "block": "dropdown",
+              "id": "sp-cata-nav-dropdown",
+              "size": "md",
+              "modifier": "neutral",
+              "className": "sp-cata-nav-dropdown app-nav-dropdown"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "id": "sp-cata-body",
+      "className": "sp-cata-body app-body",
+      "children": [
+        {
+          "type": "container",
+          "id": "sp-cata-sidebar",
+          "className": "sp-cata-sidebar app-sidebar"
+        },
+        {
+          "type": "container",
+          "id": "sp-cata-content",
+          "className": "sp-cata-content app-content"
+        }
+      ]
+    }
+  ]
+}

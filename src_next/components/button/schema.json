@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "button",
+  "prefix": "ui-btn",
+  "description": "Interactive push-button supporting variants, sizes, and states",
+  "sizes": ["sm", "md", "lg"],
+  "defaultSize": "md",
+  "props": {
+    "type": { "type": "string", "enum": ["button", "submit", "reset"], "default": "button" },
+    "disabled": { "type": "boolean", "default": false },
+    "ariaLabel": { "type": "string", "default": "" }
+  },
+  "events": ["click", "focus", "blur"],
+  "modifiers": [
+    "neutral",
+    "outline",
+    "ghost",
+    "primary",
+    "primary-subtle",
+    "success",
+    "success-subtle",
+    "warning",
+    "warning-subtle",
+    "danger",
+    "danger-subtle",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": { "attributes": "disabled", "aria-disabled": "true" }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "defaultText": "Action",
+      "template": "<button type=\"button\" class=\"{classes}\" {attributes}>{slot:default}</button>"
+    },
+    {
+      "name": "icon-only",
+      "label": "Icon Only",
+      "selector": "--icon-only",
+      "defaultText": "★",
+      "ariaLabel": "Star",
+      "template": "<button type=\"button\" class=\"{classes}\" {attributes} aria-label=\"{ariaLabel}\">{slot:default}</button>"
+    }
+  ]
+}

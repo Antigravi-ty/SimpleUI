@@ -1,0 +1,55 @@
+{
+  "$schema": "page-composition",
+  "id": "menu-view-wifi",
+  "title": "Wi-Fi Networks (Level 3)",
+  "className": "ui-drilldown__view is-hidden",
+  "children": [
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between menu-nav-bar",
+      "children": [
+        {
+          "block": "button",
+          "modifier": "ghost",
+          "size": "sm",
+          "text": "← Network",
+          "action": "menu.back_to_network"
+        },
+        { "text": "Wi-Fi Networks (L3)", "tag": "strong" }
+      ]
+    },
+    { "type": "box", "className": "ui-divider" },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between ui-menu__item",
+      "label": "Wi-Fi Radio",
+      "children": [
+        {
+          "block": "toggler",
+          "size": "sm",
+          "modifier": "checked",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between ui-menu__item",
+      "action": "menu.to_wifi_advanced",
+      "children": [
+        { "text": "Office-5G (Active)", "tag": "span" },
+        {
+          "type": "row",
+          "className": "ui-stack--row",
+          "children": [
+            { "block": "badge", "modifier": "success", "size": "sm", "text": "Connected" },
+            { "text": "›", "className": "ui-menu__arrow" }
+          ]
+        }
+      ]
+    },
+    {
+      "$ref": "menu/menu_wifi_advanced"
+    }
+  ]
+}
