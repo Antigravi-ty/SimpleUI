@@ -140,3 +140,32 @@ This document outlines core intended architectural and behavioral contracts acro
 - **Rationale & Intent**:
   - In a design system showcase, arbitrary marketing copy creates chromatic and cognitive noise.
   - Enforcing either **Universal System Actions** or **Neutral Semantic Slots** allows developers, reviewers, and AI agents to instantly identify which file, element, or slot governs a particular visual defect without navigating domain distractions.
+
+---
+
+## 13. Shell Scale Immunity Invariant (外壳缩放豁免准则)
+
+- **Specification**:
+  - The application shell layout establishes a strict physical separation of scaling contexts:
+    1. **Shell Immunity (外壳豁免)**: The outermost application frame (`.sp-cata-shell`), including the canonical 56px Header (`.sp-cata-header`), 240px Sidebar (`.sp-cata-sidebar`), and the Safe Area HUD telemetry overlay (`#ui-safe-area-hud`), is strictly immune to UI scale factor zoom (`scale = 1.0` / `zoom = 1.0`). Under no circumstance may dynamic zoom be injected onto the top-level shell or root body.
+    2. **Content Subjection (内容缩放从属)**: All stage cards, components, and nested content reside exclusively inside `.sp-cata-content`, which is the sole recipient of dynamic canvas scaling (`style.zoom = m.scaleFactor`).
+    3. **Nested Staging Subjection (嵌套展台画中画从属)**: When demonstrating an application shell inside a staging card (e.g., Catalogue Shell Layout within the Special page), that nested shell is rendered as content child of `.sp-cata-content` and thus naturally scales proportionally, producing an authentic picture-in-picture preview without disturbing the outer host shell.
+- **Rationale & Invariant Contract**:
+  - Global zoom on top-level navigation destroys human-computer interaction by making control targets either uncomfortably small or illegibly cropped. Shell immunity guarantees 100% legibility and physical accessibility regardless of viewport size or user scale slider values.
+
+---
+
+## 14. Fluid Safe Area Typography & em Tracking Specification (基于 Safe Area 宽度的流体排版与 em 字距规范)
+
+- **Specification**:
+  - **Dynamic Tracking via em Units**: In alignment with Apple Human Interface Guidelines typography principles, letter spacing (tracking) is strictly defined in relative `em` units rather than static points (`pt`) or pixels (`px`):
+    - **Large Title (`.ui-title-1`)**: `--ui-font-xl` (1.25rem), weight 700, tracking `var(--ui-tracking-tighter)` (`-0.022em`), leading 1.25. (Negative tracking prevents wide titles from visually fracturing).
+    - **Title 2 / Frame Title (`.ui-title-2`)**: `--ui-font-lg` (1.00rem), weight 600, tracking `var(--ui-tracking-tight)` (`-0.015em`), leading 1.35.
+    - **Headline (`.ui-headline`)**: `--ui-font-base` (0.875rem), weight 600, tracking `var(--ui-tracking-snug)` (`-0.008em`), leading 1.4.
+    - **Body (`.ui-body`)**: `--ui-font-sm` (0.8125rem), weight 400, tracking `var(--ui-tracking-normal)` (`0em`), leading 1.5.
+    - **Caption (`.ui-caption`)**: `--ui-font-xs` (0.75rem), weight 400, tracking `var(--ui-tracking-wide)` (`+0.018em`), leading 1.4. (Positive tracking ensures stroke legibility as font size decreases).
+    - **Micro (`.ui-micro`)**: `--ui-font-2xs` (0.625rem / 10px), weight 500, tracking `var(--ui-tracking-wider)` (`+0.045em`), leading 1.
+  - **Mathematical Self-Scaling Law**:
+    Because $1\text{em} \equiv \text{computed element font-size}$, defining tracking in `em` causes the physical letter spacing $L = \text{Tracking}(em) \times \text{Font Size}(rem \times \text{Zoom})$ to automatically scale in continuous geometric proportion with the Safe Area width $W_{\text{render}}$ and UI ScaleFactor without any JavaScript resize handlers.
+  - **Tabular Numerals (`.ui-tabular-nums`)**:
+    All telemetry readouts, slider values, stepper values, progress bar percentages, and counter badges must enforce `font-variant-numeric: tabular-nums` to eliminate layout jitter caused by variable digit widths.

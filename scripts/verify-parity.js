@@ -123,6 +123,21 @@ if (fs.existsSync(CATA_SPECIAL)) {
   fail("catalogue/special/ directory missing!");
 }
 
+// 3.5 Check Fluid Typography Standard
+const TYPO_FILE = path.join(ROOT, 'src_next/styles/typography.css');
+if (fs.existsSync(TYPO_FILE)) {
+  const typoContent = fs.readFileSync(TYPO_FILE, 'utf8');
+  const requiredClasses = ['.ui-title-1', '.ui-title-2', '.ui-headline', '.ui-body', '.ui-caption', '.ui-micro', '.ui-tabular-nums'];
+  const allPresent = requiredClasses.every(cls => typoContent.includes(cls));
+  if (allPresent) {
+    pass('Fluid Typography classes (.ui-title-1 ~ .ui-micro, .ui-tabular-nums) verified in src_next/styles/typography.css.');
+  } else {
+    fail('Missing required typography classes in src_next/styles/typography.css!');
+  }
+} else {
+  fail('src_next/styles/typography.css missing!');
+}
+
 // 4. Check showcase/ Read-Only Integrity (Must remain untouched)
 const SHOWCASE_DIR = path.join(ROOT, 'showcase');
 if (fs.existsSync(SHOWCASE_DIR)) {

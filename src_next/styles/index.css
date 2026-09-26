@@ -1,4 +1,5 @@
 @import '../tokens/index.css';
+@import './typography.css';
 @import './layout.css';
 @import './motion.css';
 @import './viewport.css';
