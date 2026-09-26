@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-primitive-center-placeholder",
+  "name": "center-placeholder",
+  "prefix": "draft-ui-center-placeholder",
+  "category": "primitive",
+  "status": "draft",
+  "description": "Centered staging placeholder primitive providing neutral surface and subtle borders for layout staging.",
+  "tokens": {
+    "radius": "var(--ui-radius-md)",
+    "surface": "var(--ui-bg-surface)",
+    "border": "1px solid var(--ui-border-subtle)",
+    "padding": "var(--ui-space-3) var(--ui-space-4)"
+  }
+}

@@ -3,6 +3,7 @@
 @import '../../draft/primitives/container/styles/index.css';
 @import '../../draft/primitives/stack/styles/index.css';
 @import '../../draft/primitives/row/styles/index.css';
+@import '../../draft/primitives/center-placeholder/styles/index.css';
 @import '../../draft/patterns/three-stage/styles/index.css';
 @import '../special/shell/shell-layout/style.css';
 @import '../special/primitives/preview-card/style.css';
@@ -26,12 +27,13 @@
   margin: 0 0 var(--ui-space-2) 0;
   font-size: var(--ui-font-xl);
   font-weight: var(--ui-weight-bold);
-  letter-spacing: -0.02em;
+  letter-spacing: var(--ui-tracking-tighter);
   color: var(--ui-text-main);
 }
 .sp-cata-banner__desc {
   margin: 0;
   font-size: var(--ui-font-sm);
   color: var(--ui-text-muted);
-  line-height: 1.6;
+  line-height: var(--ui-leading-relaxed);
+  letter-spacing: var(--ui-tracking-normal);
 }
