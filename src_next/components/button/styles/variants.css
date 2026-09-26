@@ -1,52 +1,112 @@
-/* Neutral, Outline, Ghost (Primary choices in SimpleUI) */
+/* Neutral, Outline, Ghost */
 .ui-btn--neutral {
-  background-color: var(--ui-color-neutral-100);
-  color: var(--ui-text-main);
-  border-color: var(--ui-border-subtle);
+  --_btn-bg: var(--ui-color-neutral-100);
+  --_btn-color: var(--ui-text-main);
+  --_btn-border: var(--ui-border-subtle);
 }
 .ui-btn--neutral:hover:not(:disabled) {
-  background-color: var(--ui-color-neutral-200);
+  --_btn-bg: var(--ui-color-neutral-200);
 }
 
 .ui-btn--outline {
-  background-color: transparent;
-  color: var(--ui-text-main);
-  border-color: var(--ui-border-strong);
+  --_btn-bg: transparent;
+  --_btn-color: var(--ui-text-main);
+  --_btn-border: var(--ui-border-strong);
 }
 .ui-btn--outline:hover:not(:disabled),
 .ui-btn--ghost:hover:not(:disabled) {
-  background-color: var(--ui-color-neutral-100);
+  --_btn-bg: var(--ui-color-neutral-100);
 }
 
 .ui-btn--ghost {
-  background-color: transparent;
-  color: var(--ui-text-main);
+  --_btn-bg: transparent;
+  --_btn-color: var(--ui-text-main);
+  --_btn-border: transparent;
 }
 
-/* Filled Chromatic Styles */
-.ui-btn--primary { background-color: var(--ui-color-primary); color: var(--ui-color-primary-contrast); }
-.ui-btn--primary:hover:not(:disabled) { background-color: var(--ui-color-primary-hover); }
-.ui-btn--success { background-color: var(--ui-color-success); color: var(--ui-color-success-contrast); }
-.ui-btn--success:hover:not(:disabled) { background-color: var(--ui-color-success-hover); }
-.ui-btn--warning { background-color: var(--ui-color-warning); color: var(--ui-color-warning-contrast); }
-.ui-btn--warning:hover:not(:disabled) { background-color: var(--ui-color-warning-hover); }
-.ui-btn--danger { background-color: var(--ui-color-danger); color: var(--ui-color-danger-contrast); }
-.ui-btn--danger:hover:not(:disabled) { background-color: var(--ui-color-danger-hover); }
+/* Filled Solid Styles */
+.ui-btn--primary {
+  --_btn-bg: var(--ui-color-primary);
+  --_btn-color: var(--ui-color-primary-contrast);
+  --_btn-border: transparent;
+}
+.ui-btn--primary:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-primary-hover);
+}
+
+.ui-btn--success {
+  --_btn-bg: var(--ui-color-success);
+  --_btn-color: var(--ui-color-success-contrast);
+  --_btn-border: transparent;
+}
+.ui-btn--success:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-success-hover);
+}
+
+.ui-btn--warning {
+  --_btn-bg: var(--ui-color-warning);
+  --_btn-color: var(--ui-color-warning-contrast);
+  --_btn-border: transparent;
+}
+.ui-btn--warning:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-warning-hover);
+}
+
+.ui-btn--danger {
+  --_btn-bg: var(--ui-color-danger);
+  --_btn-color: var(--ui-color-danger-contrast);
+  --_btn-border: transparent;
+}
+.ui-btn--danger:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-danger-hover);
+}
 
 /* Subtle (Tinted) Styles - Apple HIG Tinted Specification */
-.ui-btn--primary-subtle { background-color: var(--ui-color-primary-subtle); color: var(--ui-color-primary); }
-.ui-btn--primary-subtle:hover:not(:disabled) { background-color: var(--ui-color-primary); color: var(--ui-color-primary-contrast); }
-.ui-btn--success-subtle { background-color: var(--ui-color-success-subtle); color: var(--ui-color-success); }
-.ui-btn--success-subtle:hover:not(:disabled) { background-color: var(--ui-color-success); color: var(--ui-color-success-contrast); }
-.ui-btn--warning-subtle { background-color: var(--ui-color-warning-subtle); color: var(--ui-color-warning); }
-.ui-btn--warning-subtle:hover:not(:disabled) { background-color: var(--ui-color-warning); color: var(--ui-color-warning-contrast); }
-.ui-btn--danger-subtle { background-color: var(--ui-color-danger-subtle); color: var(--ui-color-danger); }
-.ui-btn--danger-subtle:hover:not(:disabled) { background-color: var(--ui-color-danger); color: var(--ui-color-danger-contrast); }
+.ui-btn--primary-subtle {
+  --_btn-bg: var(--ui-color-primary-subtle);
+  --_btn-color: var(--ui-color-primary);
+  --_btn-border: transparent;
+}
+.ui-btn--primary-subtle:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-primary);
+  --_btn-color: var(--ui-color-primary-contrast);
+}
 
-/* Disabled State */
-.ui-btn--disabled,
-.ui-btn:disabled {
-  opacity: 0.5;
+.ui-btn--success-subtle {
+  --_btn-bg: var(--ui-color-success-subtle);
+  --_btn-color: var(--ui-color-success);
+  --_btn-border: transparent;
+}
+.ui-btn--success-subtle:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-success);
+  --_btn-color: var(--ui-color-success-contrast);
+}
+
+.ui-btn--warning-subtle {
+  --_btn-bg: var(--ui-color-warning-subtle);
+  --_btn-color: var(--ui-color-warning);
+  --_btn-border: transparent;
+}
+.ui-btn--warning-subtle:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-warning);
+  --_btn-color: var(--ui-color-warning-contrast);
+}
+
+.ui-btn--danger-subtle {
+  --_btn-bg: var(--ui-color-danger-subtle);
+  --_btn-color: var(--ui-color-danger);
+  --_btn-border: transparent;
+}
+.ui-btn--danger-subtle:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-danger);
+  --_btn-color: var(--ui-color-danger-contrast);
+}
+
+/* Disabled State: Orthogonal to variant and size */
+.ui-btn:disabled,
+.ui-btn[aria-disabled="true"],
+.ui-btn--disabled {
+  opacity: 0.45;
   cursor: not-allowed;
   pointer-events: none;
 }

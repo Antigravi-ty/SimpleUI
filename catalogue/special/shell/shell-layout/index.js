@@ -51,7 +51,7 @@ export class CatalogueShellLayout {
 
     const sidebar = this.root.querySelector('.sp-cata-sidebar, #sp-cata-sidebar');
     if (sidebar) {
-      this.renderSidebar(sidebar);
+      this.renderSidebar(sidebar, this.sidebarItems || {});
     }
 
     // When embedded in a container, delegate anchor clicks to prevent page jumps
@@ -246,7 +246,8 @@ export class CatalogueShellLayout {
     initDropdown(dropdown);
   }
 
-  setActivePage(pageId) {
+  setActivePage(pageId, sidebarItems) {
+    if (sidebarItems) this.sidebarItems = sidebarItems;
     let normalized = pageId;
     if (pageId === 'specials' || pageId === 'special') normalized = 'specials';
     if (pageId === 'patterns' || pageId === 'structural_patterns' || pageId === 'structural-patterns') normalized = 'patterns';

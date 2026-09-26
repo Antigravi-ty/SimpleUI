@@ -1,0 +1,30 @@
+{
+  "$schema": "modifier-classification-v1",
+  "categories": {
+    "neutral": {
+      "id": "neutral",
+      "label": "Neutral",
+      "modifiers": ["neutral", "white", "black"]
+    },
+    "outline": {
+      "id": "outline",
+      "label": "Outline",
+      "modifiers": ["outline", "ghost"]
+    },
+    "solid": {
+      "id": "solid",
+      "label": "Solid Fill",
+      "modifiers": ["primary", "success", "warning", "danger"]
+    },
+    "subtle": {
+      "id": "subtle",
+      "label": "Subtle Tint",
+      "modifiers": ["primary-subtle", "success-subtle", "warning-subtle", "danger-subtle"]
+    },
+    "state": {
+      "id": "state",
+      "label": "State",
+      "modifiers": ["disabled", "checked", "selected", "indeterminate"]
+    }
+  }
+}
