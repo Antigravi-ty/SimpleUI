@@ -29,7 +29,7 @@ function walk(dir, fileList = []) {
 
 // 1. Token Pipeline Synchronization Check
 const SCHEMAS_TOKENS = path.join(ROOT, 'src/schemas/tokens');
-const TOKENS_DIR = path.join(ROOT, 'src/tokens');
+const TOKENS_DIR = path.join(ROOT, 'src_next/tokens');
 
 if (fs.existsSync(SCHEMAS_TOKENS)) {
   const tokenFiles = fs.readdirSync(SCHEMAS_TOKENS).filter(f => f.endsWith('.json'));
@@ -41,7 +41,7 @@ if (fs.existsSync(SCHEMAS_TOKENS)) {
     const cssFile = path.join(TOKENS_DIR, `${category}.css`);
 
     if (!fs.existsSync(cssFile)) {
-      fail(`CSS token file missing: src/tokens/${category}.css`);
+      fail(`CSS token file missing: src_next/tokens/${category}.css`);
       continue;
     }
     const cssContent = fs.readFileSync(cssFile, 'utf-8');
@@ -49,7 +49,7 @@ if (fs.existsSync(SCHEMAS_TOKENS)) {
       totalTokens++;
       const varName = data.variable || `--ui-${category}-${key}`;
       if (!cssContent.includes(varName)) {
-        fail(`Token variable '${varName}' from ${file} missing in src/tokens/${category}.css`);
+        fail(`Token variable '${varName}' from ${file} missing in src_next/tokens/${category}.css`);
       }
     }
   }

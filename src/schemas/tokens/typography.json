@@ -2,6 +2,7 @@
   "$schema": "token",
   "category": "typography",
   "tokens": {
+    "font-2xs": { "variable": "--ui-font-2xs", "value": "0.625rem" },
     "font-xs": { "variable": "--ui-font-xs", "value": "0.75rem" },
     "font-sm": { "variable": "--ui-font-sm", "value": "0.8125rem" },
     "font-base": { "variable": "--ui-font-base", "value": "0.875rem" },
@@ -10,6 +11,17 @@
     "weight-normal": { "variable": "--ui-weight-normal", "value": "400" },
     "weight-medium": { "variable": "--ui-weight-medium", "value": "500" },
     "weight-semibold": { "variable": "--ui-weight-semibold", "value": "600" },
-    "weight-bold": { "variable": "--ui-weight-bold", "value": "700" }
+    "weight-bold": { "variable": "--ui-weight-bold", "value": "700" },
+    "tracking-tighter": { "variable": "--ui-tracking-tighter", "value": "-0.022em" },
+    "tracking-tight": { "variable": "--ui-tracking-tight", "value": "-0.015em" },
+    "tracking-snug": { "variable": "--ui-tracking-snug", "value": "-0.008em" },
+    "tracking-normal": { "variable": "--ui-tracking-normal", "value": "0em" },
+    "tracking-wide": { "variable": "--ui-tracking-wide", "value": "+0.018em" },
+    "tracking-wider": { "variable": "--ui-tracking-wider", "value": "+0.045em" },
+    "leading-none": { "variable": "--ui-leading-none", "value": "1" },
+    "leading-tight": { "variable": "--ui-leading-tight", "value": "1.25" },
+    "leading-snug": { "variable": "--ui-leading-snug", "value": "1.35" },
+    "leading-normal": { "variable": "--ui-leading-normal", "value": "1.4" },
+    "leading-relaxed": { "variable": "--ui-leading-relaxed", "value": "1.5" }
   }
 }

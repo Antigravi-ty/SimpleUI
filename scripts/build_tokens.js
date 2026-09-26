@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const SCHEMAS_TOKENS_DIR = path.join(ROOT, 'src/schemas/tokens');
-const TOKENS_DIR = path.join(ROOT, 'src/tokens');
+const TOKENS_DIR = path.join(ROOT, 'src_next/tokens');
 
 function compile() {
   if (!fs.existsSync(TOKENS_DIR)) {
@@ -43,16 +43,16 @@ function compile() {
 
     fs.writeFileSync(path.join(TOKENS_DIR, outCssFile), css, 'utf-8');
     importedFiles.push(outCssFile);
-    console.log(`Compiled ${file} -> src/tokens/${outCssFile}`);
+    console.log(`Compiled ${file} -> src_next/tokens/${outCssFile}`);
   }
 
   // Generate index.css
-  let indexCss = `/* SimpleUI Design Tokens Aggregator */\n`;
+  let indexCss = `/* SimpleUI Design Tokens Aggregator (Source Next) */\n`;
   for (const imp of importedFiles) {
     indexCss += `@import './${imp}';\n`;
   }
   fs.writeFileSync(path.join(TOKENS_DIR, 'index.css'), indexCss, 'utf-8');
-  console.log(`Generated src/tokens/index.css`);
+  console.log(`Generated src_next/tokens/index.css`);
 }
 
 compile();
