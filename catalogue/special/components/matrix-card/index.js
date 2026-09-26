@@ -3,8 +3,8 @@ import modifierCategories from '../../../schemas/modifier-categories.json';
 
 /**
  * renderMatrixCard - Automated 2D size x modifier matrix card.
- * Dynamically resolves sample elements from blockSchema.elements[0].template,
- * validating all modifiers against the catalogue modifier classification dictionary.
+ * Dynamically resolves all modifiers from blockSchema.modifiers, validating against
+ * catalogue/schemas/modifier-categories.json, rendering all columns and category filters.
  */
 export function renderMatrixCard(blockSchema) {
   const card = document.createElement('div');
@@ -30,23 +30,29 @@ export function renderMatrixCard(blockSchema) {
     }
   }
 
-  // 2. Discover active categories present in this component
-  const activeCategories = new Set();
+  // 2. Discover active categories present in this component with item counts
+  const categoryCounts = new Map();
   for (const mod of schemaModifiers) {
-    const cat = modToCategory.get(mod);
-    if (cat) activeCategories.add(cat);
+    const catId = modToCategory.get(mod);
+    if (catId) {
+      categoryCounts.set(catId, (categoryCounts.get(catId) || 0) + 1);
+    }
+  }
+
+  const activeCategories = [];
+  for (const [catId, catDef] of Object.entries(modifierCategories.categories)) {
+    const count = categoryCounts.get(catId);
+    if (count) {
+      activeCategories.push({
+        id: catId,
+        label: `${catDef.label} (${count})`
+      });
+    }
   }
 
   // 3. Construct Matrix Header & Categorical Modifier Filter Bar
   const header = document.createElement('div');
   header.className = 'sp-cata-matrix-card__header';
-
-  const filterItems = [
-    { id: 'neutral', label: 'Neutral' },
-    { id: 'outline', label: 'Outline' },
-    { id: 'primary', label: 'Primary' },
-    { id: 'disabled', label: 'Disabled' }
-  ];
 
   header.innerHTML = `
     <div class="sp-cata-matrix-card__info">
@@ -64,39 +70,40 @@ export function renderMatrixCard(blockSchema) {
     </div>
     <div class="sp-cata-matrix-card__filter-bar">
       <span class="sp-cata-matrix-card__filter-label">Appearance:</span>
-      ${filterItems.map(item => `
+      ${activeCategories.map(cat => `
         <label class="ui-checkbox ui-checkbox--sm ui-checkbox--neutral ui-checkbox--checked">
-          <input type="checkbox" class="ui-checkbox__input" checked data-filter-mod="${item.id}">
+          <input type="checkbox" class="ui-checkbox__input" checked data-filter-category="${cat.id}">
           <span class="ui-checkbox__box"><svg class="ui-checkbox__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></span>
-          <span class="ui-checkbox__label">${item.label}</span>
+          <span class="ui-checkbox__label">${cat.label}</span>
         </label>
       `).join('')}
     </div>
   `;
   card.appendChild(header);
 
-  // 4. Construct Table Matrix
+  // 4. Construct Table Matrix: ALL modifiers from schema are rendered as columns!
   const tableWrapper = document.createElement('div');
   tableWrapper.className = 'sp-cata-matrix-card__table-wrapper';
   const table = document.createElement('table');
   table.className = 'sp-cata-matrix-card__table';
 
-  const modifiers = ['neutral', 'outline', 'primary', 'disabled'];
   const sizes = blockSchema.sizes || ['sm', 'md', 'lg'];
 
-  // thead
-  let theadHtml = `<thead><tr><th class="sp-cata-matrix-card__row-header">Size \\ Variant</th>`;
-  for (const mod of modifiers) {
-    theadHtml += `<th data-col-mod="${mod}">${mod.charAt(0).toUpperCase() + mod.slice(1)}</th>`;
+  // thead: all 12 modifiers
+  let theadHtml = `<thead><tr><th class="sp-cata-matrix-card__row-header">Size \\ Modifier</th>`;
+  for (const mod of schemaModifiers) {
+    const catId = modToCategory.get(mod) || 'unknown';
+    theadHtml += `<th data-col-mod="${mod}" data-col-category="${catId}"><span>${mod}</span></th>`;
   }
   theadHtml += `</tr></thead>`;
 
-  // tbody
+  // tbody: all sizes x all modifiers
   let tbodyHtml = `<tbody>`;
   for (const size of sizes) {
     tbodyHtml += `<tr><td class="sp-cata-matrix-card__row-header"><strong>${size.toUpperCase()}</strong></td>`;
-    for (const mod of modifiers) {
-      tbodyHtml += `<td class="sp-cata-matrix-card__cell" data-col-mod="${mod}">
+    for (const mod of schemaModifiers) {
+      const catId = modToCategory.get(mod) || 'unknown';
+      tbodyHtml += `<td class="sp-cata-matrix-card__cell" data-col-mod="${mod}" data-col-category="${catId}">
         ${renderSampleElement(blockSchema, size, mod)}
       </td>`;
     }
@@ -108,14 +115,15 @@ export function renderMatrixCard(blockSchema) {
   tableWrapper.appendChild(table);
   card.appendChild(tableWrapper);
 
-  // 5. Wire filter bar interactions
-  card.querySelectorAll('[data-filter-mod]').forEach(checkbox => {
+  // 5. Wire category filter interactions: toggling a category toggles all modifiers in it
+  card.querySelectorAll('[data-filter-category]').forEach(checkbox => {
     checkbox.addEventListener('change', () => {
-      const mod = checkbox.dataset.filterMod;
-      const th = table.querySelector(`thead th[data-col-mod="${mod}"]`);
-      if (th) th.style.display = checkbox.checked ? '' : 'none';
-      table.querySelectorAll(`tbody td[data-col-mod="${mod}"]`).forEach(td => {
-        td.style.display = checkbox.checked ? '' : 'none';
+      const catId = checkbox.dataset.filterCategory;
+      const isChecked = checkbox.checked;
+      checkbox.closest('.ui-checkbox').classList.toggle('ui-checkbox--checked', isChecked);
+
+      table.querySelectorAll(`[data-col-category="${catId}"]`).forEach(cell => {
+        cell.style.display = isChecked ? '' : 'none';
       });
     });
   });
