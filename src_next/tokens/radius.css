@@ -1,0 +1,8 @@
+/* Generated from src/schemas/tokens/radius.json - DO NOT EDIT MANUALLY */
+:root {
+  --ui-radius-none: 0px;
+  --ui-radius-sm: 6px;
+  --ui-radius-md: 8px;
+  --ui-radius-lg: 12px;
+  --ui-radius-full: 9999px;
+}

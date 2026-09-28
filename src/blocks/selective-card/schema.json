@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "selective-card",
+  "prefix": "ui-selective-card",
+  "description": "Apple HIG selectable option card with indicator, checkmark, and container grouping",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "selected": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "value": {
+      "type": "string",
+      "default": ""
+    },
+    "group": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "container": {
+    "className": "ui-selective-group",
+    "modifiers": [
+      "single",
+      "auto",
+      "balanced"
+    ],
+    "selectionModes": [
+      "single",
+      "multi"
+    ],
+    "roles": [
+      "radiogroup",
+      "group"
+    ],
+    "dataAttributes": [
+      "data-selection-mode",
+      "data-group",
+      "data-value"
+    ]
+  },
+  "events": [
+    "change"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "selected",
+    "disabled"
+  ],
+  "stateMappings": {
+    "selected": {
+      "aria-pressed": "true"
+    },
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "defaultText": "Option Title",
+      "template": "<div class=\"{classes}\" role=\"button\" tabindex=\"0\" {attributes}><div class=\"ui-selective-card__body\"><div class=\"ui-selective-card__title\">{slot:default}</div><div class=\"ui-selective-card__desc\">Relative description</div></div></div>"
+    },
+    {
+      "name": "indicator",
+      "label": "With Indicator",
+      "selector": "--with-indicator",
+      "defaultText": "Option Title",
+      "template": "<div class=\"{classes}\" role=\"button\" tabindex=\"0\" {attributes}><div class=\"ui-selective-card__indicator\"><span class=\"ui-selective-card__indicator-dot\"></span></div><div class=\"ui-selective-card__body\"><div class=\"ui-selective-card__title\">{slot:default}</div><div class=\"ui-selective-card__desc\">Relative description</div></div></div>"
+    },
+    {
+      "name": "checkmark",
+      "label": "With Checkmark",
+      "selector": "--with-checkmark",
+      "defaultText": "Option Title",
+      "template": "<div class=\"{classes}\" role=\"button\" tabindex=\"0\" {attributes}><div class=\"ui-selective-card__body ui-selective-card__body--full\"><div class=\"ui-selective-card__header-row\"><div class=\"ui-selective-card__title\">{slot:default}</div><div class=\"ui-selective-card__checkmark\"><svg class=\"ui-selective-card__check-icon\" width=\"12\" height=\"12\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"3.5 8.5 6.5 11.5 12.5 4.5\"/></svg></div></div><div class=\"ui-selective-card__desc\">Relative description</div></div></div>"
+    }
+  ]
+}

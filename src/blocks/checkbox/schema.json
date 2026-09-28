@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "checkbox",
+  "prefix": "ui-checkbox",
+  "description": "Apple HIG flat accessible checkbox control",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "default": false
+    },
+    "indeterminate": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "events": [
+    "change"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "success",
+    "danger",
+    "checked",
+    "indeterminate",
+    "disabled"
+  ],
+  "stateMappings": {
+    "checked": {
+      "attributes": "checked",
+      "aria-checked": "true"
+    },
+    "indeterminate": {
+      "aria-checked": "mixed"
+    },
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "defaultText": "Option title",
+      "template": "<label class=\"{classes}\"><input type=\"checkbox\" class=\"ui-checkbox__input\" {attributes}><span class=\"ui-checkbox__box\"><svg class=\"ui-checkbox__check\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"3.5 8.5 6.5 11.5 12.5 4.5\"/></svg><span class=\"ui-checkbox__dash\"></span></span><span class=\"ui-checkbox__label\">{slot:default}</span></label>"
+    },
+    {
+      "name": "standalone",
+      "label": "Standalone",
+      "selector": "--standalone",
+      "defaultText": "",
+      "template": "<label class=\"{classes}\"><input type=\"checkbox\" class=\"ui-checkbox__input\" {attributes}><span class=\"ui-checkbox__box\"><svg class=\"ui-checkbox__check\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"3.5 8.5 6.5 11.5 12.5 4.5\"/></svg><span class=\"ui-checkbox__dash\"></span></span></label>"
+    }
+  ]
+}

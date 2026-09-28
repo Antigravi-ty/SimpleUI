@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "slider",
+  "prefix": "ui-slider",
+  "description": "Continuous or stepped range selector with custom thumb and track",
+  "sizes": [
+    "sm",
+    "md"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "min": {
+      "type": "number",
+      "default": 0
+    },
+    "max": {
+      "type": "number",
+      "default": 100
+    },
+    "value": {
+      "type": "number",
+      "default": 50
+    },
+    "step": {
+      "type": "number",
+      "default": 1
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "events": [
+    "input",
+    "change"
+  ],
+  "modifiers": [
+    "neutral",
+    "white",
+    "primary",
+    "success",
+    "danger",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Drag Only",
+      "selector": "",
+      "template": "<div class=\"{classes}\"><input type=\"range\" min=\"{min}\" max=\"{max}\" value=\"{value}\" step=\"{step}\" class=\"ui-slider__input\" {attributes}><span class=\"ui-slider__value\">{value}</span></div>"
+    },
+    {
+      "name": "num-input",
+      "label": "Editable Input",
+      "selector": "--editable",
+      "template": "<div class=\"{classes}\"><input type=\"range\" min=\"{min}\" max=\"{max}\" value=\"{value}\" step=\"{step}\" class=\"ui-slider__input\" {attributes}><input type=\"number\" class=\"ui-slider__num-input\" min=\"{min}\" max=\"{max}\" value=\"{value}\" step=\"{step}\" {attributes}></div>"
+    },
+    {
+      "name": "unbounded",
+      "label": "Unbounded Input",
+      "selector": "--unbounded",
+      "template": "<div class=\"{classes}\" data-unbounded=\"true\"><input type=\"range\" min=\"{min}\" max=\"{max}\" value=\"{value}\" step=\"{step}\" class=\"ui-slider__input\" {attributes}><input type=\"number\" class=\"ui-slider__num-input\" value=\"{value}\" step=\"{step}\" {attributes}></div>"
+    }
+  ]
+}

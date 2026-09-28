@@ -1,0 +1,81 @@
+@import './main.css';
+
+.patterns-intro {
+  margin-bottom: var(--ui-space-6);
+}
+
+.patterns-intro h2 {
+  font-size: var(--ui-font-xl);
+  font-weight: var(--ui-weight-bold);
+  margin: 0 0 var(--ui-space-1) 0;
+}
+
+.patterns-intro p {
+  font-size: var(--ui-font-sm);
+  color: var(--ui-text-muted);
+  margin: 0;
+}
+
+.pattern-card {
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--ui-shadow-sm);
+  margin-bottom: var(--ui-space-8);
+  overflow: hidden;
+}
+
+.pattern-card__header {
+  padding: var(--ui-space-5) var(--ui-space-6);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--ui-space-2);
+}
+
+.pattern-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+}
+
+.pattern-card__title {
+  font-size: var(--ui-font-lg);
+  font-weight: var(--ui-weight-bold);
+  margin: 0;
+}
+
+.pattern-card__desc {
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+  margin: var(--ui-space-1) 0 0 0;
+  line-height: 1.5;
+}
+
+.pattern-stage-well {
+  background-color: var(--ui-color-neutral-100);
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ui-space-6);
+  box-sizing: border-box;
+}
+
+.pattern-stage-well .ui-panel {
+  max-width: 480px;
+  width: 100%;
+}
+
+.pattern-card__footer {
+  padding: var(--ui-space-3) var(--ui-space-6);
+  border-top: 1px solid var(--ui-border-subtle);
+  background-color: var(--ui-bg-surface);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+}

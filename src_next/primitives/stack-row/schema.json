@@ -1,0 +1,9 @@
+{
+  "$schema": "block-schema",
+  "id": "primitive-stack-row",
+  "name": "stack-row",
+  "prefix": "ui-layout",
+  "category": "primitive",
+  "status": "stable",
+  "description": "Auto-layout flex primitives for horizontal distribution (Row) and vertical grouping (Stack)."
+}

@@ -1,0 +1,113 @@
+{
+  "$schema": "navigation-actions",
+  "actions": {
+    "nav.to_showcase": {
+      "type": "navigate",
+      "target": "/showcase/components.html",
+      "description": "Navigate back to the Showcase 2D Matrix view"
+    },
+    "nav.to_floating_window": {
+      "type": "navigate",
+      "target": "/showcase/viewport_paradigms.html",
+      "description": "Navigate to the Floating Window example"
+    },
+    "nav.to_multi_level_menu": {
+      "type": "navigate",
+      "target": "/showcase/structural_patterns.html",
+      "description": "Navigate to Multi-Level Menu example"
+    },
+    "nav.to_animation_demo": {
+      "type": "navigate",
+      "target": "/showcase/animations.html",
+      "description": "Navigate to the Apple 3-Stage Morph Animation Demo"
+    },
+    "window.toggle_minimize": {
+      "type": "class_toggle",
+      "targetSelector": "#floating-window",
+      "className": "floating-window--minimized",
+      "toggleText": {
+        "active": "＋",
+        "inactive": "－"
+      },
+      "description": "Declaratively toggle floating window minimize state"
+    },
+    "settings.save": {
+      "type": "set_text",
+      "targetSelector": "#floating-window .ui-badge",
+      "text": "Saved!",
+      "resetAfter": 1500,
+      "description": "Declaratively update status badge to Saved"
+    },
+    "menu.to_network": {
+      "type": "drilldown_push",
+      "hideSelector": "#menu-view-root",
+      "showSelector": "#menu-view-network",
+      "description": "Drill down from Level 1 root to Level 2 network menu"
+    },
+    "menu.to_wifi": {
+      "type": "drilldown_push",
+      "hideSelector": "#menu-view-network",
+      "showSelector": "#menu-view-wifi",
+      "description": "Drill down from Level 2 network to Level 3 wifi menu"
+    },
+    "menu.to_wifi_advanced": {
+      "type": "drilldown_push",
+      "hideSelector": "#menu-view-wifi",
+      "showSelector": "#menu-view-wifi-advanced",
+      "description": "Drill down from Level 3 wifi to Level 4/5 advanced hardware details"
+    },
+    "menu.back_to_root": {
+      "type": "drilldown_pop",
+      "hideSelector": "#menu-view-network",
+      "showSelector": "#menu-view-root",
+      "description": "Return back from Level 2 to Level 1 root"
+    },
+    "menu.back_to_network": {
+      "type": "drilldown_pop",
+      "hideSelector": "#menu-view-wifi",
+      "showSelector": "#menu-view-network",
+      "description": "Return back from Level 3 to Level 2 network"
+    },
+    "menu.back_to_wifi": {
+      "type": "drilldown_pop",
+      "hideSelector": "#menu-view-wifi-advanced",
+      "showSelector": "#menu-view-wifi",
+      "description": "Return back from Level 4/5 to Level 3 wifi"
+    },
+    "menu.save_advanced": {
+      "type": "set_text",
+      "targetSelector": ".menu-action-row .ui-btn",
+      "text": "Applied ✓",
+      "resetAfter": 1500,
+      "description": "Save Level 4/5 hardware configuration"
+    },
+    "edit": {
+      "type": "custom",
+      "description": "Dropdown action: edit"
+    },
+    "duplicate": {
+      "type": "custom",
+      "description": "Dropdown action: duplicate"
+    },
+    "delete": {
+      "type": "custom",
+      "description": "Dropdown action: delete"
+    },
+    "share": {
+      "type": "custom",
+      "description": "Dropdown action: share"
+    },
+    "download": {
+      "type": "custom",
+      "description": "Dropdown action: download"
+    },
+    "live_preview.toggle": {
+      "type": "custom",
+      "description": "Toggle live preview window collapse/expand state"
+    },
+    "live_preview.back": {
+      "type": "custom",
+      "description": "Sandboxed live preview back action"
+    }
+  }
+}

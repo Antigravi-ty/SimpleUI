@@ -1,0 +1,30 @@
+/* Neutral Active Underline (Apple HIG Grayscale Default) */
+.ui-tabs__item--active,
+.ui-tabs--neutral .ui-tabs__item--active {
+  color: var(--ui-text-main);
+  border-bottom-color: var(--ui-text-main);
+}
+
+/* Primary Active Underline (Apple Blue) */
+.ui-tabs--primary .ui-tabs__item--active {
+  color: var(--ui-color-primary);
+  border-bottom-color: var(--ui-color-primary);
+}
+
+/* Warning Active Underline (Apple Orange) with Neutral Text */
+.ui-tabs--warning .ui-tabs__item--active {
+  color: var(--ui-text-main);
+  border-bottom-color: var(--ui-color-warning);
+}
+
+/* Danger Active Underline (Apple Red) with Neutral Text */
+.ui-tabs--danger .ui-tabs__item--active {
+  color: var(--ui-text-main);
+  border-bottom-color: var(--ui-color-danger);
+}
+
+.ui-tabs--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

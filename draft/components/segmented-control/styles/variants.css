@@ -1,0 +1,16 @@
+/* Semantic modifiers for Segmented Control */
+:is(.draft-ui-segmented-control--neutral, .ui-segmented-control--neutral) :is(.draft-ui-segmented-control__item--active, .ui-segmented-control__item--active) {
+  background-color: var(--ui-bg-surface);
+  color: var(--ui-text-main);
+}
+
+:is(.draft-ui-segmented-control--primary, .ui-segmented-control--primary) :is(.draft-ui-segmented-control__item--active, .ui-segmented-control__item--active) {
+  background-color: var(--ui-color-primary);
+  color: var(--ui-color-primary-contrast);
+}
+
+.draft-ui-segmented-control--disabled, .ui-segmented-control--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

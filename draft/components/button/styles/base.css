@@ -1,0 +1,35 @@
+.draft-ui-btn, .ui-btn {
+  --_btn-bg: var(--ui-color-neutral-100);
+  --_btn-color: var(--ui-text-main);
+  --_btn-border: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ui-space-1-5);
+  font-family: inherit;
+  font-weight: var(--ui-weight-medium);
+  line-height: var(--ui-leading-none);
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--_btn-border);
+  background-color: var(--_btn-bg);
+  color: var(--_btn-color);
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease, transform 0.05s ease;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.draft-ui-btn:active:not(:disabled), .ui-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.draft-ui-btn:focus-visible, .ui-btn:focus-visible {
+  outline: 2px solid var(--ui-color-primary);
+  outline-offset: 2px;
+}
+
+.draft-ui-btn__icon, .ui-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}

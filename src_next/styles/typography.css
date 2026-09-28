@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Apple HIG Fluid Typography & Tracking Rules (Width-Anchored Safe Area)
+   ========================================================================== */
+
+/* 1. Large Title / Title 1: 字号越大，字距越收紧 (Negative Tracking)，防止散架 */
+.ui-title-1 {
+  font-size: var(--ui-font-xl);
+  font-weight: var(--ui-weight-bold);
+  letter-spacing: var(--ui-tracking-tighter);
+  line-height: var(--ui-leading-tight);
+}
+
+/* 2. Title 2 / Frame Title: 展台卡片标题 */
+.ui-title-2 {
+  font-size: var(--ui-font-lg);
+  font-weight: var(--ui-weight-semibold);
+  letter-spacing: var(--ui-tracking-tight);
+  line-height: var(--ui-leading-snug);
+}
+
+/* 3. Headline: 强调正文 / 面板小标题 */
+.ui-headline {
+  font-size: var(--ui-font-base);
+  font-weight: var(--ui-weight-semibold);
+  letter-spacing: var(--ui-tracking-snug);
+  line-height: var(--ui-leading-normal);
+}
+
+/* 4. Body: 标准正文 */
+.ui-body {
+  font-size: var(--ui-font-sm);
+  font-weight: var(--ui-weight-normal);
+  letter-spacing: var(--ui-tracking-normal);
+  line-height: var(--ui-leading-relaxed);
+}
+
+/* 5. Caption: 辅助描述与脚注，字号变小时字距微撑开 */
+.ui-caption {
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-normal);
+  letter-spacing: var(--ui-tracking-wide);
+  line-height: var(--ui-leading-normal);
+}
+
+/* 6. Micro: 徽章 / 缩写 / 遥测标签 / 极小指示符，字阶显著撑开呼吸感 */
+.ui-micro {
+  font-size: var(--ui-font-2xs);
+  font-weight: var(--ui-weight-medium);
+  letter-spacing: var(--ui-tracking-wider);
+  line-height: var(--ui-leading-none);
+}
+
+/* 7. Tabular Numerals: 等宽数字强制对齐，消除数值变动对流体布局的抖动 */
+.ui-tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

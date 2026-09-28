@@ -1,0 +1,7 @@
+.ui-well {
+  background-color: var(--ui-color-neutral-100);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-md);
+  padding: var(--ui-space-6);
+  box-sizing: border-box;
+}

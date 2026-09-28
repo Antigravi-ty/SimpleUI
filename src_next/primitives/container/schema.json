@@ -1,0 +1,15 @@
+{
+  "$schema": "block-schema",
+  "id": "primitive-container",
+  "name": "container",
+  "prefix": "ui-container",
+  "category": "primitive",
+  "status": "stable",
+  "description": "Continuous squircle boundary with neutral surface and subtle border.",
+  "tokens": {
+    "radius": "var(--ui-radius-lg)",
+    "surface": "var(--ui-bg-surface)",
+    "border": "1px solid var(--ui-border-subtle)",
+    "padding": "var(--ui-space-6)"
+  }
+}

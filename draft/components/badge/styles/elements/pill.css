@@ -1,0 +1,3 @@
+.draft-ui-badge--pill, .ui-badge--pill {
+  border-radius: var(--ui-radius-full);
+}

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('simpleui-theme');
+        document.documentElement.setAttribute('data-theme', saved === 'dark' ? 'dark' : 'light');
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SimpleUI - Showcase Special</title>
+  <link rel="stylesheet" href="./main.css">
+  <link rel="stylesheet" href="./patterns.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="app-header__brand">
+        <a href="/" class="app-header__title">SimpleUI</a>
+        <span class="ui-badge ui-badge--neutral ui-badge--sm ui-badge--pill">v2.1.0</span>
+        <button id="theme-toggle" class="app-header__theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+      </div>
+      <div class="app-header__actions">
+        <div class="ui-dropdown ui-dropdown--md ui-dropdown--neutral app-nav-dropdown">
+          <button type="button" class="ui-dropdown__trigger" aria-haspopup="true" aria-expanded="false">
+            <span class="ui-dropdown__trigger-text">Showcase Special</span>
+            <svg class="ui-dropdown__arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="ui-dropdown__menu" role="menu"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="app-body">
+            <aside class="app-sidebar">
+        <div class="app-sidebar__content">
+          <h4 class="app-sidebar__heading">Showcase Special</h4>
+          <nav class="app-sidebar__nav">
+            <!-- 1. Draft Section (Top, Red) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--draft">
+                <span>Draft</span>
+                <span class="app-sidebar__badge--draft">In Design</span>
+              </div>
+              <span class="app-sidebar__link app-sidebar__link--none">None</span>
+            </div>
+
+            <!-- 2. Core Section (Middle, Blue) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--core">
+                <span>Core</span>
+                <span class="app-sidebar__badge--core">Stable</span>
+              </div>
+              <span class="app-sidebar__link app-sidebar__link--none">None</span>
+            </div>
+
+            <!-- 3. Showcase Special Section (Bottom, Purple) -->
+            <div class="app-sidebar__section">
+              <div class="app-sidebar__section-title app-sidebar__section-title--special">
+                <span>Showcase</span>
+                <span class="app-sidebar__badge--special">Special</span>
+              </div>
+              <a href="#special-components" class="app-sidebar__link"><span>Multi-Variant Matrix Card</span></a>
+              <a href="#special-primitives" class="app-sidebar__link"><span>Primitives Card</span></a>
+              <a href="#special-structural-patterns" class="app-sidebar__link"><span>Structural Patterns Card</span></a>
+              <a href="#special-animations" class="app-sidebar__link"><span>Animations Card</span></a>
+              <a href="#special-viewport-paradigms" class="app-sidebar__link"><span>Viewport Paradigms Card</span></a>
+              <a href="#special-shell-layout" class="app-sidebar__link"><span>Showcase Shell Layout</span></a>
+            </div>
+          </nav>
+        </div>
+        <div class="app-sidebar__footer">
+          <a href="/examples/index.html" class="app-sidebar__more-demos-link">want to view more demos? ↗</a>
+        </div>
+      </aside>
+
+      <main class="app-content">
+        <div class="patterns-intro" id="special-meta">
+          <h2>Showcase-Special Composite Specifications</h2>
+          <p>
+            Private composite patterns designed exclusively for showcase staging and presentation. These templates establish standard contracts for each showcase category.
+          </p>
+        </div>
+
+        <!-- 1. Components Card: Standard 2D Matrix Schema -->
+        <section class="matrix-card" id="special-components">
+          <div class="matrix-card__header">
+            <div class="matrix-card__info">
+              <div class="matrix-card__title-row">
+                <h3 class="matrix-card__title">Multi-Variant Matrix Card</h3>
+                <span class="matrix-card__prefix"><code>.matrix-card</code></span>
+                <span class="ui-badge ui-badge--neutral ui-badge--sm">2D Matrix</span>
+              </div>
+              <p class="matrix-card__desc">
+                Standard showcase composite for atomic components. Composes component title, prefix badge, shallow description, cross-reference redirect, modifier filter, and scrollable 2D matrix table.
+              </p>
+              <p class="matrix-card__redirect">
+                To see dropdown menu, check <a href="/showcase/structural_patterns.html#pattern-dropdown-menu" class="matrix-card__redirect-link">structural patterns ↗</a>
+              </p>
+            </div>
+            <div class="matrix-filter-bar">
+              <div class="matrix-filter-group" title="Filter columns by Appearance Modifier">
+                <span class="matrix-filter-label">Appearance:</span>
+                <label class="ui-checkbox ui-checkbox--sm ui-checkbox--neutral ui-checkbox--checked">
+                  <input type="checkbox" class="ui-checkbox__input" checked data-filter-mod="neutral">
+                  <span class="ui-checkbox__box"><svg class="ui-checkbox__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></span>
+                  <span class="ui-checkbox__label">Neutral</span>
+                </label>
+                <label class="ui-checkbox ui-checkbox--sm ui-checkbox--neutral ui-checkbox--checked">
+                  <input type="checkbox" class="ui-checkbox__input" checked data-filter-mod="outline">
+                  <span class="ui-checkbox__box"><svg class="ui-checkbox__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></span>
+                  <span class="ui-checkbox__label">Outline</span>
+                </label>
+                <label class="ui-checkbox ui-checkbox--sm ui-checkbox--neutral ui-checkbox--checked">
+                  <input type="checkbox" class="ui-checkbox__input" checked data-filter-mod="primary">
+                  <span class="ui-checkbox__box"><svg class="ui-checkbox__check" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3.5 8.5 6.5 11.5 12.5 4.5"/></svg></span>
+                  <span class="ui-checkbox__label">Primary</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="matrix-table-wrapper">
+            <table class="matrix-table">
+              <thead>
+                <tr>
+                  <th class="matrix-table__corner">Layout Modifier (Row) \ Appearance Modifier (Col)</th>
+                  <th class="matrix-table__col-header"><span>neutral</span><small>.ui-btn--neutral</small></th>
+                  <th class="matrix-table__col-header"><span>outline</span><small>.ui-btn--outline</small></th>
+                  <th class="matrix-table__col-header"><span>primary</span><small>.ui-btn--primary</small></th>
+                  <th class="matrix-table__col-header"><span>disabled</span><small>.ui-btn--disabled</small></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th class="matrix-table__row-header"><strong>Layout 1: Standard</strong><small>(base layout)</small></th>
+                  <td class="matrix-table__cell"><button type="button" class="ui-btn ui-btn--md ui-btn--neutral">Action</button></td>
+                  <td class="matrix-table__cell"><button type="button" class="ui-btn ui-btn--md ui-btn--outline">Action</button></td>
+                  <td class="matrix-table__cell"><button type="button" class="ui-btn ui-btn--md ui-btn--primary">Action</button></td>
+                  <td class="matrix-table__cell"><button type="button" class="ui-btn ui-btn--md ui-btn--disabled" disabled>Action</button></td>
+                </tr>
+                <tr>
+                  <th class="matrix-table__row-header"><strong>Layout 2: With Icon</strong><small>.ui-btn--icons</small></th>
+                  <td class="matrix-table__cell"><button type="button" class="ui-btn ui-btn--md ui-btn--neutral"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg><span>Upload</span></button></td>
+                  <td class="matrix-table__cell"><button type="button" class="ui-btn ui-btn--md ui-btn--outline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg><span>Upload</span></button></td>
+                  <td class="matrix-table__cell"><button type="button" class="ui-btn ui-btn--md ui-btn--primary"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg><span>Upload</span></button></td>
+                  <td class="matrix-table__cell"><button type="button" class="ui-btn ui-btn--md ui-btn--disabled" disabled><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg><span>Upload</span></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pattern-card__footer">
+            <span>Sticky left column • Scrollable appearance axis • Zero Attention Dilution.</span>
+          </div>
+        </section>
+
+        <!-- 2. Primitives Card: Staging Layout & Container Composite -->
+        <section class="pattern-card" id="special-primitives">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Primitives Showcase Card</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm">Primitive Staging</span>
+            </div>
+            <p class="pattern-card__desc">
+              Standard composite for foundational squircle containers and flex layout primitives without business constraints.
+            </p>
+          </div>
+          <div class="pattern-stage-well">
+            <div class="ui-container" style="max-width: 440px; width: 100%; text-align: center;">
+              <h4 style="margin: 0 0 var(--ui-space-2) 0; font-size: var(--ui-font-base); font-weight: var(--ui-weight-semibold);">Squircle Container Primitive</h4>
+              <p style="margin: 0; font-size: var(--ui-font-xs); color: var(--ui-text-muted); line-height: 1.5;">
+                Solidified <code>.ui-container</code> with tokenized continuous radius, border subtle, and neutral surface.
+              </p>
+            </div>
+          </div>
+          <div class="pattern-card__footer">
+            <span>Defined in <code>src/styles/layout.css</code> as core universal primitives.</span>
+          </div>
+        </section>
+
+        <!-- 3. Structural Patterns Card: 3-Stage Panel & Dropdown Menu Composite -->
+        <section class="pattern-card" id="special-structural-patterns">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Structural Patterns Showcase Card</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm">Pattern Staging</span>
+            </div>
+            <p class="pattern-card__desc">
+              Staging composite for compound containers (Header, Content Slot, Footer) and standalone action menus.
+            </p>
+          </div>
+          <div class="pattern-stage-well" style="gap: var(--ui-space-4); flex-wrap: wrap;">
+            <!-- Standalone Dropdown Menu -->
+            <div class="ui-dropdown__menu ui-dropdown__menu--static" role="menu" style="min-width: 180px;">
+              <button type="button" role="menuitem" class="ui-dropdown__item"><span class="ui-dropdown__item-text">Edit</span><span class="ui-dropdown__item-badge ui-dropdown__item-badge--plain">⌘E</span></button>
+              <button type="button" role="menuitem" class="ui-dropdown__item"><span class="ui-dropdown__item-text">Duplicate</span><span class="ui-dropdown__item-badge ui-dropdown__item-badge--tinted">New</span></button>
+              <div class="ui-dropdown__divider"></div>
+              <button type="button" role="menuitem" class="ui-dropdown__item ui-dropdown__item--danger"><span class="ui-dropdown__item-text">Delete</span><span class="ui-dropdown__item-badge ui-dropdown__item-badge--plain">⌫</span></button>
+            </div>
+            <!-- Standard Panel Preview -->
+            <div class="ui-panel ui-panel--neutral" style="width: 260px;" data-sandbox="true" data-no-keyboard="true">
+              <header class="ui-panel__header">
+                <div class="ui-panel__header-left">
+                  <button type="button" class="ui-panel__back-btn" aria-label="Go Back"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+                  <h3 class="ui-panel__title">Panel</h3>
+                </div>
+                <span class="ui-badge ui-badge--neutral ui-badge--sm">3-Stage</span>
+              </header>
+              <div class="ui-panel__content" style="padding: var(--ui-space-3);"><p style="margin: 0; font-size: var(--ui-font-xs); color: var(--ui-text-muted);">Sandboxed panel structure.</p></div>
+              <footer class="ui-panel__footer"><div class="ui-panel__desc">Relative description</div></footer>
+            </div>
+          </div>
+          <div class="pattern-card__footer">
+            <span>Sandboxed interactions • No global keyboard listeners • Zero history mutation.</span>
+          </div>
+        </section>
+
+        <!-- 4. Animations Card: Morph Transition & Timeline Telemetry Composite -->
+        <section class="pattern-card" id="special-animations">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Animations Showcase Card</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm">Motion Preset</span>
+            </div>
+            <p class="pattern-card__desc">
+              Standard composite for container view morphs: Content Fade Out → Container Resize → Content Fade In.
+            </p>
+          </div>
+          <div class="pattern-stage-well">
+            <div style="background-color: var(--ui-bg-surface); border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-lg); padding: var(--ui-space-5); width: 320px; box-shadow: var(--ui-shadow-md); text-align: center;">
+              <h4 style="margin: 0 0 var(--ui-space-1) 0; font-size: var(--ui-font-sm);">Apple 3-Stage Morph</h4>
+              <p style="margin: 0; font-size: var(--ui-font-xs); color: var(--ui-text-muted);">Decoupled content opacity and geometry resizing.</p>
+            </div>
+          </div>
+          <div class="anim-card__footer">
+            <div class="anim-timeline-bar">
+              <span class="anim-timeline-step">Stage 1: Fade Out (100ms)</span>
+              <span class="anim-timeline-arrow">→</span>
+              <span class="anim-timeline-step">Stage 2: Morph Resize (150ms)</span>
+              <span class="anim-timeline-arrow">→</span>
+              <span class="anim-timeline-step">Stage 3: Fade In (100ms)</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. Viewport Paradigms Card: Floating Window & Live Preview Composite -->
+        <section class="pattern-card" id="special-viewport-paradigms">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Viewport Paradigms Showcase Card</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm">Viewport Paradigm</span>
+            </div>
+            <p class="pattern-card__desc">
+              Standard composite for floating windows, docking pills, and responsive safe area telemetry.
+            </p>
+          </div>
+          <div class="pattern-stage-well">
+            <div style="background-color: var(--ui-bg-surface); border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-lg); padding: var(--ui-space-4); width: 340px; box-shadow: var(--ui-shadow-md);">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--ui-space-2);">
+                <strong style="font-size: var(--ui-font-sm);">Floating Window Paradigm</strong>
+                <span class="ui-badge ui-badge--success ui-badge--sm">Dockable</span>
+              </div>
+              <p style="margin: 0; font-size: var(--ui-font-xs); color: var(--ui-text-muted);">
+                Sandboxed dragging within stage well with standard touch-point tracking.
+              </p>
+            </div>
+          </div>
+          <div class="pattern-card__footer">
+            <span>Virtual Canvas • Safe Area Inset Simulation • Responsive Scale Factor.</span>
+          </div>
+        </section>
+        <!-- 6. Showcase Shell Layout Card: Unified Application Scaffolding Composite -->
+        <section class="pattern-card" id="special-shell-layout">
+          <div class="pattern-card__header">
+            <div class="pattern-card__title-row">
+              <h3 class="pattern-card__title">Showcase Shell Layout</h3>
+              <span class="ui-badge ui-badge--neutral ui-badge--sm">Page Shell Composite</span>
+            </div>
+            <p class="pattern-card__desc">
+              Standard application shell architecture establishing unified Brand, Theme, Safe Area HUD, UI Scale, and 3-Tier Sidebar navigation.
+            </p>
+          </div>
+          <div class="pattern-stage-well">
+            <div class="special-showcase-ui-shell" style="width: 100%; max-width: 620px; min-height: auto; border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-lg); overflow: hidden; box-shadow: var(--ui-shadow-md);">
+              <div class="special-showcase-ui-header" style="height: 44px; padding: 0 var(--ui-space-3); font-size: var(--ui-font-xs);">
+                <div class="app-header__brand">
+                  <strong style="color: var(--ui-text-main); font-size: var(--ui-font-sm);">SimpleUI</strong>
+                  <span class="ui-badge ui-badge--neutral ui-badge--sm ui-badge--pill">v2.1.0</span>
+                  <span style="opacity: 0.7; font-size: 11px;">🌙</span>
+                </div>
+                <div class="app-header__actions" style="gap: var(--ui-space-2);">
+                  <span style="padding: 2px 6px; border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-sm); font-size: 10px; color: var(--ui-text-muted);">Safe Area</span>
+                  <span style="padding: 2px 6px; border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-sm); font-size: 10px; color: var(--ui-text-muted);">Scale: 100%</span>
+                  <span style="padding: 2px 8px; background: var(--ui-color-neutral-100); border: 1px solid var(--ui-border-subtle); border-radius: var(--ui-radius-sm); font-size: 10px; font-weight: var(--ui-weight-medium); color: var(--ui-text-main);">Switcher ▾</span>
+                </div>
+              </div>
+              <div class="app-body" style="min-height: 140px;">
+                <div class="special-showcase-ui-sidebar" style="width: 160px; height: auto; position: static; padding: var(--ui-space-2); font-size: 11px;">
+                  <div style="color: var(--ui-color-danger); font-size: 10px; font-weight: bold; margin-bottom: 3px;">Draft [In Design]</div>
+                  <div style="color: var(--ui-color-primary); font-size: 10px; font-weight: bold; margin-bottom: 3px;">Core [Stable]</div>
+                  <div style="color: var(--ui-color-purple); font-size: 10px; font-weight: bold;">Showcase [Special]</div>
+                </div>
+                <div class="special-showcase-ui-content" style="padding: var(--ui-space-3); background: var(--ui-color-neutral-50); display: flex; align-items: center; justify-content: center; text-align: center;">
+                  <span style="font-size: var(--ui-font-xs); color: var(--ui-text-muted);">.special-showcase-ui-content (Virtualized Main Viewport)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pattern-card__footer">
+            <span>Declarative Shell • Unified Header &amp; Brand • Responsive 3-Tier Sidebar • Width-anchored.</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script type="module" src="./showcase_special.js"></script>
+</body>
+</html>

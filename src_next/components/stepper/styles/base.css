@@ -1,0 +1,18 @@
+.ui-stepper {
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--ui-radius-md);
+  border: 1px solid var(--ui-border-subtle);
+  background-color: var(--ui-color-neutral-100);
+  overflow: hidden;
+  user-select: none;
+  box-sizing: border-box;
+  vertical-align: middle;
+}
+
+.ui-stepper--editable {
+  background-color: transparent;
+  border: none;
+  overflow: visible;
+  gap: var(--ui-space-1);
+}

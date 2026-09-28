@@ -1,0 +1,11 @@
+.ui-badge--dot {
+  display: inline-flex;
+}
+
+.ui-badge__dot-indicator {
+  display: inline-block;
+  width: var(--ui-badge-dot-size);
+  height: var(--ui-badge-dot-size);
+  border-radius: var(--ui-radius-full);
+  background-color: currentColor;
+}

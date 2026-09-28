@@ -1,0 +1,20 @@
+.ui-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-2);
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+  font-weight: var(--ui-weight-medium);
+  color: var(--ui-text-main);
+  vertical-align: middle;
+}
+
+.ui-checkbox__input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin: 0;
+  pointer-events: none;
+}

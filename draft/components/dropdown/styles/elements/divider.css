@@ -1,0 +1,5 @@
+.draft-ui-dropdown__divider, .ui-dropdown__divider {
+  height: 1px;
+  background-color: var(--ui-border-subtle);
+  margin: var(--ui-space-1) 0;
+}

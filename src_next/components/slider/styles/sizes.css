@@ -1,0 +1,15 @@
+.ui-slider--sm .ui-slider__input::-webkit-slider-runnable-track {
+  height: var(--ui-slider-track-height-sm);
+}
+.ui-slider--sm .ui-slider__input::-moz-range-track {
+  height: var(--ui-slider-track-height-sm);
+}
+.ui-slider--sm .ui-slider__input::-webkit-slider-thumb {
+  height: var(--ui-slider-thumb-size-sm);
+  width: var(--ui-slider-thumb-size-sm);
+  margin-top: calc((var(--ui-slider-track-height-sm) - var(--ui-slider-thumb-size-sm)) / 2);
+}
+.ui-slider--sm .ui-slider__input::-moz-range-thumb {
+  height: var(--ui-slider-thumb-size-sm);
+  width: var(--ui-slider-thumb-size-sm);
+}

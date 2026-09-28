@@ -1,0 +1,4 @@
+.ui-tabs--icon-only .ui-tabs__item {
+  padding-left: var(--ui-space-2);
+  padding-right: var(--ui-space-2);
+}

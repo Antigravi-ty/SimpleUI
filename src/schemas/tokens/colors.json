@@ -1,0 +1,188 @@
+{
+  "": "token",
+  "category": "colors",
+  "tokens": {
+    "primary": {
+      "variable": "--ui-color-primary",
+      "default": "#0071e3",
+      "dark": "#0a84ff"
+    },
+    "primary-hover": {
+      "variable": "--ui-color-primary-hover",
+      "default": "#0077ed",
+      "dark": "#409cff"
+    },
+    "primary-subtle": {
+      "variable": "--ui-color-primary-subtle",
+      "default": "#f0f6ff",
+      "dark": "#15253e"
+    },
+    "primary-contrast": {
+      "variable": "--ui-color-primary-contrast",
+      "default": "#ffffff",
+      "dark": "#ffffff"
+    },
+    "neutral-0": {
+      "variable": "--ui-color-neutral-0",
+      "default": "#ffffff",
+      "dark": "#000000"
+    },
+    "neutral-50": {
+      "variable": "--ui-color-neutral-50",
+      "default": "#f9f9fb",
+      "dark": "#161618"
+    },
+    "neutral-100": {
+      "variable": "--ui-color-neutral-100",
+      "default": "#f2f2f7",
+      "dark": "#242426"
+    },
+    "neutral-200": {
+      "variable": "--ui-color-neutral-200",
+      "default": "#e5e5ea",
+      "dark": "#323236"
+    },
+    "neutral-300": {
+      "variable": "--ui-color-neutral-300",
+      "default": "#d1d1d6",
+      "dark": "#48484a"
+    },
+    "neutral-400": {
+      "variable": "--ui-color-neutral-400",
+      "default": "#aeaeb2",
+      "dark": "#636366"
+    },
+    "neutral-500": {
+      "variable": "--ui-color-neutral-500",
+      "default": "#8e8e93",
+      "dark": "#8e8e93"
+    },
+    "neutral-700": {
+      "variable": "--ui-color-neutral-700",
+      "default": "#3a3a3c",
+      "dark": "#aeaeb2"
+    },
+    "neutral-900": {
+      "variable": "--ui-color-neutral-900",
+      "default": "#1c1c1e",
+      "dark": "#f2f2f7"
+    },
+    "success": {
+      "variable": "--ui-color-success",
+      "default": "#34c759",
+      "dark": "#30d158"
+    },
+    "success-hover": {
+      "variable": "--ui-color-success-hover",
+      "default": "#2db84d",
+      "dark": "#34e062"
+    },
+    "success-subtle": {
+      "variable": "--ui-color-success-subtle",
+      "default": "#f0fdf4",
+      "dark": "#142819"
+    },
+    "success-contrast": {
+      "variable": "--ui-color-success-contrast",
+      "default": "#ffffff"
+    },
+    "warning": {
+      "variable": "--ui-color-warning",
+      "default": "#ff9500",
+      "dark": "#ff9f0a"
+    },
+    "warning-hover": {
+      "variable": "--ui-color-warning-hover",
+      "default": "#f08c00",
+      "dark": "#ffb340"
+    },
+    "warning-subtle": {
+      "variable": "--ui-color-warning-subtle",
+      "default": "#fff8eb",
+      "dark": "#2d1f0e"
+    },
+    "warning-contrast": {
+      "variable": "--ui-color-warning-contrast",
+      "default": "#ffffff"
+    },
+    "danger": {
+      "variable": "--ui-color-danger",
+      "default": "#ff3b30",
+      "dark": "#ff453a"
+    },
+    "danger-hover": {
+      "variable": "--ui-color-danger-hover",
+      "default": "#e0342a",
+      "dark": "#ff6961"
+    },
+    "danger-subtle": {
+      "variable": "--ui-color-danger-subtle",
+      "default": "#fff1f0",
+      "dark": "#2d1414"
+    },
+    "danger-contrast": {
+      "variable": "--ui-color-danger-contrast",
+      "default": "#ffffff"
+    },
+    "bg-page": {
+      "variable": "--ui-bg-page",
+      "default": "#f2f2f7",
+      "dark": "#000000"
+    },
+    "bg-surface": {
+      "variable": "--ui-bg-surface",
+      "default": "#ffffff",
+      "dark": "#1c1c1e"
+    },
+    "bg-elevated": {
+      "variable": "--ui-bg-elevated",
+      "default": "#ffffff",
+      "dark": "#2c2c2e"
+    },
+    "border-subtle": {
+      "variable": "--ui-border-subtle",
+      "default": "#e5e5ea",
+      "dark": "#38383a"
+    },
+    "border-strong": {
+      "variable": "--ui-border-strong",
+      "default": "#d1d1d6",
+      "dark": "#48484a"
+    },
+    "text-main": {
+      "variable": "--ui-text-main",
+      "default": "#1c1c1e",
+      "dark": "#f2f2f7"
+    },
+    "text-muted": {
+      "variable": "--ui-text-muted",
+      "default": "#8e8e93",
+      "dark": "#8e8e93"
+    },
+    "white": {
+      "variable": "--ui-color-white",
+      "default": "#ffffff",
+      "dark": "#ffffff"
+    },
+    "purple": {
+      "variable": "--ui-color-purple",
+      "default": "#af52de",
+      "dark": "#bf5af2"
+    },
+    "purple-hover": {
+      "variable": "--ui-color-purple-hover",
+      "default": "#9b41c7",
+      "dark": "#d07bf7"
+    },
+    "purple-subtle": {
+      "variable": "--ui-color-purple-subtle",
+      "default": "#fbf5ff",
+      "dark": "#2a1738"
+    },
+    "purple-contrast": {
+      "variable": "--ui-color-purple-contrast",
+      "default": "#ffffff",
+      "dark": "#ffffff"
+    }
+  }
+}

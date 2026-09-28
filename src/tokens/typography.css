@@ -1,0 +1,12 @@
+/* Generated from src/schemas/tokens/typography.json - DO NOT EDIT MANUALLY */
+:root {
+  --ui-font-xs: 0.75rem;
+  --ui-font-sm: 0.8125rem;
+  --ui-font-base: 0.875rem;
+  --ui-font-lg: 1rem;
+  --ui-font-xl: 1.25rem;
+  --ui-weight-normal: 400;
+  --ui-weight-medium: 500;
+  --ui-weight-semibold: 600;
+  --ui-weight-bold: 700;
+}

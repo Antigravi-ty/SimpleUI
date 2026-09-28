@@ -1,0 +1,8 @@
+{
+  "$schema": "animation-preset",
+  "id": "anim-live-preview",
+  "name": "live-preview",
+  "category": "animation",
+  "status": "stable",
+  "description": "Docking pill and centered window morph transition with Tab shortcut key."
+}

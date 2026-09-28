@@ -1,0 +1,25 @@
+@keyframes ui-progressbar-indeterminate {
+  0% {
+    left: -35%;
+    width: 35%;
+  }
+  50% {
+    left: 30%;
+    width: 45%;
+  }
+  100% {
+    left: 100%;
+    width: 35%;
+  }
+}
+
+.ui-progressbar--indeterminate .ui-progressbar__fill,
+.ui-progressbar__fill--indeterminate {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  border-radius: var(--ui-radius-full);
+  animation: ui-progressbar-indeterminate var(--ui-motion-indeterminate-duration) var(--ui-motion-ease-apple) infinite;
+  transition: none;
+}

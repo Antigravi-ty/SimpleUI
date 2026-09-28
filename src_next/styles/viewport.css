@@ -1,0 +1,180 @@
+/* ==========================================================================
+   Viewport Architecture & Telemetry Styles (src_next)
+   ========================================================================== */
+
+/* 1. Safe Area HUD Overlay & Telemetry Panel */
+.ui-safe-area-hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.ui-safe-area-hud__box {
+  position: absolute;
+  border: 1px dashed var(--ui-color-success);
+  background-color: rgba(52, 199, 89, 0.05);
+  transition: all 0.15s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.ui-safe-area-hud__render-zone {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--ui-color-primary);
+  background-color: rgba(0, 113, 227, 0.03);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.ui-safe-area-hud__render-zone::before {
+  content: "CANONICAL 18:9 SAFE ZONE";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  font-size: 10px;
+  font-weight: var(--ui-weight-bold);
+  color: var(--ui-color-primary);
+  letter-spacing: 0.08em;
+  opacity: 0.8;
+}
+
+.ui-safe-area-hud__panel {
+  position: fixed;
+  bottom: calc(10% + 24px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ui-space-2);
+  padding: var(--ui-space-3) var(--ui-space-4);
+  background-color: var(--ui-bg-elevated);
+  border: 1px solid var(--ui-border-strong);
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--ui-shadow-lg);
+  color: var(--ui-text-main);
+  font-size: var(--ui-font-xs);
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  pointer-events: auto;
+  user-select: none;
+  z-index: 10000;
+  max-width: calc(100vw - 32px);
+  box-sizing: border-box;
+}
+
+.ui-safe-area-hud__row {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.ui-safe-area-hud__row--telemetry {
+  gap: var(--ui-space-2);
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: -0.01em;
+}
+
+.ui-safe-area-hud__row--telemetry strong {
+  color: var(--ui-color-primary);
+}
+
+.ui-safe-area-hud__divider {
+  color: var(--ui-border-strong);
+  margin: 0 var(--ui-space-1);
+}
+
+.ui-safe-area-hud__row--controls {
+  justify-content: space-between;
+  gap: var(--ui-space-6);
+  padding-top: var(--ui-space-2);
+  border-top: 1px solid var(--ui-border-subtle);
+}
+
+.ui-safe-area-hud__slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--ui-space-3);
+}
+
+.ui-safe-area-hud__label {
+  font-size: var(--ui-font-xs);
+  font-weight: var(--ui-weight-medium);
+  color: var(--ui-text-muted);
+}
+
+.ui-safe-area-hud__slider {
+  width: 140px;
+}
+
+.ui-safe-area-hud__slider .ui-slider__value {
+  display: inline-block;
+  width: 4ch;
+  min-width: 4ch;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  box-sizing: border-box;
+}
+
+.ui-safe-area-hud__reset-btn {
+  font-size: var(--ui-font-xs);
+  padding: 0 var(--ui-space-3);
+  height: 28px;
+}
+
+/* 2. Portrait Orientation Gate Modal */
+.ui-portrait-gate {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 100000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ui-space-6);
+  box-sizing: border-box;
+}
+
+.ui-portrait-gate__card {
+  max-width: 380px;
+  width: 100%;
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-strong);
+  border-radius: var(--ui-radius-xl);
+  padding: var(--ui-space-6);
+  text-align: center;
+  box-shadow: var(--ui-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ui-space-3);
+  box-sizing: border-box;
+}
+
+.ui-portrait-gate__title {
+  margin: var(--ui-space-1) 0 0 0;
+  font-size: var(--ui-font-lg);
+  font-weight: var(--ui-weight-bold);
+  color: var(--ui-text-main);
+}
+
+.ui-portrait-gate__desc {
+  margin: 0;
+  font-size: var(--ui-font-sm);
+  color: var(--ui-text-muted);
+  line-height: 1.5;
+}
+
+.ui-portrait-gate__actions {
+  margin-top: var(--ui-space-2);
+  width: 100%;
+}
+
+.ui-portrait-gate__dismiss-btn {
+  width: 100%;
+}

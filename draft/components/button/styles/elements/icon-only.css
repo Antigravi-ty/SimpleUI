@@ -1,0 +1,17 @@
+.draft-ui-btn--icon-only.draft-ui-btn--sm,
+.ui-btn--icon-only.ui-btn--sm {
+  width: var(--ui-btn-height-sm);
+  padding: 0;
+}
+
+.draft-ui-btn--icon-only.draft-ui-btn--md,
+.ui-btn--icon-only.ui-btn--md {
+  width: var(--ui-btn-height-md);
+  padding: 0;
+}
+
+.draft-ui-btn--icon-only.draft-ui-btn--lg,
+.ui-btn--icon-only.ui-btn--lg {
+  width: var(--ui-btn-height-lg);
+  padding: 0;
+}

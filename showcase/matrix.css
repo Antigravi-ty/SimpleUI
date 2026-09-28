@@ -1,0 +1,163 @@
+/* Matrix Card */
+.matrix-card {
+  margin-bottom: var(--ui-space-8);
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-lg);
+  box-shadow: var(--ui-shadow-sm);
+  overflow: hidden;
+}
+
+.matrix-card__header {
+  padding: var(--ui-space-4) var(--ui-space-6);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  background-color: var(--ui-bg-surface);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--ui-space-3);
+}
+
+.matrix-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.matrix-card__title-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--ui-space-3);
+}
+
+.matrix-card__title {
+  font-size: var(--ui-font-lg);
+  font-weight: var(--ui-weight-bold);
+  text-transform: capitalize;
+}
+
+.matrix-card__prefix code {
+  font-size: var(--ui-font-xs);
+  padding: 2px 6px;
+  background: var(--ui-color-neutral-100);
+  border-radius: var(--ui-radius-sm);
+  color: var(--ui-color-neutral-700);
+}
+
+.matrix-card__desc {
+  font-size: var(--ui-font-sm);
+  color: var(--ui-text-muted);
+}
+
+/* Non-blocking Matrix Table Wrapper */
+.matrix-table-wrapper {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+  touch-action: pan-y pinch-zoom;
+  scrollbar-width: thin;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+}
+
+.matrix-table th,
+.matrix-table td {
+  padding: var(--ui-space-3) var(--ui-space-4);
+  border-bottom: 1px solid var(--ui-border-subtle);
+  white-space: nowrap;
+}
+
+.matrix-table thead tr {
+  background-color: var(--ui-color-neutral-50);
+}
+
+/* Sticky First Column */
+.matrix-table__corner {
+  position: sticky;
+  left: 0;
+  z-index: 10;
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+  font-weight: var(--ui-weight-semibold);
+  min-width: 170px;
+  max-width: 220px;
+  background-color: var(--ui-color-neutral-50);
+  box-shadow: 1px 0 0 var(--ui-border-subtle);
+}
+
+.matrix-table__col-header {
+  font-size: var(--ui-font-sm);
+  font-weight: var(--ui-weight-semibold);
+}
+
+.matrix-table__col-header small {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: var(--ui-weight-normal);
+  color: var(--ui-text-muted);
+}
+
+.matrix-table__row-header {
+  position: sticky;
+  left: 0;
+  z-index: 5;
+  font-size: var(--ui-font-sm);
+  min-width: 170px;
+  max-width: 220px;
+  background-color: var(--ui-bg-surface);
+  box-shadow: 1px 0 0 var(--ui-border-subtle);
+}
+
+.matrix-table__row-header small {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: var(--ui-weight-normal);
+  color: var(--ui-text-muted);
+}
+
+.matrix-table__cell {
+  vertical-align: middle;
+}
+
+.matrix-card__redirect {
+  margin: var(--ui-space-2) 0 0 0;
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+}
+
+.matrix-card__redirect-link {
+  color: var(--ui-text-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: var(--ui-weight-medium);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.15s ease;
+}
+
+.matrix-card__redirect-link:hover {
+  color: var(--ui-text-main);
+  opacity: 1;
+}
+
+/* Active dropdown elevation and overflow escape */
+.matrix-card:has(.ui-dropdown--open) {
+  overflow: visible;
+}
+
+.matrix-table tr:has(.ui-dropdown--open) {
+  position: relative;
+  z-index: 50;
+}
+
+.matrix-table tr:has(.ui-dropdown--open) .matrix-table__row-header {
+  z-index: 50;
+}

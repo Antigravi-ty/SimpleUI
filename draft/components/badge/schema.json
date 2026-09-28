@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-ui-badge",
+  "block": "badge",
+  "name": "badge",
+  "prefix": "draft-ui-badge",
+  "status": "draft",
+  "description": "Compact status, category, or count indicator (Draft Incubator)",
+  "sizes": [
+    "sm",
+    "md"
+  ],
+  "defaultSize": "sm",
+  "props": {
+    "text": {
+      "type": "string",
+      "default": "Badge"
+    },
+    "pill": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "modifiers": [
+    "neutral",
+    "primary",
+    "primary-subtle",
+    "success",
+    "success-subtle",
+    "warning",
+    "warning-subtle",
+    "danger",
+    "danger-subtle"
+  ],
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "defaultText": "Badge",
+      "template": "<span class=\"{classes}\">{slot:default}</span>"
+    },
+    {
+      "name": "pill",
+      "label": "Pill (Capsule)",
+      "selector": "--pill",
+      "defaultText": "99+",
+      "template": "<span class=\"{classes}\">{slot:default}</span>"
+    },
+    {
+      "name": "dot",
+      "label": "Status Dot",
+      "selector": "--dot",
+      "defaultText": "Online",
+      "template": "<span class=\"{classes}\"><span class=\"ui-badge__dot-indicator\"></span>{slot:default}</span>"
+    },
+    {
+      "name": "outline",
+      "label": "Outline",
+      "selector": "--outline",
+      "defaultText": "Badge",
+      "template": "<span class=\"{classes}\">{slot:default}</span>"
+    }
+  ],
+  "variantDimensions": {
+    "content": {
+      "label": "Appearance",
+      "default": "standard",
+      "options": [
+        {
+          "value": "standard",
+          "label": "Solid (Rounded)"
+        },
+        {
+          "value": "pill",
+          "label": "Solid Pill"
+        },
+        {
+          "value": "dot",
+          "label": "Status Dot"
+        },
+        {
+          "value": "outline",
+          "label": "Outline"
+        }
+      ]
+    }
+  },
+  "title": "Badge",
+  "archetype": "feedback"
+}

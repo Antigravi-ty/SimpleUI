@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "progressbar",
+  "prefix": "ui-progressbar",
+  "description": "Apple-styled neutral progress bar indicating task completion or indefinite activity",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "value": {
+      "type": "number",
+      "default": 65
+    },
+    "max": {
+      "type": "number",
+      "default": 100
+    }
+  },
+  "modifiers": [
+    "neutral",
+    "primary",
+    "success",
+    "warning",
+    "danger"
+  ],
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "template": "<div class=\"{classes}\" role=\"progressbar\" aria-valuenow=\"{value}\" aria-valuemin=\"0\" aria-valuemax=\"{max}\"><div class=\"ui-progressbar__track\"><div class=\"ui-progressbar__fill\" style=\"width: {value}%;\"></div></div></div>"
+    },
+    {
+      "name": "labeled",
+      "label": "With Label",
+      "selector": "--labeled",
+      "template": "<div class=\"{classes}\" role=\"progressbar\" aria-valuenow=\"{value}\" aria-valuemin=\"0\" aria-valuemax=\"{max}\"><div class=\"ui-progressbar__info\"><span class=\"ui-progressbar__title\">Progress</span><span class=\"ui-progressbar__value\">{value}%</span></div><div class=\"ui-progressbar__track\"><div class=\"ui-progressbar__fill\" style=\"width: {value}%;\"></div></div></div>"
+    },
+    {
+      "name": "indeterminate",
+      "label": "Indeterminate",
+      "selector": "--indeterminate",
+      "template": "<div class=\"{classes}\" role=\"progressbar\" aria-valuemin=\"0\" aria-valuemax=\"{max}\" aria-busy=\"true\"><div class=\"ui-progressbar__info\"><span class=\"ui-progressbar__title\">Compiling shaders...</span><span class=\"ui-progressbar__value\">Waiting</span></div><div class=\"ui-progressbar__track\"><div class=\"ui-progressbar__fill ui-progressbar__fill--indeterminate\"></div></div></div>"
+    }
+  ]
+}

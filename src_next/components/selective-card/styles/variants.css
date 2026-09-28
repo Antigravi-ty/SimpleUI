@@ -1,0 +1,43 @@
+/* Neutral Selected (Solid Black Border, feedback on hover) */
+.ui-selective-card--neutral.ui-selective-card--selected {
+  border-color: var(--ui-color-neutral-900);
+  background-color: var(--ui-color-neutral-50);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.ui-selective-card--neutral.ui-selective-card--selected:hover:not(.ui-selective-card--disabled) {
+  border-color: var(--ui-color-neutral-900);
+  background-color: var(--ui-color-neutral-100);
+  box-shadow: var(--ui-shadow-md);
+}
+
+.ui-selective-card--neutral.ui-selective-card--selected .ui-selective-card__indicator {
+  border-color: var(--ui-color-neutral-900);
+  background-color: var(--ui-color-neutral-900);
+}
+
+/* Primary Selected (Default) */
+.ui-selective-card--primary.ui-selective-card--selected,
+.ui-selective-card--selected {
+  border-color: var(--ui-color-primary);
+  background-color: var(--ui-color-primary-subtle);
+  box-shadow: var(--ui-shadow-sm);
+}
+
+.ui-selective-card--primary.ui-selective-card--selected:hover:not(.ui-selective-card--disabled),
+.ui-selective-card--selected:hover:not(.ui-selective-card--disabled) {
+  border-color: var(--ui-color-primary-hover);
+  box-shadow: var(--ui-shadow-md);
+}
+
+.ui-selective-card--primary.ui-selective-card--selected .ui-selective-card__indicator,
+.ui-selective-card--selected .ui-selective-card__indicator {
+  border-color: var(--ui-color-primary);
+  background-color: var(--ui-color-primary);
+}
+
+.ui-selective-card--disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
