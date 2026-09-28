@@ -62,7 +62,9 @@
       "template": "<span class=\"{classes}\">{slot:default}</span>"
     }
   ],
-  "variantDimensions": {
+  "title": "Badge",
+  "archetype": "feedback",
+  "variants": {
     "content": {
       "label": "Appearance",
       "default": "standard",
@@ -85,7 +87,5 @@
         }
       ]
     }
-  },
-  "title": "Badge",
-  "archetype": "feedback"
+  }
 }

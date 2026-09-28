@@ -22,18 +22,21 @@
   display: block;
 }
 
+:is([data-lens-align="left"]) :is(.draft-ui-dropdown__menu, .ui-dropdown__menu),
 :is(.draft-ui-dropdown--align-left, .ui-dropdown--align-left) :is(.draft-ui-dropdown__menu, .ui-dropdown__menu) {
   left: 0;
   right: auto;
   transform: none;
 }
 
+:is([data-lens-align="center"]) :is(.draft-ui-dropdown__menu, .ui-dropdown__menu),
 :is(.draft-ui-dropdown--align-center, .ui-dropdown--align-center) :is(.draft-ui-dropdown__menu, .ui-dropdown__menu) {
   left: 50%;
   right: auto;
   transform: translateX(-50%);
 }
 
+:is([data-lens-align="right"]) :is(.draft-ui-dropdown__menu, .ui-dropdown__menu),
 :is(.draft-ui-dropdown--align-right, .ui-dropdown--align-right) :is(.draft-ui-dropdown__menu, .ui-dropdown__menu) {
   left: auto;
   right: 0;

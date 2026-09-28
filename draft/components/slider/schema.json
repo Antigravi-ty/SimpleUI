@@ -57,22 +57,6 @@
       "template": "<div class=\"{classes}\"><input type=\"range\" class=\"ui-slider__input\" min=\"{min}\" max=\"{max}\" step=\"{step}\" value=\"{value}\" {attributes} aria-label=\"{ariaLabel}\"><div class=\"ui-slider__track\"><div class=\"ui-slider__fill\"></div><div class=\"ui-slider__thumb\"></div></div><span class=\"ui-slider__value ui-tabular-nums\">{value}</span></div>"
     }
   ],
-  "variantDimensions": {
-    "content": {
-      "label": "Content",
-      "default": "value",
-      "options": [
-        {
-          "value": "value",
-          "label": "Value Badge"
-        },
-        {
-          "value": "minimal",
-          "label": "Minimal"
-        }
-      ]
-    }
-  },
   "title": "Slider",
   "archetype": "value-input",
   "io": {
@@ -88,6 +72,22 @@
     "signals": {
       "input": "input",
       "change": "change"
+    }
+  },
+  "variants": {
+    "content": {
+      "label": "Content",
+      "default": "value",
+      "options": [
+        {
+          "value": "value",
+          "label": "Value Badge"
+        },
+        {
+          "value": "minimal",
+          "label": "Minimal"
+        }
+      ]
     }
   }
 }

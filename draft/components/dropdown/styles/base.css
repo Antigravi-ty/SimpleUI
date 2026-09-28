@@ -13,6 +13,7 @@
   bottom: calc(100% + var(--ui-space-1));
 }
 
+:is([data-lens-align]),
 :is(.draft-ui-dropdown--align-left, .ui-dropdown--align-left),
 :is(.draft-ui-dropdown--align-center, .ui-dropdown--align-center),
 :is(.draft-ui-dropdown--align-right, .ui-dropdown--align-right) {

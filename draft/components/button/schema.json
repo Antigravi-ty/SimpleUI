@@ -73,7 +73,9 @@
       "template": "<button type=\"button\" class=\"{classes}\" {attributes} aria-label=\"{ariaLabel}\">{slot:default}</button>"
     }
   ],
-  "variantDimensions": {
+  "title": "Button",
+  "archetype": "action",
+  "variants": {
     "content": {
       "label": "Content",
       "default": "text",
@@ -96,7 +98,5 @@
         }
       ]
     }
-  },
-  "title": "Button",
-  "archetype": "action"
+  }
 }
