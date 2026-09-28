@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Catalogue Component Sample Fixtures",
+  "description": "Declarative generative sample rules and fixtures for catalogue staging frames without defensive fallback reliance",
+  "samples": {
+    "button": {
+      "slot": "default",
+      "value": "Action"
+    },
+    "badge": {
+      "slot": "default",
+      "value": "Badge"
+    },
+    "checkbox": {
+      "checked": true,
+      "slot": "default",
+      "value": "Option"
+    },
+    "dropdown": {
+      "triggerText": "Select Option",
+      "amount": 3,
+      "prefix": "Item"
+    },
+    "segmented-control": {
+      "amount": 3,
+      "prefix": "Option"
+    },
+    "slider": {
+      "value": 50,
+      "unit": "%"
+    },
+    "progressbar": {
+      "value": 60
+    },
+    "selective-card": {
+      "title": "Card Title",
+      "description": "Card description"
+    },
+    "stepper": {
+      "value": 1,
+      "min": 0,
+      "max": 10
+    },
+    "tabs": {
+      "amount": 3,
+      "prefix": "Tab"
+    },
+    "toggler": {
+      "checked": true
+    }
+  }
+}

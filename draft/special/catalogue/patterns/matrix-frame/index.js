@@ -2,6 +2,8 @@ import './style.css';
 import { getSchemaBadgeClass } from '../helpers.js';
 import matrixFrameSchema from './schema.json';
 import modifierCategoriesData from '@catalogue/schemas/modifier-categories.json';
+import samplesData from '@catalogue/schemas/samples.json' with { type: 'json' };
+import { getIcon } from '@draft/icons/index.js';
 import { interpret } from '@src_next/core/slot-resolver.js';
 import { defaultActionEngine } from '@src_next/core/action-engine.js';
 
@@ -115,6 +117,7 @@ defaultActionEngine.register('matrix.lens', ({ element }) => {
   const newVal = element.getAttribute('data-value') || element.dataset.value;
   if (!dimKey || !newVal) return;
 
+  frameRoot.setAttribute(`data-lens-${dimKey}`, newVal);
   if (dimKey === 'align') {
     frameRoot.querySelectorAll('.ui-dropdown, .draft-ui-dropdown').forEach(dd => {
       dd.classList.remove(
@@ -153,8 +156,9 @@ export function renderMatrixFrame(options = {}, context = {}) {
     attributes = {}
   } = options;
 
-  const variantDimensions = options.variantDimensions || options.schema?.variantDimensions || null;
+  const variantDimensions = options.variants || options.variantDimensions || options.schema?.variants || options.schema?.variantDimensions || null;
   const hasVariantDimensions = Boolean(
+    options.hasVariants !== false &&
     options.hasVariantDimensions !== false &&
     options.haveVariantDimensions !== false &&
     variantDimensions &&
@@ -284,9 +288,69 @@ export function renderMatrixFrame(options = {}, context = {}) {
       return renderCell(row, col, idx, currentVariantState);
     }
     if (targetBlock) {
+      const sample = samplesData?.samples?.[targetBlock] || {};
+      const isDisabled = col === 'disabled';
+      const activeMod = isDisabled ? 'neutral' : col;
+      const contentMode = currentVariantState?.content || 'standard';
+      const schemaDef = options.schema || (context.engine?.getBlock ? context.engine.getBlock(targetBlock) : null);
+      const defaultText = schemaDef?.elements?.[0]?.defaultText || schemaDef?.props?.triggerText?.default || schemaDef?.props?.label?.default || 'Action';
+
+      const cellProps = {
+        size: row,
+        modifier: activeMod,
+        disabled: isDisabled,
+        ...currentVariantState
+      };
+
+      if (schemaDef?.collection || targetBlock === 'segmented-control' || sample.amount) {
+        const amount = sample.amount || 3;
+        const prefix = sample.prefix || 'Option';
+        cellProps.items = Array.from({ length: amount }, (_, i) => ({
+          value: `${prefix.toLowerCase()}-${i + 1}`,
+          label: `${prefix} ${i + 1}`
+        }));
+        cellProps.value = `${prefix.toLowerCase()}-1`;
+      } else if (targetBlock === 'checkbox') {
+        cellProps.checked = sample.checked !== undefined ? sample.checked : true;
+        cellProps.label = contentMode === 'standalone' ? '' : `${row.toUpperCase()} ${sample.value || 'Option'}`;
+      } else if (targetBlock === 'slider') {
+        cellProps.value = sample.value !== undefined ? sample.value : 50;
+        cellProps.unit = contentMode === 'minimal' ? '' : (sample.unit || '%');
+      } else {
+        const starIcon = getIcon('star');
+        if (contentMode === 'icon-only') {
+          cellProps.element = 'icon-only';
+          cellProps.content = starIcon;
+        } else if (contentMode === 'leading-icon') {
+          cellProps.content = `${starIcon}<span>${defaultText}</span>`;
+        } else if (contentMode === 'trailing-icon') {
+          cellProps.content = `<span>${defaultText}</span>${starIcon}`;
+        } else if (contentMode === 'dot') {
+          cellProps.element = 'dot';
+          cellProps.content = 'Active';
+        } else if (contentMode === 'pill') {
+          cellProps.element = 'pill';
+          cellProps.content = '99+';
+        } else {
+          cellProps.content = isDisabled ? 'Disabled' : `${row.toUpperCase()} ${sample.value || defaultText}`;
+          cellProps.triggerLabel = isDisabled ? 'Disabled' : `${row.toUpperCase()} ${targetBlock.charAt(0).toUpperCase() + targetBlock.slice(1)}`;
+          cellProps.placeholder = `Centered Container Placeholder (${currentVariantState?.align || 'left'})`;
+        }
+      }
+
+      // Fail-fast assertion: Zero tolerance for missing slot/collection requirements
+      if (schemaDef?.elements?.[0]?.template?.includes('{slot:default}') &&
+          !cellProps.content && !cellProps.text && !cellProps.children &&
+          !schemaDef?.elements?.[0]?.defaultText && !sample.value) {
+        throw new Error(`[Schema Violation] Component "${targetBlock}" declares {slot:default} but no content was provided.`);
+      }
+      if (schemaDef?.collection && (!cellProps.items || cellProps.items.length === 0)) {
+        throw new Error(`[Schema Violation] Collection component "${targetBlock}" requires items, but none were provided.`);
+      }
+
       return {
         block: targetBlock,
-        props: { size: row, modifier: col, ...currentVariantState }
+        props: cellProps
       };
     }
     return null;
@@ -422,7 +486,7 @@ export function renderMatrixFrame(options = {}, context = {}) {
               {
                 type: 'th',
                 className: 'draft-sp-cata-matrix-frame__row-header',
-                content: 'Type \\ Modifier'
+                content: 'Size \\ Modifier'
               },
               ...columns.map((col, idx) => ({
                 type: 'th',

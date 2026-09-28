@@ -14,8 +14,6 @@ const ARCHETYPE_ORDER = {
   structure: 7
 };
 
-const starSvg = '<svg class="ui-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
-
 /**
  * Scan all draft component schemas dynamically via Vite native glob.
  * Enforces strict fail-fast validation (Zero-Tolerance, Zero-Fallback).
@@ -80,65 +78,8 @@ const deriveColumns = (schema) => {
 };
 
 /**
- * Pure semantic cell resolution derived dynamically from schema conventions
- */
-const deriveCellSpec = (schema, size, mod, idx, variantState = {}) => {
-  const block = schema.block || schema.name;
-  const isDisabled = mod === 'disabled';
-  const activeMod = isDisabled ? 'neutral' : mod;
-  const contentMode = variantState?.content || 'text';
-
-  const defaultText = schema.elements?.[0]?.defaultText || schema.props?.triggerText?.default || schema.props?.label?.default || 'Action';
-
-  const props = {
-    size,
-    modifier: activeMod,
-    disabled: isDisabled,
-    ...variantState
-  };
-
-  if (schema.collection || block === 'segmented-control') {
-    props.items = [
-      { value: 'option-1', label: 'Option 1' },
-      { value: 'option-2', label: 'Option 2' },
-      { value: 'option-3', label: 'Option 3' }
-    ];
-    props.value = 'option-1';
-  } else if (block === 'checkbox') {
-    props.checked = true;
-    props.label = contentMode === 'standalone' ? '' : `${size.toUpperCase()} Option`;
-  } else if (block === 'slider') {
-    props.value = 50;
-    props.unit = contentMode === 'minimal' ? '' : '%';
-  } else {
-    if (contentMode === 'icon-only') {
-      props.element = 'icon-only';
-      props.content = starSvg;
-    } else if (contentMode === 'leading-icon') {
-      props.content = `${starSvg}<span>${defaultText}</span>`;
-    } else if (contentMode === 'trailing-icon') {
-      props.content = `<span>${defaultText}</span>${starSvg}`;
-    } else if (contentMode === 'dot') {
-      props.element = 'dot';
-      props.content = 'Active';
-    } else if (contentMode === 'pill') {
-      props.element = 'pill';
-      props.content = '99+';
-    } else {
-      props.content = isDisabled ? 'Disabled' : `${size.toUpperCase()} ${defaultText}`;
-      props.triggerLabel = isDisabled ? 'Disabled' : `${size.toUpperCase()} ${block.charAt(0).toUpperCase() + block.slice(1)}`;
-      props.placeholder = `Centered Container Placeholder (${variantState?.align || 'left'})`;
-    }
-  }
-
-  return {
-    block,
-    props
-  };
-};
-
-/**
- * Generate declarative Matrix Frame Spec for a component schema
+ * Generate pure declarative Matrix Frame Spec for a component schema.
+ * Zero JavaScript closures or ad-hoc render functions.
  */
 const createComponentMatrixSpec = (schema) => {
   const block = schema.block || schema.name;
@@ -150,11 +91,11 @@ const createComponentMatrixSpec = (schema) => {
       badge: getSchemaBadge(schema),
       status: schema.status || 'draft',
       description: schema.description,
-      variantDimensions: schema.variantDimensions,
+      variants: schema.variants || schema.variantDimensions,
       columns: deriveColumns(schema),
       rows: schema.sizes || ['sm', 'md', 'lg'],
       block,
-      renderCell: (size, mod, idx, variantState) => deriveCellSpec(schema, size, mod, idx, variantState)
+      schema
     }
   };
 };
