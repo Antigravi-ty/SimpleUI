@@ -169,3 +169,11 @@ This document outlines core intended architectural and behavioral contracts acro
     Because $1\text{em} \equiv \text{computed element font-size}$, defining tracking in `em` causes the physical letter spacing $L = \text{Tracking}(em) \times \text{Font Size}(rem \times \text{Zoom})$ to automatically scale in continuous geometric proportion with the Safe Area width $W_{\text{render}}$ and UI ScaleFactor without any JavaScript resize handlers.
   - **Tabular Numerals (`.ui-tabular-nums`)**:
     All telemetry readouts, slider values, stepper values, progress bar percentages, and counter badges must enforce `font-variant-numeric: tabular-nums` to eliminate layout jitter caused by variable digit widths.
+
+---
+
+## 5. Strict Fail-Fast Policy (Zero Fallback Tolerance)
+
+- **Philosophy**: SimpleUI refuses defensive fallbacks or silent auto-patching of schema violations.
+- **Contract Enforcement**: If a component schema defines a required slot without a default value, or a collection component is invoked without requisite items, the semantic interpreter immediately throws a critical failure.
+- **Catalogue Development Barrier**: Errors must surface directly as fatal red-screen barriers rather than silently rendering broken placeholders or swallowing runtime exceptions. Fix the schema and sample specifications at the source.

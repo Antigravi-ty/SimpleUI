@@ -27,6 +27,11 @@ This guide defines the atomic decoupled architecture, directory semantics, and f
    - Source modules are **STRICTLY PROHIBITED** from importing or referencing `draft/**` or declaring `.draft-` prefixed class names (verified automatically in CI via `npm run test:parity`).
    - Page viewports (`catalogue/pages/**`) represent the showroom consumption layer and MAY consume both solidified sources and incubating drafts.
 
+5. **Strict Fail-Fast & Zero-Tolerance Rule (No Silent Fallbacks)**:
+   - Components, templates, and slot resolvers must strictly enforce schema invariants.
+   - Missing required slots, unmapped tokens without defaults, or invalid collections **MUST FAIL FAST** by throwing a fatal `SchemaViolationError` (blocking rendering with a prominent red error barrier in the catalogue).
+   - **STRICTLY PROHIBITED**: Silent fallbacks, defensive swallowing of missing data (`|| 'fallback'`), or invisible auto-patches. If an Agent or developer violates a schema contract, the pipeline must halt immediately with zero tolerance until fixed.
+
 ---
 
 ## 2. Fast Modification Routing Matrix (Zero Attention Dilution)
