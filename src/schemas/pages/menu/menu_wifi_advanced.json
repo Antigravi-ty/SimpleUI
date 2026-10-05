@@ -1,0 +1,74 @@
+{
+  "$schema": "page-composition",
+  "id": "menu-view-wifi-advanced",
+  "title": "Hardware & DNS (Level 4 & 5)",
+  "className": "ui-drilldown__view is-hidden",
+  "children": [
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between menu-nav-bar",
+      "children": [
+        {
+          "block": "button",
+          "modifier": "ghost",
+          "size": "sm",
+          "text": "← Wi-Fi",
+          "action": "menu.back_to_wifi"
+        },
+        { "text": "Hardware & DNS (L4/L5)", "tag": "strong" }
+      ]
+    },
+    { "type": "box", "className": "ui-divider" },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between ui-menu__item",
+      "label": "DNS Mode",
+      "children": [
+        {
+          "block": "badge",
+          "modifier": "primary",
+          "size": "sm",
+          "text": "Cloudflare 1.1.1.1"
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between ui-menu__item",
+      "label": "Auto Proxy Discovery",
+      "children": [
+        {
+          "block": "toggler",
+          "size": "sm",
+          "modifier": "checked",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between ui-menu__item",
+      "label": "MTU Packet Buffer",
+      "children": [
+        {
+          "block": "stepper",
+          "size": "sm",
+          "props": { "value": 1500 }
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "className": "ui-stack--row ui-stack--between menu-action-row",
+      "children": [
+        {
+          "block": "button",
+          "modifier": "primary",
+          "size": "sm",
+          "text": "Apply L4/L5 Settings",
+          "action": "menu.save_advanced"
+        }
+      ]
+    }
+  ]
+}

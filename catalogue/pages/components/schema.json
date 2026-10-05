@@ -1,0 +1,26 @@
+{
+  "$schema": "page-composition",
+  "id": "catalogue-components-page",
+  "title": "Catalogue Components",
+  "description": "Declarative component variant test matrices driven by universal semantic interpreter and pattern expansion.",
+  "type": "container",
+  "className": "catalogue-page catalogue-page--components",
+  "attributes": {
+    "style": "display: flex; flex-direction: column; gap: var(--ui-space-6); width: 100%;"
+  },
+  "children": [
+    {
+      "pattern": "matrix-frame",
+      "props": {
+        "id": "draft-ui-btn",
+        "title": "Button",
+        "badge": ".draft-ui-btn",
+        "status": "draft",
+        "description": "Interactive push-button supporting variants, sizes, and states (Draft Incubator Pioneer)",
+        "columns": ["neutral", "primary", "secondary", "danger", "outline", "ghost", "disabled"],
+        "rows": ["sm", "md", "lg"],
+        "block": "button"
+      }
+    }
+  ]
+}

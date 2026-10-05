@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-ui-dropdown",
+  "block": "dropdown",
+  "name": "dropdown",
+  "prefix": "draft-ui-dropdown",
+  "status": "draft",
+  "description": "Accessible popover menu toggle control (Draft Incubator)",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "open": {
+      "type": "boolean",
+      "default": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "triggerText": {
+      "type": "string",
+      "default": "Select option"
+    }
+  },
+  "events": [
+    "toggle",
+    "select"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "disabled",
+    "open"
+  ],
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "template": "<div class=\"{classes}\"><button type=\"button\" class=\"ui-dropdown__trigger\" aria-haspopup=\"true\" aria-expanded=\"{ariaExpanded}\" {attributes}><span class=\"ui-dropdown__trigger-text\">{triggerText}</span><svg class=\"ui-dropdown__arrow\" width=\"12\" height=\"12\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><polyline points=\"6 9 12 15 18 9\"/></svg></button><div class=\"ui-dropdown__menu\" role=\"region\">{slot:default}</div></div>"
+    }
+  ],
+  "title": "Dropdown",
+  "archetype": "control",
+  "slots": {
+    "trigger": {
+      "selector": ".ui-dropdown__trigger"
+    },
+    "content": {
+      "selector": ".ui-dropdown__menu"
+    }
+  },
+  "collection": {
+    "itemsKey": "items",
+    "target": ".ui-dropdown__menu",
+    "itemTag": "button",
+    "itemClass": "{prefix}__item ui-dropdown__item",
+    "activeClass": "{prefix}__item--active ui-dropdown__item--active",
+    "role": "menuitem"
+  },
+  "variants": {
+    "content": {
+      "label": "Content",
+      "default": "text",
+      "options": [
+        {
+          "value": "text",
+          "label": "Text"
+        },
+        {
+          "value": "icon",
+          "label": "With Icon"
+        }
+      ]
+    },
+    "align": {
+      "label": "Alignment",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    }
+  }
+}

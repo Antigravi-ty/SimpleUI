@@ -1,0 +1,63 @@
+/* Neutral (Monochrome Black & White) */
+.ui-checkbox--neutral.ui-checkbox--checked .ui-checkbox__box,
+.ui-checkbox--neutral:has(.ui-checkbox__input:checked) .ui-checkbox__box,
+.ui-checkbox--neutral.ui-checkbox--indeterminate .ui-checkbox__box {
+  background-color: var(--ui-color-neutral-900);
+  border-color: var(--ui-color-neutral-900);
+  color: var(--ui-color-white);
+}
+
+/* Primary (Apple Blue) */
+.ui-checkbox--primary.ui-checkbox--checked .ui-checkbox__box,
+.ui-checkbox--primary:has(.ui-checkbox__input:checked) .ui-checkbox__box,
+.ui-checkbox--primary.ui-checkbox--indeterminate .ui-checkbox__box,
+.ui-checkbox--checked .ui-checkbox__box,
+.ui-checkbox:has(.ui-checkbox__input:checked) .ui-checkbox__box {
+  background-color: var(--ui-color-primary);
+  border-color: var(--ui-color-primary);
+  color: var(--ui-color-primary-contrast);
+}
+
+/* Success (Apple Green) */
+.ui-checkbox--success.ui-checkbox--checked .ui-checkbox__box,
+.ui-checkbox--success:has(.ui-checkbox__input:checked) .ui-checkbox__box,
+.ui-checkbox--success.ui-checkbox--indeterminate .ui-checkbox__box {
+  background-color: var(--ui-color-success);
+  border-color: var(--ui-color-success);
+  color: var(--ui-color-success-contrast);
+}
+
+/* Danger (Apple Red) */
+.ui-checkbox--danger.ui-checkbox--checked .ui-checkbox__box,
+.ui-checkbox--danger:has(.ui-checkbox__input:checked) .ui-checkbox__box,
+.ui-checkbox--danger.ui-checkbox--indeterminate .ui-checkbox__box {
+  background-color: var(--ui-color-danger);
+  border-color: var(--ui-color-danger);
+  color: var(--ui-color-danger-contrast);
+}
+
+/* Default Indeterminate State */
+.ui-checkbox--indeterminate .ui-checkbox__box {
+  background-color: var(--ui-color-neutral-900);
+  border-color: var(--ui-color-neutral-900);
+}
+
+/* Mutually Exclusive Checkmark & Dash */
+.ui-checkbox--checked:not(.ui-checkbox--indeterminate) .ui-checkbox__check,
+.ui-checkbox:not(.ui-checkbox--indeterminate):has(.ui-checkbox__input:checked) .ui-checkbox__check {
+  display: block;
+}
+.ui-checkbox--indeterminate .ui-checkbox__check {
+  display: none !important;
+}
+.ui-checkbox--indeterminate .ui-checkbox__dash {
+  display: block;
+}
+
+/* Disabled State */
+.ui-checkbox--disabled,
+.ui-checkbox:has(.ui-checkbox__input:disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

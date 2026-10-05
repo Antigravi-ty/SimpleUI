@@ -1,0 +1,12 @@
+.draft-ui-center-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ui-bg-surface);
+  border: 1px solid var(--ui-border-subtle);
+  border-radius: var(--ui-radius-md);
+  padding: var(--ui-space-3) var(--ui-space-4);
+  color: var(--ui-text-main);
+  box-sizing: border-box;
+  width: 100%;
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-pattern-dropdown-menu",
+  "name": "dropdown-menu",
+  "prefix": "draft-ui-dropdown-menu",
+  "category": "pattern",
+  "status": "draft",
+  "description": "Structured menu list pattern rendering interactive items, icons, and badges for popovers and dropdowns.",
+  "props": {
+    "items": {
+      "type": "array",
+      "description": "Array of menu item descriptors: { id, label, href, badge, icon, disabled, danger, onClick }"
+    }
+  },
+  "title": "Dropdown Menu"
+}

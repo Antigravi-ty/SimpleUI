@@ -1,0 +1,34 @@
+.ui-progressbar--neutral .ui-progressbar__track {
+  background-color: var(--ui-color-neutral-200);
+}
+.ui-progressbar--neutral .ui-progressbar__fill {
+  background-color: var(--ui-color-neutral-700);
+}
+
+.ui-progressbar--primary .ui-progressbar__track {
+  background-color: var(--ui-color-neutral-200);
+}
+.ui-progressbar--primary .ui-progressbar__fill {
+  background-color: var(--ui-color-primary);
+}
+
+.ui-progressbar--success .ui-progressbar__track {
+  background-color: var(--ui-color-neutral-200);
+}
+.ui-progressbar--success .ui-progressbar__fill {
+  background-color: var(--ui-color-success);
+}
+
+.ui-progressbar--warning .ui-progressbar__track {
+  background-color: var(--ui-color-neutral-200);
+}
+.ui-progressbar--warning .ui-progressbar__fill {
+  background-color: var(--ui-color-warning);
+}
+
+.ui-progressbar--danger .ui-progressbar__track {
+  background-color: var(--ui-color-danger-subtle);
+}
+.ui-progressbar--danger .ui-progressbar__fill {
+  background-color: var(--ui-color-danger);
+}

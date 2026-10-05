@@ -1,0 +1,48 @@
+{
+  "$schema": "page-composition",
+  "id": "showcase-shell-layout",
+  "title": "Showcase Shell Layout",
+  "className": "special-showcase-ui-shell",
+  "children": [
+    {
+      "type": "container",
+      "id": "showcase-shell-header",
+      "className": "special-showcase-ui-header",
+      "children": [
+        {
+          "type": "row",
+          "className": "app-header__brand",
+          "children": [
+            { "text": "SimpleUI", "tag": "strong" },
+            { "block": "badge", "modifier": "neutral", "size": "sm", "text": "v2.1.0" }
+          ]
+        },
+        {
+          "type": "row",
+          "className": "app-header__actions",
+          "children": [
+            { "block": "button", "size": "sm", "modifier": "neutral", "text": "Safe Area" },
+            { "block": "slider", "size": "sm", "modifier": "neutral" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "container",
+      "id": "showcase-shell-body",
+      "className": "app-body",
+      "children": [
+        {
+          "type": "container",
+          "id": "showcase-shell-sidebar",
+          "className": "special-showcase-ui-sidebar"
+        },
+        {
+          "type": "container",
+          "id": "showcase-shell-content",
+          "className": "special-showcase-ui-content"
+        }
+      ]
+    }
+  ]
+}

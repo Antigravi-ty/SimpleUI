@@ -1,0 +1,24 @@
+/* Sizing variants for Segmented Control */
+.draft-ui-segmented-control--sm, .ui-segmented-control--sm {
+  height: var(--ui-segmented-height-sm, 28px);
+}
+:is(.draft-ui-segmented-control--sm, .ui-segmented-control--sm) :is(.draft-ui-segmented-control__item, .ui-segmented-control__item) {
+  padding: 0 var(--ui-space-2);
+  font-size: var(--ui-font-xs);
+}
+
+.draft-ui-segmented-control--md, .ui-segmented-control--md {
+  height: var(--ui-segmented-height-md, 32px);
+}
+:is(.draft-ui-segmented-control--md, .ui-segmented-control--md) :is(.draft-ui-segmented-control__item, .ui-segmented-control__item) {
+  padding: 0 var(--ui-space-3);
+  font-size: var(--ui-font-sm);
+}
+
+.draft-ui-segmented-control--lg, .ui-segmented-control--lg {
+  height: var(--ui-segmented-height-lg, 40px);
+}
+:is(.draft-ui-segmented-control--lg, .ui-segmented-control--lg) :is(.draft-ui-segmented-control__item, .ui-segmented-control__item) {
+  padding: 0 var(--ui-space-4);
+  font-size: var(--ui-font-base);
+}

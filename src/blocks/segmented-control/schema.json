@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "segmented-control",
+  "prefix": "ui-segmented-control",
+  "description": "Apple HIG segmented control for switching views or modes",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "events": [
+    "change"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Text Labels",
+      "selector": "",
+      "template": "<div class=\"{classes}\" role=\"tablist\">{slot:default}</div>"
+    },
+    {
+      "name": "icons",
+      "label": "Icon Segments",
+      "selector": "--icons",
+      "template": "<div class=\"{classes}\" role=\"tablist\">{slot:default}</div>"
+    }
+  ]
+}

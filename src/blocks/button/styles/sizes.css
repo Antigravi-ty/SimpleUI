@@ -1,0 +1,17 @@
+.ui-btn--sm {
+  font-size: var(--ui-font-xs);
+  padding: var(--ui-space-1) var(--ui-space-2);
+  min-height: var(--ui-btn-height-sm);
+}
+
+.ui-btn--md {
+  font-size: var(--ui-font-sm);
+  padding: var(--ui-space-2) var(--ui-space-4);
+  min-height: var(--ui-btn-height-md);
+}
+
+.ui-btn--lg {
+  font-size: var(--ui-font-base);
+  padding: var(--ui-space-3) var(--ui-space-6);
+  min-height: var(--ui-btn-height-lg);
+}

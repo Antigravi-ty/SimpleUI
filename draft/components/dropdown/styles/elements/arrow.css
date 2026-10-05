@@ -1,0 +1,8 @@
+:is(.draft-ui-dropdown__arrow, .ui-dropdown__arrow) {
+  transition: transform var(--ui-motion-fade-duration, 150ms) var(--ui-motion-ease-apple, cubic-bezier(0.2, 0.8, 0.25, 1));
+  flex-shrink: 0;
+}
+
+:is(.draft-ui-dropdown--open, .ui-dropdown--open) :is(.draft-ui-dropdown__arrow, .ui-dropdown__arrow) {
+  transform: rotate(180deg);
+}

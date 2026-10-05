@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-ui-slider",
+  "block": "slider",
+  "name": "slider",
+  "prefix": "draft-ui-slider",
+  "status": "draft",
+  "description": "Continuous range slider control with fill and thumb indicator (Draft Incubator)",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "min": {
+      "type": "number",
+      "default": 0
+    },
+    "max": {
+      "type": "number",
+      "default": 100
+    },
+    "step": {
+      "type": "number",
+      "default": 1
+    },
+    "value": {
+      "type": "number",
+      "default": 50
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": "Slider"
+    }
+  },
+  "events": [
+    "input",
+    "change"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "success",
+    "danger",
+    "disabled"
+  ],
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "template": "<div class=\"{classes}\"><input type=\"range\" class=\"ui-slider__input\" min=\"{min}\" max=\"{max}\" step=\"{step}\" value=\"{value}\" {attributes} aria-label=\"{ariaLabel}\"><div class=\"ui-slider__track\"><div class=\"ui-slider__fill\"></div><div class=\"ui-slider__thumb\"></div></div><span class=\"ui-slider__value ui-tabular-nums\">{value}</span></div>"
+    }
+  ],
+  "title": "Slider",
+  "archetype": "value-input",
+  "io": {
+    "model": {
+      "selector": ".ui-slider__input",
+      "prop": "value",
+      "type": "number",
+      "display": {
+        "selector": ".ui-slider__value",
+        "format": "{value}{unit}"
+      }
+    },
+    "signals": {
+      "input": "input",
+      "change": "change"
+    }
+  },
+  "variants": {
+    "content": {
+      "label": "Content",
+      "default": "value",
+      "options": [
+        {
+          "value": "value",
+          "label": "Value Badge"
+        },
+        {
+          "value": "minimal",
+          "label": "Minimal"
+        }
+      ]
+    }
+  }
+}

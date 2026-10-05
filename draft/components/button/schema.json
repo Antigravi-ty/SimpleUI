@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-ui-button",
+  "block": "button",
+  "name": "button",
+  "prefix": "draft-ui-btn",
+  "status": "draft",
+  "description": "Interactive push-button supporting variants, sizes, and states (Draft Incubator)",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "button",
+        "submit",
+        "reset"
+      ],
+      "default": "button"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    },
+    "ariaLabel": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "events": [
+    "click",
+    "focus",
+    "blur"
+  ],
+  "modifiers": [
+    "neutral",
+    "outline",
+    "ghost",
+    "primary",
+    "primary-subtle",
+    "success",
+    "success-subtle",
+    "warning",
+    "warning-subtle",
+    "danger",
+    "danger-subtle",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "defaultText": "Action",
+      "template": "<button type=\"button\" class=\"{classes}\" {attributes}>{slot:default}</button>"
+    },
+    {
+      "name": "icon-only",
+      "label": "Icon Only",
+      "selector": "--icon-only",
+      "defaultText": "<svg class=\"ui-btn__icon\" width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2\"/></svg>",
+      "ariaLabel": "Star",
+      "template": "<button type=\"button\" class=\"{classes}\" {attributes} aria-label=\"{ariaLabel}\">{slot:default}</button>"
+    }
+  ],
+  "title": "Button",
+  "archetype": "action",
+  "variants": {
+    "content": {
+      "label": "Content",
+      "default": "text",
+      "options": [
+        {
+          "value": "text",
+          "label": "Text"
+        },
+        {
+          "value": "leading-icon",
+          "label": "Leading Icon"
+        },
+        {
+          "value": "trailing-icon",
+          "label": "Trailing Icon"
+        },
+        {
+          "value": "icon-only",
+          "label": "Icon Only"
+        }
+      ]
+    }
+  }
+}

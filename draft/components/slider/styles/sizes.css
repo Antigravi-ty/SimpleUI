@@ -1,0 +1,47 @@
+:is(.draft-ui-slider--sm, .ui-slider--sm) :is(.draft-ui-slider__input, .ui-slider__input)::-webkit-slider-runnable-track {
+  height: var(--ui-slider-track-height-sm);
+}
+:is(.draft-ui-slider--sm, .ui-slider--sm) :is(.draft-ui-slider__input, .ui-slider__input)::-moz-range-track {
+  height: var(--ui-slider-track-height-sm);
+}
+:is(.draft-ui-slider--sm, .ui-slider--sm) :is(.draft-ui-slider__input, .ui-slider__input)::-webkit-slider-thumb {
+  height: var(--ui-slider-thumb-size-sm);
+  width: var(--ui-slider-thumb-size-sm);
+  margin-top: calc((var(--ui-slider-track-height-sm) - var(--ui-slider-thumb-size-sm)) / 2);
+}
+:is(.draft-ui-slider--sm, .ui-slider--sm) :is(.draft-ui-slider__input, .ui-slider__input)::-moz-range-thumb {
+  height: var(--ui-slider-thumb-size-sm);
+  width: var(--ui-slider-thumb-size-sm);
+}
+
+:is(.draft-ui-slider--md, .ui-slider--md) :is(.draft-ui-slider__input, .ui-slider__input)::-webkit-slider-runnable-track {
+  height: var(--ui-slider-track-height-md);
+}
+:is(.draft-ui-slider--md, .ui-slider--md) :is(.draft-ui-slider__input, .ui-slider__input)::-moz-range-track {
+  height: var(--ui-slider-track-height-md);
+}
+:is(.draft-ui-slider--md, .ui-slider--md) :is(.draft-ui-slider__input, .ui-slider__input)::-webkit-slider-thumb {
+  height: var(--ui-slider-thumb-size-md);
+  width: var(--ui-slider-thumb-size-md);
+  margin-top: calc((var(--ui-slider-track-height-md) - var(--ui-slider-thumb-size-md)) / 2);
+}
+:is(.draft-ui-slider--md, .ui-slider--md) :is(.draft-ui-slider__input, .ui-slider__input)::-moz-range-thumb {
+  height: var(--ui-slider-thumb-size-md);
+  width: var(--ui-slider-thumb-size-md);
+}
+
+:is(.draft-ui-slider--lg, .ui-slider--lg) :is(.draft-ui-slider__input, .ui-slider__input)::-webkit-slider-runnable-track {
+  height: var(--ui-slider-track-height-lg);
+}
+:is(.draft-ui-slider--lg, .ui-slider--lg) :is(.draft-ui-slider__input, .ui-slider__input)::-moz-range-track {
+  height: var(--ui-slider-track-height-lg);
+}
+:is(.draft-ui-slider--lg, .ui-slider--lg) :is(.draft-ui-slider__input, .ui-slider__input)::-webkit-slider-thumb {
+  height: var(--ui-slider-thumb-size-lg);
+  width: var(--ui-slider-thumb-size-lg);
+  margin-top: calc((var(--ui-slider-track-height-lg) - var(--ui-slider-thumb-size-lg)) / 2);
+}
+:is(.draft-ui-slider--lg, .ui-slider--lg) :is(.draft-ui-slider__input, .ui-slider__input)::-moz-range-thumb {
+  height: var(--ui-slider-thumb-size-lg);
+  width: var(--ui-slider-thumb-size-lg);
+}

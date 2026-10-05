@@ -1,0 +1,11 @@
+.ui-progressbar--sm .ui-progressbar__track {
+  height: var(--ui-progressbar-height-sm);
+}
+
+.ui-progressbar--md .ui-progressbar__track {
+  height: var(--ui-progressbar-height-md);
+}
+
+.ui-progressbar--lg .ui-progressbar__track {
+  height: var(--ui-progressbar-height-lg);
+}

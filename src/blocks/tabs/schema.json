@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "tabs",
+  "prefix": "ui-tabs",
+  "description": "Underlining navigation tabs with Lucide icons",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "events": [
+    "change"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "warning",
+    "danger",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Icon & Label",
+      "selector": "",
+      "template": "<nav class=\"{classes}\" role=\"tablist\">{slot:default}</nav>"
+    },
+    {
+      "name": "icon-only",
+      "label": "Icon Only",
+      "selector": "--icon-only",
+      "template": "<nav class=\"{classes}\" role=\"tablist\">{slot:default}</nav>"
+    }
+  ]
+}

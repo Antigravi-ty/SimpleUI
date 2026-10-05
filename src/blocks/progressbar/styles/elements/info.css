@@ -1,0 +1,16 @@
+.ui-progressbar__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--ui-font-xs);
+  color: var(--ui-text-muted);
+}
+
+.ui-progressbar__title {
+  font-weight: var(--ui-weight-medium);
+}
+
+.ui-progressbar__value {
+  font-variant-numeric: tabular-nums;
+  font-weight: var(--ui-weight-semibold);
+}

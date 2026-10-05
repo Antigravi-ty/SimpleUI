@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "block": "badge",
+  "prefix": "ui-badge",
+  "description": "Compact visual indicator for status, counts, or metadata tags",
+  "sizes": [
+    "sm",
+    "md"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "label": {
+      "type": "string",
+      "default": "Badge"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "online",
+        "offline",
+        "away"
+      ]
+    }
+  },
+  "modifiers": [
+    "neutral",
+    "primary",
+    "primary-subtle",
+    "success",
+    "success-subtle",
+    "warning",
+    "warning-subtle",
+    "danger",
+    "danger-subtle"
+  ],
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Standard",
+      "selector": "",
+      "defaultText": "Badge",
+      "template": "<span class=\"{classes}\">{slot:default}</span>"
+    },
+    {
+      "name": "pill",
+      "label": "Pill",
+      "selector": "--pill",
+      "defaultText": "99+",
+      "template": "<span class=\"{classes}\">{slot:default}</span>"
+    },
+    {
+      "name": "dot",
+      "label": "Status Dot",
+      "selector": "--dot",
+      "defaultText": "Online",
+      "template": "<span class=\"{classes}\"><span class=\"ui-badge__dot-indicator\"></span>{slot:default}</span>"
+    }
+  ]
+}

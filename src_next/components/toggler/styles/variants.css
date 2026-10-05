@@ -1,0 +1,26 @@
+/* Checked Base (Apple HIG Green) */
+.ui-toggler--checked {
+  background-color: var(--ui-color-success);
+}
+
+/* Neutral variant (Grayscale Neutral 700) */
+.ui-toggler--neutral.ui-toggler--checked {
+  background-color: var(--ui-color-neutral-700);
+}
+
+/* Primary variant (Blue accent) */
+.ui-toggler--primary.ui-toggler--checked {
+  background-color: var(--ui-color-primary);
+}
+
+/* Success variant (Green) */
+.ui-toggler--success.ui-toggler--checked {
+  background-color: var(--ui-color-success);
+}
+
+.ui-toggler--disabled,
+.ui-toggler:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

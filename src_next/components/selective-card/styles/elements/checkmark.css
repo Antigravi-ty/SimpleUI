@@ -1,0 +1,46 @@
+.ui-selective-card--with-checkmark {
+  display: flex;
+}
+
+.ui-selective-card__body--full {
+  width: 100%;
+}
+
+.ui-selective-card__header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--ui-space-2);
+}
+
+.ui-selective-card__checkmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--ui-radius-full);
+  border: 1.5px solid var(--ui-border-strong);
+  background-color: var(--ui-bg-surface);
+  color: transparent;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.ui-selective-card--selected .ui-selective-card__checkmark {
+  background-color: var(--ui-color-primary);
+  border-color: var(--ui-color-primary);
+  color: var(--ui-color-primary-contrast);
+}
+
+.ui-selective-card--neutral.ui-selective-card--selected .ui-selective-card__checkmark {
+  background-color: var(--ui-color-neutral-900);
+  border-color: var(--ui-color-neutral-900);
+  color: var(--ui-color-white);
+}
+
+.ui-selective-card__check-icon {
+  width: 12px;
+  height: 12px;
+}

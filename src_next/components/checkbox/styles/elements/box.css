@@ -1,0 +1,25 @@
+.ui-checkbox__box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--ui-checkbox-radius);
+  border: 1px solid var(--ui-border-strong);
+  background-color: var(--ui-bg-surface);
+  transition: all 0.15s ease;
+}
+
+.ui-checkbox__check {
+  width: 75%;
+  height: 75%;
+  color: var(--ui-color-white);
+  display: none;
+}
+
+.ui-checkbox__dash {
+  width: 60%;
+  height: 2px;
+  background-color: var(--ui-color-white);
+  border-radius: 1px;
+  display: none;
+}

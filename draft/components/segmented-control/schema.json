@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "draft-ui-segmented-control",
+  "block": "segmented-control",
+  "name": "segmented-control",
+  "title": "Segmented Control",
+  "prefix": "draft-ui-segmented-control",
+  "status": "draft",
+  "archetype": "selection",
+  "description": "Apple HIG segmented control for switching views or modes (Draft Incubator)",
+  "sizes": [
+    "sm",
+    "md",
+    "lg"
+  ],
+  "defaultSize": "md",
+  "props": {
+    "disabled": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "events": [
+    "change"
+  ],
+  "modifiers": [
+    "neutral",
+    "primary",
+    "disabled"
+  ],
+  "stateMappings": {
+    "disabled": {
+      "attributes": "disabled",
+      "aria-disabled": "true"
+    }
+  },
+  "elements": [
+    {
+      "name": "standard",
+      "label": "Text Labels",
+      "selector": "",
+      "template": "<div class=\"{classes}\" role=\"tablist\">{slot:default}</div>"
+    },
+    {
+      "name": "leading-icon",
+      "label": "Leading Icon",
+      "selector": "--leading-icon",
+      "template": "<div class=\"{classes}\" role=\"tablist\">{slot:default}</div>"
+    },
+    {
+      "name": "trailing-icon",
+      "label": "Trailing Icon",
+      "selector": "--trailing-icon",
+      "template": "<div class=\"{classes}\" role=\"tablist\">{slot:default}</div>"
+    },
+    {
+      "name": "icon-only",
+      "label": "Icon Only",
+      "selector": "--icon-only",
+      "template": "<div class=\"{classes}\" role=\"tablist\">{slot:default}</div>"
+    }
+  ],
+  "io": {
+    "model": {
+      "selector": ".ui-segmented-control__item--active",
+      "attr": "data-value",
+      "type": "string"
+    },
+    "signals": {
+      "change": "change"
+    }
+  },
+  "collection": {
+    "itemsKey": "items",
+    "target": ":root",
+    "itemTag": "button",
+    "itemClass": "{prefix}__item ui-segmented-control__item",
+    "activeClass": "{prefix}__item--active ui-segmented-control__item--active",
+    "role": "tab"
+  },
+  "variants": {
+    "content": {
+      "label": "Content",
+      "default": "text",
+      "options": [
+        {
+          "value": "text",
+          "label": "Text"
+        },
+        {
+          "value": "leading-icon",
+          "label": "Leading Icon"
+        },
+        {
+          "value": "trailing-icon",
+          "label": "Trailing Icon"
+        },
+        {
+          "value": "icon-only",
+          "label": "Icon Only"
+        }
+      ]
+    }
+  }
+}

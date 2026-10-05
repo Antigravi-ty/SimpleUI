@@ -1,0 +1,112 @@
+/* Neutral, Outline, Ghost */
+.draft-ui-btn--neutral, .ui-btn--neutral {
+  --_btn-bg: var(--ui-color-neutral-100);
+  --_btn-color: var(--ui-text-main);
+  --_btn-border: var(--ui-border-subtle);
+}
+.draft-ui-btn--neutral:hover:not(:disabled), .ui-btn--neutral:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-neutral-200);
+}
+
+.draft-ui-btn--outline, .ui-btn--outline {
+  --_btn-bg: transparent;
+  --_btn-color: var(--ui-text-main);
+  --_btn-border: var(--ui-border-strong);
+}
+.draft-ui-btn--outline:hover:not(:disabled), .ui-btn--outline:hover:not(:disabled),
+.draft-ui-btn--ghost:hover:not(:disabled), .ui-btn--ghost:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-neutral-100);
+}
+
+.draft-ui-btn--ghost, .ui-btn--ghost {
+  --_btn-bg: transparent;
+  --_btn-color: var(--ui-text-main);
+  --_btn-border: transparent;
+}
+
+/* Filled Solid Styles */
+.draft-ui-btn--primary, .ui-btn--primary {
+  --_btn-bg: var(--ui-color-primary);
+  --_btn-color: var(--ui-color-primary-contrast);
+  --_btn-border: transparent;
+}
+.draft-ui-btn--primary:hover:not(:disabled), .ui-btn--primary:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-primary-hover);
+}
+
+.draft-ui-btn--success, .ui-btn--success {
+  --_btn-bg: var(--ui-color-success);
+  --_btn-color: var(--ui-color-success-contrast);
+  --_btn-border: transparent;
+}
+.draft-ui-btn--success:hover:not(:disabled), .ui-btn--success:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-success-hover);
+}
+
+.draft-ui-btn--warning, .ui-btn--warning {
+  --_btn-bg: var(--ui-color-warning);
+  --_btn-color: var(--ui-color-warning-contrast);
+  --_btn-border: transparent;
+}
+.draft-ui-btn--warning:hover:not(:disabled), .ui-btn--warning:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-warning-hover);
+}
+
+.draft-ui-btn--danger, .ui-btn--danger {
+  --_btn-bg: var(--ui-color-danger);
+  --_btn-color: var(--ui-color-danger-contrast);
+  --_btn-border: transparent;
+}
+.draft-ui-btn--danger:hover:not(:disabled), .ui-btn--danger:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-danger-hover);
+}
+
+/* Subtle (Tinted) Styles - Apple HIG Tinted Specification */
+.draft-ui-btn--primary-subtle, .ui-btn--primary-subtle {
+  --_btn-bg: var(--ui-color-primary-subtle);
+  --_btn-color: var(--ui-color-primary);
+  --_btn-border: transparent;
+}
+.draft-ui-btn--primary-subtle:hover:not(:disabled), .ui-btn--primary-subtle:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-primary);
+  --_btn-color: var(--ui-color-primary-contrast);
+}
+
+.draft-ui-btn--success-subtle, .ui-btn--success-subtle {
+  --_btn-bg: var(--ui-color-success-subtle);
+  --_btn-color: var(--ui-color-success);
+  --_btn-border: transparent;
+}
+.draft-ui-btn--success-subtle:hover:not(:disabled), .ui-btn--success-subtle:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-success);
+  --_btn-color: var(--ui-color-success-contrast);
+}
+
+.draft-ui-btn--warning-subtle, .ui-btn--warning-subtle {
+  --_btn-bg: var(--ui-color-warning-subtle);
+  --_btn-color: var(--ui-color-warning);
+  --_btn-border: transparent;
+}
+.draft-ui-btn--warning-subtle:hover:not(:disabled), .ui-btn--warning-subtle:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-warning);
+  --_btn-color: var(--ui-color-warning-contrast);
+}
+
+.draft-ui-btn--danger-subtle, .ui-btn--danger-subtle {
+  --_btn-bg: var(--ui-color-danger-subtle);
+  --_btn-color: var(--ui-color-danger);
+  --_btn-border: transparent;
+}
+.draft-ui-btn--danger-subtle:hover:not(:disabled), .ui-btn--danger-subtle:hover:not(:disabled) {
+  --_btn-bg: var(--ui-color-danger);
+  --_btn-color: var(--ui-color-danger-contrast);
+}
+
+/* Disabled State: Orthogonal to variant and size */
+.draft-ui-btn:disabled, .ui-btn:disabled,
+.draft-ui-btn[aria-disabled="true"], .ui-btn[aria-disabled="true"],
+.draft-ui-btn--disabled, .ui-btn--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}

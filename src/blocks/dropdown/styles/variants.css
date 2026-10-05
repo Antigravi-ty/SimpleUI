@@ -1,0 +1,37 @@
+/* Neutral Trigger (Grayscale) */
+.ui-dropdown--neutral .ui-dropdown__trigger {
+  background-color: var(--ui-color-neutral-100);
+  border-color: var(--ui-border-subtle);
+  color: var(--ui-text-main);
+}
+.ui-dropdown--neutral .ui-dropdown__trigger:hover:not(:disabled) {
+  background-color: var(--ui-color-neutral-200);
+}
+
+/* Outline Trigger (Grayscale) */
+.ui-dropdown--outline .ui-dropdown__trigger {
+  background-color: transparent;
+  border-color: var(--ui-border-strong);
+  color: var(--ui-text-main);
+}
+.ui-dropdown--outline .ui-dropdown__trigger:hover:not(:disabled) {
+  background-color: var(--ui-color-neutral-100);
+}
+
+/* Primary Trigger */
+.ui-dropdown--primary .ui-dropdown__trigger {
+  background-color: var(--ui-color-primary);
+  border-color: var(--ui-color-primary);
+  color: var(--ui-color-primary-contrast);
+}
+.ui-dropdown--primary .ui-dropdown__trigger:hover:not(:disabled) {
+  background-color: var(--ui-color-primary-hover);
+}
+
+/* Disabled State */
+.ui-dropdown--disabled,
+.ui-dropdown__trigger:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

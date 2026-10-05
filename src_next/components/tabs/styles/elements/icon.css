@@ -1,0 +1,4 @@
+.ui-tabs__icon {
+  flex-shrink: 0;
+  display: inline-block;
+}

@@ -1,0 +1,37 @@
+/* Neutral Trigger (Grayscale) */
+:is(.draft-ui-dropdown--neutral, .ui-dropdown--neutral) :is(.draft-ui-dropdown__trigger, .ui-dropdown__trigger) {
+  background-color: var(--ui-color-neutral-100);
+  border-color: var(--ui-border-subtle);
+  color: var(--ui-text-main);
+}
+:is(.draft-ui-dropdown--neutral, .ui-dropdown--neutral) :is(.draft-ui-dropdown__trigger, .ui-dropdown__trigger):hover:not(:disabled) {
+  background-color: var(--ui-color-neutral-200);
+}
+
+/* Outline Trigger (Grayscale) */
+:is(.draft-ui-dropdown--outline, .ui-dropdown--outline) :is(.draft-ui-dropdown__trigger, .ui-dropdown__trigger) {
+  background-color: transparent;
+  border-color: var(--ui-border-strong);
+  color: var(--ui-text-main);
+}
+:is(.draft-ui-dropdown--outline, .ui-dropdown--outline) :is(.draft-ui-dropdown__trigger, .ui-dropdown__trigger):hover:not(:disabled) {
+  background-color: var(--ui-color-neutral-100);
+}
+
+/* Primary Trigger */
+:is(.draft-ui-dropdown--primary, .ui-dropdown--primary) :is(.draft-ui-dropdown__trigger, .ui-dropdown__trigger) {
+  background-color: var(--ui-color-primary);
+  border-color: var(--ui-color-primary);
+  color: var(--ui-color-primary-contrast);
+}
+:is(.draft-ui-dropdown--primary, .ui-dropdown--primary) :is(.draft-ui-dropdown__trigger, .ui-dropdown__trigger):hover:not(:disabled) {
+  background-color: var(--ui-color-primary-hover);
+}
+
+/* Disabled State */
+:is(.draft-ui-dropdown--disabled, .ui-dropdown--disabled),
+:is(.draft-ui-dropdown__trigger, .ui-dropdown__trigger):disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

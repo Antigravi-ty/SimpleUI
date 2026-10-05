@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Catalogue Staging and Frame Assignment Rules",
+  "description": "Defines default staging frames per category, auto-discovery rules, and explicit frame overrides.",
+  "defaultFrames": {
+    "components": "matrix-frame",
+    "primitives": "standard-frame",
+    "patterns": "standard-frame",
+    "animations": "standard-frame",
+    "specials": "standard-frame"
+  },
+  "overrides": {
+    "draft-sp-cata-standard-frame": {
+      "frame": "interaction-frame"
+    },
+    "draft-sp-cata-matrix-frame": {
+      "frame": "interaction-frame"
+    },
+    "draft-sp-cata-interaction-frame": {
+      "frame": "interaction-frame"
+    },
+    "draft-sp-cata-shell-layout": {
+      "frame": "standard-frame",
+      "wellPadding": "none",
+      "preventDefault": true
+    }
+  }
+}

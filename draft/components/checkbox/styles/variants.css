@@ -1,0 +1,77 @@
+/* Neutral (Monochrome Black & White) */
+:is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral):is(.draft-ui-checkbox--checked, .ui-checkbox--checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral):has(:is(.draft-ui-checkbox__input, .ui-checkbox__input):checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral):is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate) :is(.draft-ui-checkbox__box, .ui-checkbox__box) {
+  background-color: var(--ui-color-neutral-900);
+  border-color: var(--ui-color-neutral-900);
+  color: var(--ui-color-neutral-0);
+}
+
+:is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral) :is(.draft-ui-checkbox__check, .ui-checkbox__check) {
+  color: var(--ui-color-neutral-0);
+}
+:is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral) :is(.draft-ui-checkbox__dash, .ui-checkbox__dash) {
+  background-color: var(--ui-color-neutral-0);
+}
+
+[data-theme="dark"] :is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral) :is(.draft-ui-checkbox__check, .ui-checkbox__check) {
+  color: #000000;
+}
+[data-theme="dark"] :is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral) :is(.draft-ui-checkbox__dash, .ui-checkbox__dash) {
+  background-color: #000000;
+}
+
+/* Primary (Apple Blue) */
+:is(.draft-ui-checkbox--primary, .ui-checkbox--primary):is(.draft-ui-checkbox--checked, .ui-checkbox--checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--primary, .ui-checkbox--primary):has(:is(.draft-ui-checkbox__input, .ui-checkbox__input):checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--primary, .ui-checkbox--primary):is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--checked, .ui-checkbox--checked):not(:is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral)):not(:is(.draft-ui-checkbox--success, .ui-checkbox--success)):not(:is(.draft-ui-checkbox--danger, .ui-checkbox--danger)) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox, .ui-checkbox):not(:is(.draft-ui-checkbox--neutral, .ui-checkbox--neutral)):not(:is(.draft-ui-checkbox--success, .ui-checkbox--success)):not(:is(.draft-ui-checkbox--danger, .ui-checkbox--danger)):has(:is(.draft-ui-checkbox__input, .ui-checkbox__input):checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box) {
+  background-color: var(--ui-color-primary);
+  border-color: var(--ui-color-primary);
+  color: var(--ui-color-primary-contrast);
+}
+
+/* Success (Apple Green) */
+:is(.draft-ui-checkbox--success, .ui-checkbox--success):is(.draft-ui-checkbox--checked, .ui-checkbox--checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--success, .ui-checkbox--success):has(:is(.draft-ui-checkbox__input, .ui-checkbox__input):checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--success, .ui-checkbox--success):is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate) :is(.draft-ui-checkbox__box, .ui-checkbox__box) {
+  background-color: var(--ui-color-success);
+  border-color: var(--ui-color-success);
+  color: var(--ui-color-success-contrast);
+}
+
+/* Danger (Apple Red) */
+:is(.draft-ui-checkbox--danger, .ui-checkbox--danger):is(.draft-ui-checkbox--checked, .ui-checkbox--checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--danger, .ui-checkbox--danger):has(:is(.draft-ui-checkbox__input, .ui-checkbox__input):checked) :is(.draft-ui-checkbox__box, .ui-checkbox__box),
+:is(.draft-ui-checkbox--danger, .ui-checkbox--danger):is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate) :is(.draft-ui-checkbox__box, .ui-checkbox__box) {
+  background-color: var(--ui-color-danger);
+  border-color: var(--ui-color-danger);
+  color: var(--ui-color-danger-contrast);
+}
+
+/* Default Indeterminate State */
+:is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate) :is(.draft-ui-checkbox__box, .ui-checkbox__box) {
+  background-color: var(--ui-color-neutral-900);
+  border-color: var(--ui-color-neutral-900);
+}
+
+/* Mutually Exclusive Checkmark & Dash */
+:is(.draft-ui-checkbox--checked, .ui-checkbox--checked):not(:is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate)) :is(.draft-ui-checkbox__check, .ui-checkbox__check),
+:is(.draft-ui-checkbox, .ui-checkbox):not(:is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate)):has(:is(.draft-ui-checkbox__input, .ui-checkbox__input):checked) :is(.draft-ui-checkbox__check, .ui-checkbox__check) {
+  display: block;
+}
+:is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate) :is(.draft-ui-checkbox__check, .ui-checkbox__check) {
+  display: none !important;
+}
+:is(.draft-ui-checkbox--indeterminate, .ui-checkbox--indeterminate) :is(.draft-ui-checkbox__dash, .ui-checkbox__dash) {
+  display: block;
+}
+
+/* Disabled State */
+:is(.draft-ui-checkbox--disabled, .ui-checkbox--disabled),
+:is(.draft-ui-checkbox, .ui-checkbox):has(:is(.draft-ui-checkbox__input, .ui-checkbox__input):disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}

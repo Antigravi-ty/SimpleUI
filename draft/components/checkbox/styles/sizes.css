@@ -1,0 +1,23 @@
+:is(.draft-ui-checkbox--sm, .ui-checkbox--sm) :is(.draft-ui-checkbox__box, .ui-checkbox__box) {
+  width: var(--ui-checkbox-size-sm);
+  height: var(--ui-checkbox-size-sm);
+}
+:is(.draft-ui-checkbox--sm, .ui-checkbox--sm) :is(.draft-ui-checkbox__label, .ui-checkbox__label) {
+  font-size: var(--ui-font-xs);
+}
+
+:is(.draft-ui-checkbox--md, .ui-checkbox--md) :is(.draft-ui-checkbox__box, .ui-checkbox__box) {
+  width: var(--ui-checkbox-size-md);
+  height: var(--ui-checkbox-size-md);
+}
+:is(.draft-ui-checkbox--md, .ui-checkbox--md) :is(.draft-ui-checkbox__label, .ui-checkbox__label) {
+  font-size: var(--ui-font-sm);
+}
+
+:is(.draft-ui-checkbox--lg, .ui-checkbox--lg) :is(.draft-ui-checkbox__box, .ui-checkbox__box) {
+  width: var(--ui-checkbox-size-lg);
+  height: var(--ui-checkbox-size-lg);
+}
+:is(.draft-ui-checkbox--lg, .ui-checkbox--lg) :is(.draft-ui-checkbox__label, .ui-checkbox__label) {
+  font-size: var(--ui-font-base);
+}
