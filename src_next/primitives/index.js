@@ -1,20 +1,20 @@
 import { containerSchema } from './container/index.js';
-import { cardSchema } from './card/index.js';
-import { wellSchema } from './well/index.js';
-import { stackRowSchema } from './stack-row/index.js';
+import { stackSchema } from './stack/index.js';
+import { rowSchema } from './row/index.js';
+import { centerPlaceholderSchema } from './center-placeholder/index.js';
 
 export {
   containerSchema,
-  cardSchema,
-  wellSchema,
-  stackRowSchema
+  stackSchema,
+  rowSchema,
+  centerPlaceholderSchema
 };
 
 export const primitives = {
   container: containerSchema,
-  card: cardSchema,
-  well: wellSchema,
-  'stack-row': stackRowSchema
+  stack: stackSchema,
+  row: rowSchema,
+  'center-placeholder': centerPlaceholderSchema
 };
 
 export default primitives;

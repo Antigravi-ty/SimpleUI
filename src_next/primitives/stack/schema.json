@@ -1,0 +1,13 @@
+{
+  "$schema": "block-schema",
+  "id": "primitive-stack",
+  "name": "stack",
+  "prefix": "ui-stack",
+  "category": "primitive",
+  "status": "stable",
+  "description": "Auto-layout flex container grouping child elements along a vertical column with tokenized gap spacing.",
+  "tokens": {
+    "gap": "var(--ui-space-3)"
+  },
+  "title": "Vertical Stack"
+}

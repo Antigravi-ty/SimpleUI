@@ -28,7 +28,8 @@ export function renderStandardFrame(options = {}, context = {}) {
     padding,
     noPadding = false,
     className = '',
-    attributes = {}
+    attributes = {},
+    stripDuplicateIds = false
   } = options;
 
   if (description === undefined || description === null || description === '') {
@@ -97,11 +98,19 @@ export function renderStandardFrame(options = {}, context = {}) {
     wellAttributes['data-prevent-default'] = 'true';
   }
 
+  let resolvedStageContent = stageContent;
+  if (stripDuplicateIds && typeof stageContent === 'object' && stageContent !== null) {
+    resolvedStageContent = {
+      ...stageContent,
+      props: { ...(stageContent.props || {}), stripDuplicateIds: true }
+    };
+  }
+
   const wellSpec = {
     type: 'container',
     className: isNoPadding ? 'sp-cata-frame__well sp-cata-frame__well--no-padding' : 'sp-cata-frame__well',
     attributes: wellAttributes,
-    content: stageContent
+    content: resolvedStageContent
   };
 
   // 3. Declarative Footer Spec

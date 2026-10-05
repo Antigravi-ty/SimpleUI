@@ -27,6 +27,7 @@ export class CatalogueShellLayout {
     this.sidebarItems = options.sidebarItems || {};
     this.viewportEngine = options.viewportEngine || viewportEngine;
     this._isRootOption = options.isRoot;
+    this.stripDuplicateIds = options.stripDuplicateIds ?? false;
     this.isRoot = false;
   }
 
@@ -36,6 +37,42 @@ export class CatalogueShellLayout {
       : Boolean(target && (target.id === 'catalogue-root' || target === document.body));
 
     this.root = this.composer.renderPage(shellSchema);
+
+    // Private API Gatekeeper Check for Embedded Sandbox Layouts
+    if (!this.isRoot) {
+      const isDuplicateAllowed = Boolean(this.stripDuplicateIds);
+      const collidingElements = [];
+      const innerElementsWithId = this.root.querySelectorAll("[id]");
+      innerElementsWithId.forEach(el => {
+        if (typeof document !== "undefined" && document.getElementById(el.id)) {
+          collidingElements.push(el);
+        }
+      });
+      if (this.root.id && typeof document !== "undefined" && document.getElementById(this.root.id)) {
+        collidingElements.push(this.root);
+      }
+
+      if (collidingElements.length > 0 && !isDuplicateAllowed) {
+        throw new Error(
+          `[Catalogue Shell Sandbox Conflict] Embedded shell detected ${collidingElements.length} duplicate host ID(s) (including #${collidingElements[0].id}). You must explicitly pass "stripDuplicateIds: true" to safely embed the layout without hijacking host components.`
+        );
+      }
+
+      if (isDuplicateAllowed) {
+        // Strip duplicate IDs from the inner embedded subtree so outer host components are preserved
+        collidingElements.forEach(el => el.removeAttribute("id"));
+        const canonicalShellIds = [
+          "sp-cata-header", "sp-cata-brand-link", "sp-cata-theme-toggle",
+          "sp-cata-safe-area-toggle", "sp-cata-scale-slider", "sp-cata-nav-dropdown",
+          "sp-cata-sidebar", "sp-cata-content"
+        ];
+        canonicalShellIds.forEach(id => {
+          const el = this.root.querySelector("#" + id);
+          if (el) el.removeAttribute("id");
+        });
+      }
+    }
+
     target.innerHTML = '';
     target.appendChild(this.root);
 
@@ -329,4 +366,28 @@ export class CatalogueShellLayout {
       sidebarEl.replaceChildren(rendered);
     }
   }
+}
+
+/**
+ * renderCatalogueShellLayout - Pure declarative pattern macro for Catalogue Shell Layout.
+ * Enables direct JSON spec usage: { pattern: "catalogue-shell-layout", props: { isRoot: false, stripDuplicateIds: true } }
+ */
+export function renderCatalogueShellLayout(options = {}, context = {}) {
+  const container = document.createElement("div");
+  container.className = "sp-cata-embedded-shell-wrapper";
+  container.style.cssText = "width: 100%; min-height: 240px;";
+
+  const shell = new CatalogueShellLayout({
+    isRoot: false,
+    stripDuplicateIds: options.stripDuplicateIds ?? true,
+    activePage: options.activePage || "specials",
+    sidebarItems: options.sidebarItems || {
+      draft: [{ label: "Matrix Frame", href: "#draft-sp-cata-matrix-frame", active: true }],
+      core: [{ label: "Overview", href: "#" }],
+      special: [{ label: "Interaction Frame", href: "#draft-sp-cata-interaction-frame" }]
+    },
+    ...options
+  });
+  shell.mount(container);
+  return container;
 }

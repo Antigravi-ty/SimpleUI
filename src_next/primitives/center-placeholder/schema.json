@@ -1,0 +1,16 @@
+{
+  "$schema": "block-schema",
+  "id": "primitive-center-placeholder",
+  "name": "center-placeholder",
+  "prefix": "ui-center-placeholder",
+  "category": "primitive",
+  "status": "stable",
+  "description": "Centered staging placeholder primitive providing neutral surface and subtle borders for layout staging.",
+  "tokens": {
+    "radius": "var(--ui-radius-md)",
+    "surface": "var(--ui-bg-surface)",
+    "border": "1px solid var(--ui-border-subtle)",
+    "padding": "var(--ui-space-3) var(--ui-space-4)"
+  },
+  "title": "Center Placeholder"
+}

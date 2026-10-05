@@ -55,13 +55,16 @@ if (!fs.existsSync(SRC_NEXT)) {
     fail("Panel missing from src_next/patterns/panel/!");
   }
 
-  // Check Primitives (container, card, well, stack-row)
+  // Check Primitives (container, stack, row, center-placeholder)
   const primDir = path.join(SRC_NEXT, 'primitives');
-  const expectedPrimitives = ['container', 'card', 'well', 'stack-row'];
+  const expectedPrimitives = ['container', 'stack', 'row', 'center-placeholder'];
   for (const ep of expectedPrimitives) {
     if (!fs.existsSync(path.join(primDir, ep))) fail(`Missing primitive '${ep}' in src_next/primitives/`);
   }
-  pass("src_next/primitives contains container, card, well, and stack-row.");
+  if (fs.existsSync(path.join(primDir, 'card'))) {
+    fail("Obsolete card primitive must not exist in src_next!");
+  }
+  pass("src_next/primitives contains container, stack, row, and center-placeholder.");
 
   // Check Animations (basic-transition, live-preview)
   const animDir = path.join(SRC_NEXT, 'animations');
@@ -159,14 +162,14 @@ for (const sRoot of SOURCE_ROOTS) {
         /@import\s+['"][^'"]*draft\//.test(content)
       );
       if (hasDraftImport) {
-        fail(`Strict Source-Draft Isolation Violation in ${rel}: Source file must NEVER import from draft!`);
+        fail(`Isolation violation in ${rel}: Source must not import draft!`);
         draftLeakCount++;
       }
 
       // Check draft class prefix leaks in source
       if (f.endsWith('.js') || f.endsWith('.css')) {
         if (content.includes('.draft-ui-') || content.includes('.draft-sp-')) {
-          fail(`Draft Class Leak Violation in ${rel}: Source file must NOT declare or reference .draft- classes!`);
+          fail(`Class leak in ${rel}: Source must not reference .draft- classes!`);
           draftLeakCount++;
         }
       }
@@ -246,7 +249,6 @@ if (fs.existsSync(matrixFrameIndex)) {
     fail("matrix-frame/index.js still contains hardcoded checkbox markup or lacks declarative checkbox block!");
   }
 }
-
 
 // 8. Universal Component Factory Pipeline Invariants
 const coreModules = ['component-factory.js', 'slot-resolver.js', 'behavior-registry.js'];

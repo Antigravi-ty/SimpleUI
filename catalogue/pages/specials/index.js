@@ -4,7 +4,6 @@ import {
   interactionFrameSchema,
   getSchemaBadge
 } from '@draft/special/catalogue/patterns/index.js';
-import { CatalogueShellLayout } from '@draft/special/catalogue/shell-layout/index.js';
 import shellSchema from '@draft/special/catalogue/shell-layout/schema.json';
 import stagingRules from '../../schemas/staging-rules.json';
 import { interpret } from '@src_next/core/slot-resolver.js';
@@ -16,7 +15,7 @@ import '@draft/special/catalogue/patterns/index.js';
  * Dynamically scan all draft special schemas via Vite native glob.
  * Enforces strict fail-fast validation (Zero-Tolerance, Zero-Fallback).
  */
-const scanSpecialSchemas = () => {
+export const scanSpecialSchemas = () => {
   const schemaModules = import.meta.glob('@draft/special/catalogue/**/schema.json', { eager: true });
   const schemasMap = new Map();
 
@@ -41,73 +40,82 @@ const scanSpecialSchemas = () => {
     schemasMap.set(id, schema);
   }
 
-  return schemasMap;
-};
-
-const specialSchemasMap = scanSpecialSchemas();
-
-export function renderSpecialsPage() {
-  // Ensure all canonical schemas exist in the scanned set (Strict Fail-Fast)
-  const canonicalIds = [
+  // Canonical ordering
+  const CANONICAL_ORDER = [
     standardFrameSchema.id,
     matrixFrameSchema.id,
     interactionFrameSchema.id,
     shellSchema.id
   ];
 
-  for (const cid of canonicalIds) {
-    if (!specialSchemasMap.has(cid)) {
+  const ordered = [];
+  for (const cid of CANONICAL_ORDER) {
+    if (!schemasMap.has(cid)) {
       throw new Error(`[Catalogue Fail-Fast] Required canonical special schema "${cid}" missing from disk.`);
+    }
+    ordered.push(schemasMap.get(cid));
+  }
+
+  // Append any extra schemas discovered
+  for (const [id, schema] of schemasMap.entries()) {
+    if (!CANONICAL_ORDER.includes(id)) {
+      ordered.push(schema);
     }
   }
 
-  // ----------------------------------------------------
-  // Card 1: Standard Frame Spec (Showcased via Interaction Frame with real-time optional toggles)
-  // ----------------------------------------------------
-  const innerStandardContainer = document.createElement('div');
-  innerStandardContainer.style.cssText = 'max-width: 680px; width: 100%;';
+  return ordered;
+};
 
-  const card1State = {
+export const scannedSpecialSchemas = scanSpecialSchemas();
+
+/**
+ * Stage 1: Standard Frame Spec (Showcased via Interaction Frame with real-time optional toggles)
+ */
+function createStandardFrameExhibit(schema) {
+  const container = document.createElement('div');
+  container.style.cssText = 'max-width: 680px; width: 100%;';
+
+  const state = {
     showRefLink: true,
     showFlush: false,
     showFooter: true
   };
 
-  const getCard1SampleSpec = (state) => ({
+  const getSampleSpec = (s) => ({
     pattern: 'standard-frame',
     title: 'Title',
-    badge: getSchemaBadge(standardFrameSchema),
+    badge: getSchemaBadge(schema),
     description: 'Relative description',
-    hasRedirectReference: state.showRefLink,
-    redirectLink: state.showRefLink ? {
+    hasRedirectReference: s.showRefLink,
+    redirectLink: s.showRefLink ? {
       toSee: '[Relative Component]',
       checkText: '[Relative Documentation]',
       prefixText: 'Optional: To see [Relative Component], check '
     } : null,
-    wellPadding: state.showFlush ? 'none' : 'normal',
+    wellPadding: s.showFlush ? 'none' : 'normal',
     stageContent: {
       type: 'box',
       attributes: {
         style: 'padding: var(--ui-space-6); background: var(--ui-bg-surface); border: 1px dashed var(--ui-border-subtle); border-radius: var(--ui-radius-md); text-align: center; color: var(--ui-text-muted); font-size: var(--ui-font-sm);'
       },
-      text: state.showFlush ? 'Custom content (Flush edge well)' : 'Custom content'
+      text: s.showFlush ? 'Custom content (Flush edge well)' : 'Custom content'
     },
-    hasFooter: state.showFooter,
-    footerText: state.showFooter ? 'Optional: Relative description' : null
+    hasFooter: s.showFooter,
+    footerText: s.showFooter ? 'Optional: Relative description' : null
   });
 
-  const updateCard1 = () => {
-    innerStandardContainer.replaceChildren(interpret(getCard1SampleSpec(card1State)));
+  const update = () => {
+    container.replaceChildren(interpret(getSampleSpec(state)));
   };
-  updateCard1();
+  update();
 
-  const card1 = {
+  return {
     pattern: 'interaction-frame',
-    id: standardFrameSchema.id,
-    title: 'Standard Frame',
-    badge: getSchemaBadge(standardFrameSchema),
-    status: 'draft',
-    description: standardFrameSchema.description,
+    id: schema.id,
+    title: schema.title || 'Standard Frame',
+    badge: getSchemaBadge(schema),
+    status: schema.status || 'draft',
+    description: schema.description,
     hasRedirectReference: true,
     redirectLink: {
       toSee: '2D Matrix Frame',
@@ -117,78 +125,80 @@ export function renderSpecialsPage() {
     controls: [
       {
         block: 'checkbox',
-        id: 'ctrl-card1-ref',
+        id: 'ctrl-standard-ref',
         props: {
           label: 'Optional: Reference Link',
           size: 'sm',
           modifier: 'neutral',
-          checked: card1State.showRefLink,
+          checked: state.showRefLink,
           onChange: (checked) => {
-            card1State.showRefLink = checked;
-            updateCard1();
+            state.showRefLink = checked;
+            update();
           }
         }
       },
       {
         block: 'checkbox',
-        id: 'ctrl-card1-flush',
+        id: 'ctrl-standard-flush',
         props: {
           label: 'Optional: Flush Edge Well',
           size: 'sm',
           modifier: 'neutral',
-          checked: card1State.showFlush,
+          checked: state.showFlush,
           onChange: (checked) => {
-            card1State.showFlush = checked;
-            updateCard1();
+            state.showFlush = checked;
+            update();
           }
         }
       },
       {
         block: 'checkbox',
-        id: 'ctrl-card1-footer',
+        id: 'ctrl-standard-footer',
         props: {
           label: 'Optional: Footer Slot',
           size: 'sm',
           modifier: 'neutral',
-          checked: card1State.showFooter,
+          checked: state.showFooter,
           onChange: (checked) => {
-            card1State.showFooter = checked;
-            updateCard1();
+            state.showFooter = checked;
+            update();
           }
         }
       }
     ],
-    stageContent: innerStandardContainer,
+    stageContent: container,
     footerText: 'Header • Well (Standard / Flush) • (optional)Footer'
   };
+}
 
-  // ----------------------------------------------------
-  // Card 2: 2D Matrix Frame Spec
-  // ----------------------------------------------------
-  const innerMatrixContainer = document.createElement('div');
-  innerMatrixContainer.style.cssText = 'max-width: 680px; width: 100%;';
+/**
+ * Stage 2: 2D Matrix Frame Spec
+ */
+function createMatrixFrameExhibit(schema) {
+  const container = document.createElement('div');
+  container.style.cssText = 'max-width: 680px; width: 100%;';
 
-  const card2State = {
+  const state = {
     showRefLink: true,
     showFilter: true,
     showLens: true
   };
 
-  const getCard2SampleSpec = (state) => ({
+  const getSampleSpec = (s) => ({
     pattern: 'matrix-frame',
     title: 'Title',
-    badge: getSchemaBadge(matrixFrameSchema),
+    badge: getSchemaBadge(schema),
     description: 'Relative description',
-    hasRedirectReference: state.showRefLink,
-    redirectLink: state.showRefLink ? {
+    hasRedirectReference: s.showRefLink,
+    redirectLink: s.showRefLink ? {
       toSee: '[Relative Component]',
       checkText: '[Relative Documentation]',
       prefixText: 'Optional: To see [Relative Component], check '
     } : null,
-    hasFilterBar: state.showFilter,
-    haveFilterBar: state.showFilter,
-    hasVariantDimensions: state.showLens,
-    haveVariantDimensions: state.showLens,
+    hasFilterBar: s.showFilter,
+    haveFilterBar: s.showFilter,
+    hasVariantDimensions: s.showLens,
+    haveVariantDimensions: s.showLens,
     variantDimensions: {
       mode: {
         label: 'Mode',
@@ -210,18 +220,18 @@ export function renderSpecialsPage() {
     })
   });
 
-  const updateCard2 = () => {
-    innerMatrixContainer.replaceChildren(interpret(getCard2SampleSpec(card2State)));
+  const update = () => {
+    container.replaceChildren(interpret(getSampleSpec(state)));
   };
-  updateCard2();
+  update();
 
-  const card2 = {
+  return {
     pattern: 'interaction-frame',
-    id: matrixFrameSchema.id,
-    title: '2D Matrix Frame',
-    badge: getSchemaBadge(matrixFrameSchema),
-    status: 'draft',
-    description: matrixFrameSchema.description,
+    id: schema.id,
+    title: schema.title || '2D Matrix Frame',
+    badge: getSchemaBadge(schema),
+    status: schema.status || 'draft',
+    description: schema.description,
     hasRedirectReference: true,
     redirectLink: {
       toSee: 'Interactive Frame',
@@ -231,61 +241,63 @@ export function renderSpecialsPage() {
     controls: [
       {
         block: 'checkbox',
-        id: 'ctrl-card2-ref',
+        id: 'ctrl-matrix-ref',
         props: {
           label: 'Optional: Reference Link',
           size: 'sm',
           modifier: 'neutral',
-          checked: card2State.showRefLink,
+          checked: state.showRefLink,
           onChange: (checked) => {
-            card2State.showRefLink = checked;
-            updateCard2();
+            state.showRefLink = checked;
+            update();
           }
         }
       },
       {
         block: 'checkbox',
-        id: 'ctrl-card2-filter',
+        id: 'ctrl-matrix-filter',
         props: {
           label: 'Optional: Filter Bar',
           size: 'sm',
           modifier: 'neutral',
-          checked: card2State.showFilter,
+          checked: state.showFilter,
           onChange: (checked) => {
-            card2State.showFilter = checked;
-            updateCard2();
+            state.showFilter = checked;
+            update();
           }
         }
       },
       {
         block: 'checkbox',
-        id: 'ctrl-card2-lens',
+        id: 'ctrl-matrix-lens',
         props: {
           label: 'Optional: Lens Bar',
           size: 'sm',
           modifier: 'neutral',
-          checked: card2State.showLens,
+          checked: state.showLens,
           onChange: (checked) => {
-            card2State.showLens = checked;
-            updateCard2();
+            state.showLens = checked;
+            update();
           }
         }
       }
     ],
-    stageContent: innerMatrixContainer,
+    stageContent: container,
     footerText: 'Header • Appearance Filter • Dimension Lens • 2D Table Matrix'
   };
+}
 
-  // ----------------------------------------------------
-  // Card 3: Interactive Staging Frame Spec
-  // ----------------------------------------------------
-  const card3 = {
+/**
+ * Stage 3: Interactive Staging Frame Spec
+ */
+function createInteractionFrameExhibit(schema) {
+  return {
     pattern: 'interaction-frame',
-    id: interactionFrameSchema.id,
-    title: 'Interactive Frame',
-    badge: getSchemaBadge(interactionFrameSchema),
-    status: 'draft',
-    description: interactionFrameSchema.description,
+    id: schema.id,
+    title: schema.title || 'Interactive Frame',
+    badge: getSchemaBadge(schema),
+    status: schema.status || 'draft',
+    description: schema.description,
     hasRedirectReference: true,
     redirectLink: {
       toSee: 'Catalogue Shell Layout',
@@ -343,76 +355,97 @@ export function renderSpecialsPage() {
     },
     footerText: 'Header with Live Controls • Dynamic Interactive Stage Canvas • Context Footer'
   };
+}
 
-  // ----------------------------------------------------
-  // Card 4: Catalogue Shell Layout (Standard Frame with flush edge and prevent-default isolation)
-  // ----------------------------------------------------
-  const card4 = {
-    pattern: stagingRules.overrides[shellSchema.id]?.frame || 'standard-frame',
-    id: shellSchema.id,
-    title: 'Catalogue Shell Layout',
-    badge: getSchemaBadge(shellSchema),
-    status: 'draft',
-    description: shellSchema.description,
-    hasRedirectReference: true,
-    redirectLink: {
-      toSee: 'Standard Staging Frame',
-      checkText: 'documentation',
-      url: '#' + standardFrameSchema.id
-    },
-    wellPadding: stagingRules.overrides[shellSchema.id]?.wellPadding || 'none',
-    preventDefault: stagingRules.overrides[shellSchema.id]?.preventDefault ?? true,
-    stageContent: () => {
-      const container = document.createElement('div');
-      container.style.cssText = 'max-width: 680px; width: 100%; min-height: 220px;';
-      const embeddedShell = new CatalogueShellLayout({
-        isRoot: false,
-        activePage: 'specials',
-        sidebarItems: {
-          draft: [{ label: 'Matrix Frame', href: '#' + matrixFrameSchema.id, active: true }],
-          core: [{ label: 'Overview', href: '#' }],
-          special: [{ label: 'Interaction Frame', href: '#' + interactionFrameSchema.id }]
-        }
-      });
-      embeddedShell.mount(container);
-      return container;
-    },
-    footerText: 'Header (56px) • 3-Tier Sidebar • Embedded Canvas Sandbox'
-  };
+/**
+ * Stage 4: Catalogue Shell Layout
+ * Standard Frame with wellPadding: 'none', mounted with stripDuplicateIds: true.
+ * Pure declarative Spec with zero closures.
+ */
+function createShellLayoutExhibit(schema) {
+  const frameType = stagingRules.overrides[schema.id]?.frame || 'standard-frame';
+  const wellPadding = stagingRules.overrides[schema.id]?.wellPadding || 'none';
+  const preventDefault = stagingRules.overrides[schema.id]?.preventDefault ?? true;
 
-  const knownCards = [card1, card2, card3, card4];
-  const handledIds = new Set(canonicalIds);
-
-  // Discover and stage any new or unknown special patterns automatically using default frame
-  const extraCards = [];
-  for (const [id, schema] of specialSchemasMap.entries()) {
-    if (handledIds.has(id)) continue;
-    const defaultFrame = stagingRules.defaultFrames.specials || 'standard-frame';
-    extraCards.push({
-      pattern: stagingRules.overrides[id]?.frame || defaultFrame,
+  return {
+    pattern: frameType,
+    props: {
       id: schema.id,
-      title: schema.title || schema.name || schema.block,
+      title: schema.title || 'Catalogue Shell Layout',
       badge: getSchemaBadge(schema),
       status: schema.status || 'draft',
       description: schema.description,
-      wellPadding: stagingRules.overrides[id]?.wellPadding || 'normal',
-      preventDefault: stagingRules.overrides[id]?.preventDefault ?? false,
-      stageContent: {
-        pattern: 'center-placeholder',
-        content: `${schema.title || schema.id} Preview`
+      hasRedirectReference: true,
+      redirectLink: {
+        toSee: 'Standard Staging Frame',
+        checkText: 'documentation',
+        url: '#' + standardFrameSchema.id
       },
-      footerText: `${schema.title || schema.id} • Dynamic Auto-Discovered Staging`
-    });
+      wellPadding,
+      preventDefault,
+      stripDuplicateIds: true,
+      stageContent: {
+        pattern: 'catalogue-shell-layout',
+        props: {
+          isRoot: false,
+          stripDuplicateIds: true,
+          sidebarItems: {
+            draft: [{ label: 'Matrix Frame', href: '#' + matrixFrameSchema.id, active: true }],
+            core: [{ label: 'Overview', href: '#' }],
+            special: [{ label: 'Interaction Frame', href: '#' + interactionFrameSchema.id }]
+          }
+        }
+      },
+      footerText: 'Header (56px) • 3-Tier Sidebar • Embedded Canvas Sandbox'
+    }
+  };
+}
+
+/**
+ * Maps any scanned special schema to its corresponding declarative frame spec
+ */
+export function createSpecialFrameSpec(schema) {
+  if (schema.id === standardFrameSchema.id) {
+    return createStandardFrameExhibit(schema);
+  }
+  if (schema.id === matrixFrameSchema.id) {
+    return createMatrixFrameExhibit(schema);
+  }
+  if (schema.id === interactionFrameSchema.id) {
+    return createInteractionFrameExhibit(schema);
+  }
+  if (schema.id === shellSchema.id) {
+    return createShellLayoutExhibit(schema);
   }
 
-  const pageSpec = {
-    type: 'container',
-    className: 'catalogue-page catalogue-page--specials',
-    attributes: {
-      style: 'display: flex; flex-direction: column; gap: var(--ui-space-6); width: 100%;'
+  // Fallback for dynamically auto-discovered specials
+  const defaultFrame = stagingRules.defaultFrames.specials || 'standard-frame';
+  return {
+    pattern: stagingRules.overrides[schema.id]?.frame || defaultFrame,
+    id: schema.id,
+    title: schema.title || schema.name || schema.block,
+    badge: getSchemaBadge(schema),
+    status: schema.status || 'draft',
+    description: schema.description,
+    wellPadding: stagingRules.overrides[schema.id]?.wellPadding || 'normal',
+    preventDefault: stagingRules.overrides[schema.id]?.preventDefault ?? false,
+    stageContent: {
+      pattern: 'center-placeholder',
+      content: `${schema.title || schema.id} Preview`
     },
-    children: [...knownCards, ...extraCards]
+    footerText: `${schema.title || schema.id} • Dynamic Auto-Discovered Staging`
   };
+}
 
-  return interpret(pageSpec);
+export const specialsPageSpec = {
+  type: 'container',
+  className: 'catalogue-page catalogue-page--specials',
+  attributes: {
+    style: 'display: flex; flex-direction: column; gap: var(--ui-space-6); width: 100%;'
+  },
+  children: scannedSpecialSchemas.map(createSpecialFrameSpec)
+};
+
+export function renderSpecialsPage() {
+  return interpret(specialsPageSpec);
 }
